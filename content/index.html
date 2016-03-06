@@ -1,0 +1,54 @@
+@@include('../templates/header.html', {"title": "Home"})
+<!-- <div class="row">
+  <div class="container">
+    {{#each $mapped category}}
+    <div class="category">
+      <p>
+        <a href="/{{toLowerCase name}}">
+          <img src="images/category-{{toLowerCase name}}-static.gif" srcset="images/category-{{toLowerCase name}}-static.gif 1x, images/category-{{toLowerCase name}}-static@2x.gif 2x" alt="" class="category-image" data-cat="{{toLowerCase name}}">
+        </a>
+      </p>
+      <h2>{{name}}</h2>
+      <p>{{{description}}}</p>
+      <p class="category__cta"><a href="/{{toLowerCase name}}" class="btn">View work</a></p>
+    </div>
+    {{/each}}
+  </div>
+</div> -->
+
+
+<div class="some-container">
+</div>
+
+<script id='template' type='text/ractive'>
+    <div class="container">
+        {{#each projectList}}
+        <div class="category">
+            <p>
+                <a href="/{{title}}">
+                    <img src="../img/category-{{title}}-static.gif" srcset="../img/category-{{title}}-static.gif 1x, ../img/category-{{title}}-static@2x.gif 2x" alt="" class="category-image" data-cat="{{title}}">
+                </a>
+            </p>
+            <h2>{{title}}</h2>
+            <p>{{{description}}}</p>
+            <p class="category__cta"><a href="/{{title}}" class="btn">View work</a></p>
+        </div>
+        {{/each}}
+    </div>
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        $('.category img').hover(
+            function() {
+                var cat = $(this).attr('data-cat');
+                $(this).attr("srcset", "img/category-" + cat + ".gif 1x, img/category-" + cat + "@2x.gif 2x");
+            },
+            function() {
+                var cat = $(this).attr('data-cat');
+                $(this).attr("srcset", "img/category-" + cat + "-static.gif 1x, img/category-" + cat + "-static@2x.gif 2x");
+            });
+    });
+</script>
+
+@@include('../templates/footer.html')

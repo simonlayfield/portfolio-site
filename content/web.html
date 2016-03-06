@@ -1,0 +1,29 @@
+@@include('../templates/header.html', {"title": "Web"})
+
+<div class="some-container">
+</div>
+
+<script id='template' type='text/ractive'>
+
+    <div class="row row--bg">
+        <nav>
+            <li><a href="/branding">Branding</a></li>
+            <li><a class="active" href="/web">Web</a></li>
+            <li><a href="/illustration">Illustration</a></li>
+        </nav>
+    </div>
+    <div class="container">
+        {{#each projectList:i}} {{#if title === "web"}} {{#each projectList[i].projects}}
+        <div class="project project--web">
+            <img src="../{{image}}" alt="">
+            <h3>{{name}}</h3>
+            <p>
+              <a href="{{url}}" target="_blank" class="btn">View site</a>
+            </p>
+        </div>
+        {{/each}} {{/if}} {{/each}}
+    </div>
+
+</script>
+
+@@include('../templates/footer.html')
