@@ -4,12 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Branding | Simon Layfield | Designer</title>
+    <title>Home | Simon Layfield | Designer</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
@@ -32,27 +31,56 @@
         </a>
     </header>
 
+<!-- <div class="row">
+  <div class="container">
+    {{#each $mapped category}}
+    <div class="category">
+      <p>
+        <a href="/{{toLowerCase name}}">
+          <img src="images/category-{{toLowerCase name}}-static.gif" srcset="images/category-{{toLowerCase name}}-static.gif 1x, images/category-{{toLowerCase name}}-static@2x.gif 2x" alt="" class="category-image" data-cat="{{toLowerCase name}}">
+        </a>
+      </p>
+      <h2>{{name}}</h2>
+      <p>{{{description}}}</p>
+      <p class="category__cta"><a href="/{{toLowerCase name}}" class="btn">View work</a></p>
+    </div>
+    {{/each}}
+  </div>
+</div> -->
+
 
 <div class="some-container">
 </div>
 
 <script id='template' type='text/ractive'>
-
-    <div class="row row--bg">
-        <nav>
-            <li><a class="active" href="/branding">Branding</a></li>
-            <li><a href="/web">Web</a></li>
-            <li><a href="/illustration">Illustration</a></li>
-        </nav>
-    </div>
     <div class="container">
-        {{#each projectList:i}} {{#if title === "branding"}} {{#each projectList[i].projects}}
-        <div class="project project--branding">
-            <img src="../{{image}}" alt="">
+        {{#each projectList}}
+        <div class="category">
+            <p>
+                <a href="/{{title}}">
+                    <img src="img/category-{{title}}-static.gif" srcset="img/category-{{title}}-static.gif 1x, img/category-{{title}}-static@2x.gif 2x" alt="" class="category-image" data-cat="{{title}}">
+                </a>
+            </p>
+            <h2>{{title}}</h2>
+            <p>{{{description}}}</p>
+            <p class="category__cta"><a href="/{{title}}" class="btn">View work</a></p>
         </div>
-        {{/each}} {{/if}} {{/each}}
+        {{/each}}
     </div>
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
 
+        $('.category img').hover(
+            function() {
+                var cat = $(this).attr('data-cat');
+                $(this).attr("srcset", "img/category-" + cat + ".gif 1x, img/category-" + cat + "@2x.gif 2x");
+            },
+            function() {
+                var cat = $(this).attr('data-cat');
+                $(this).attr("srcset", "img/category-" + cat + "-static.gif 1x, img/category-" + cat + "-static@2x.gif 2x");
+            });
+    });
 </script>
 
 

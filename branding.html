@@ -4,12 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Illustration | Simon Layfield | Designer</title>
+    <title>Branding | Simon Layfield | Designer</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
@@ -40,23 +39,17 @@
 
     <div class="row row--bg">
         <nav>
-            <li><a href="/branding">Branding</a></li>
+            <li><a class="active" href="/branding">Branding</a></li>
             <li><a href="/web">Web</a></li>
-            <li><a class="active" href="/illustration">Illustration</a></li>
+            <li><a href="/illustration">Illustration</a></li>
         </nav>
     </div>
-
     <div class="container">
-    <ul class="list-illustration">
-        {{#each projectList:i}} {{#if title === "illustration"}}
-        {{#each projectList[i].projects}}
-        <li>
-          <img src="../{{image}}" alt="">
-        </li>
-        {{/each}}
-        {{/if}}
-        {{/each}}
-        </ul>
+        {{#each projectList:i}} {{#if title === "branding"}} {{#each projectList[i].projects}}
+        <div class="project project--branding">
+            <img src="{{image}}" alt="">
+        </div>
+        {{/each}} {{/if}} {{/each}}
     </div>
 
 </script>

@@ -4,7 +4,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 files: {
-                    'dist/content/css/style.css': 'scss/style.scss'
+                    'css/style.css': 'scss/style.scss'
                 }
             }
         },
@@ -22,13 +22,14 @@ module.exports = function(grunt) {
                 // Files to perform replacements and includes with
                 src: 'content/*.html',
                 // Destination directory to copy files to
-                dest: 'dist/'
+                dest: './',
+                flatten: true,
+                expand: true
             }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('page-wrap-grunt-task');
     grunt.loadNpmTasks('grunt-include-replace');
-    grunt.registerTask('default', ['watch', 'pagewrap']);
+    grunt.registerTask('default', ['watch', 'includereplace']);
 }
