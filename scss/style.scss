@@ -18,6 +18,10 @@
     font-style: normal;
 }
 
+.tac {
+  text-align: center;
+}
+
 /////
 $primary-color: #0ba4cd;
 $primary-color-dark: #0c94b8;
@@ -163,4 +167,10 @@ nav {
         margin-bottom: 20px;
         text-align: center;
     }
+}
+.tnsoc {
+  text-align: center;
+  p {
+    margin:7em 0;
+  }
 }

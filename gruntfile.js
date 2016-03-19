@@ -12,6 +12,10 @@ module.exports = function(grunt) {
             css: {
                 files: '**/*.scss',
                 tasks: ['sass']
+            },
+            html: {
+              files: 'content/*.html',
+              tasks: ['includereplace']
             }
         },
         includereplace: {
@@ -28,8 +32,8 @@ module.exports = function(grunt) {
             }
         }
     });
+    grunt.loadNpmTasks('grunt-include-replace');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-include-replace');
     grunt.registerTask('default', ['watch', 'includereplace']);
 }
