@@ -51,4 +51,23 @@
     });
 </script>
 
+<div class="hidden">
+	<script type="text/javascript">
+		<!--//--><![CDATA[//><!--
+			var images = new Array()
+			function preload() {
+				for (i = 0; i < preload.arguments.length; i++) {
+					images[i] = new Image()
+					images[i].src = preload.arguments[i]
+				}
+			}
+			preload(
+				"http://simonlayfield.com/img/category-branding@2x.gif",
+				"http://simonlayfield.com/img/category-illustration@2x.gif",
+				"http://simonlayfield.com/img/category-web@2x.gif"
+			)
+		//--><!]]>
+	</script>
+</div>
+
 @@include('../templates/footer.html')
