@@ -83,6 +83,25 @@
     });
 </script>
 
+<div class="hidden">
+	<script type="text/javascript">
+		<!--//--><![CDATA[//><!--
+			var images = new Array()
+			function preload() {
+				for (i = 0; i < preload.arguments.length; i++) {
+					images[i] = new Image()
+					images[i].src = preload.arguments[i]
+				}
+			}
+			preload(
+				"img/category-branding@2x.gif",
+				"img/category-illustration@2x.gif",
+				"img/category-web@2x.gif"
+			)
+		//--><!]]>
+	</script>
+</div>
+
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>

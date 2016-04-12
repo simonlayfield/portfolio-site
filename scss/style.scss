@@ -139,7 +139,7 @@ nav {
     }
     &.project--web {
 
-      @include _(5.33333333333 4 2.66666666667 4);
+      @include _(5.33333333333 4 8 4);
         background-color: #fff;
         @include border-radius(5px);
         overflow: hidden;
@@ -160,6 +160,13 @@ nav {
     -moz-column-gap: 20px;
     -webkit-column-count: 3;
     -webkit-column-gap: 20px;
+    padding-left: 0;
+    @include _(less than tablet) {
+        -moz-column-count: 1;
+        -moz-column-gap: 0;
+        -webkit-column-count: 1;
+        -webkit-column-gap: 0;
+    }
     li {
         width: 100%;
         display: inline-block;
