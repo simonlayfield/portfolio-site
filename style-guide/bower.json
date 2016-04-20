@@ -1,0 +1,21 @@
+{
+  "name": "styleguide",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Simon Layfield <simon.layfield@optus.com.au>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bourbon": "^4.2.7",
+    "neat": "^1.7.4"
+  }
+}

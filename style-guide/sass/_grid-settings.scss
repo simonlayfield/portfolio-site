@@ -1,0 +1,13 @@
+@import "../node_modules/bourbon/app/assets/stylesheets/bourbon";
+
+
+// Change grid settings
+$column: 90px;
+$gutter: 1px;
+$grid-columns: 12;
+$max-width: 100%;
+
+// Define breakpoints
+$small: new-breakpoint(max-width 480px 4);
+$medium: new-breakpoint(min-width 481px max-width 768px 12);
+$large: new-breakpoint(min-width 769px 16);
