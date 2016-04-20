@@ -7,6 +7,15 @@
 #
 # https://httpd.apache.org/docs/current/howto/htaccess.html.
 
+# Only allow traffic from specific IPs
+<Limit GET POST>
+ order deny,allow
+ deny from all
+ allow from 203.13
+ allow from 211.29
+ allow from 198.142
+</Limit>
+
 # ######################################################################
 # # CROSS-ORIGIN                                                       #
 # ######################################################################
