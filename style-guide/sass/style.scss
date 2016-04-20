@@ -1,8 +1,9 @@
 
 @import 'mixins.scss';
 @import 'fonts.scss';
-@import 'grid-settings';
-@import '../node_modules/bourbon-neat/app/assets/stylesheets/neat';
+// @import 'grid-settings';
+// @import '../node_modules/bourbon-neat/app/assets/stylesheets/neat';
+@import '../bower_components/flint/stylesheets/flint';
 
 
 $teal: #00a3ad;
@@ -10,6 +11,7 @@ $l-teal: #00a3ad;
 $white: #fff;
 $black: #000;
 $yellow: #ffd100;
+$purple: #444292;
 $l-grey: #eee;
 $m-grey: #999;
 $d-grey: #474a4c;
@@ -36,7 +38,7 @@ header {
     display: table;
     table-layout: fixed;
     position:relative;
-    @media(max-width: 480px) {
+    @include _(for mobile) {
         display: block;
     }
     .menu {
@@ -45,9 +47,9 @@ header {
         vertical-align: top;
         background: $white;
         box-sizing: border-box;
-        @media(max-width: 480px) {
+        @include _(for mobile) {
             display: inline-block;
-            position:absolute;
+            position: absolute;
             right: -300px;
         }
         ul {
@@ -57,7 +59,7 @@ header {
             padding-left: 0;
             list-style: none;
             li {
-                @include clearfix();
+                @include _('clear');
                 display: block;
                 border-top: 1px solid $l-grey;
                 &:first-child {
@@ -85,14 +87,14 @@ header {
     .main {
         display: table-cell;
         vertical-align: top;
-        @media(max-width: 480px) {
+        @include _(for mobile) {
             display: block;
         }
         .feature {
             padding: 2em 5em;
             color: $white;
             padding-bottom: 3em;
-            @media(max-width: 480px) {
+            @include _(for mobile) {
                 padding: 1em;
             }
             h3 {
@@ -122,6 +124,9 @@ header {
                     box-sizing: border-box;
                     display: inline-block;
                     vertical-align: middle;
+                    @include _(for mobile) {
+                        margin-right: 0;
+                    }
                 }
                 input[type=submit] {
                     display: inline-block;
@@ -135,6 +140,9 @@ header {
                     width: 150px;
                     box-sizing: border-box;
                     vertical-align: middle;
+                    @include _(for mobile) {
+                        margin-top: 1em;
+                    }
                 }
             }
             .feature__body {
@@ -148,17 +156,19 @@ header {
     }
 
     .panel-list {
-        @include outer-container();
+        @include _('container');
+        @include _('clear');
         list-style: none;
         padding-left: 0;
     }
     .panel {
-        @include span-columns(3);
+        @include _(4 12 8 4);
         border: 1px solid $l-grey;
         text-align: center;
         color: $d-grey;
-        @media(max-width: 480px) {
-            @include span-columns(12);
+        margin-bottom: 1em;
+        &:nth-child(4n+5) {
+            clear: left;
         }
         .panel__image {
             padding: 2em;
@@ -196,6 +206,28 @@ header {
             text-transform: uppercase;
             color: $white;
             text-decoration: none;
+        }
+        &.panel--links {
+            display: table;
+            border: 0;
+            .panel__split {
+                color: $white;
+                margin-bottom: 1em;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                &.panel__split--primary {
+                    background: $purple;
+                }
+                &.panel__split--secondary {
+                    background: $teal;
+                }
+                .panel__title {
+                    span {
+                        color: $white;
+                    }
+                }
+            }
         }
     }
 }

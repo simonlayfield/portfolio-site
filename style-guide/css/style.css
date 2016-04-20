@@ -20,12 +20,6 @@ with any questions regarding Web Fonts:  http://www.linotype.com
   font-family: "Mark Regular";
   src: url("../fonts/5085664/0e02a382-f43d-41e6-b5e5-ba4e7fcbb5df.eot?#iefix");
   src: url("../fonts/5085664/0e02a382-f43d-41e6-b5e5-ba4e7fcbb5df.eot?#iefix") format("eot"), url("../fonts/5085664/52edc69f-211c-43f4-ab29-ac305fc36872.woff2") format("woff2"), url("../fonts/5085664/47b1c167-5f01-48b2-b591-8a4b721b41c9.woff") format("woff"), url("../fonts/5085664/aa454433-4943-47ab-9e86-3de9ad735f15.ttf") format("truetype"), url("../fonts/5085664/29a5633c-4fde-4e25-89f9-2211965f7bc8.svg#29a5633c-4fde-4e25-89f9-2211965f7bc8") format("svg"); }
-html {
-  box-sizing: border-box; }
-
-*, *::after, *::before {
-  box-sizing: inherit; }
-
 * {
   box-sizing: border-box; }
 
@@ -57,7 +51,9 @@ header {
   display: table;
   table-layout: fixed;
   position: relative; }
-  @media (max-width: 480px) {
+  *, *:before, *:after {
+    box-sizing: border-box; }
+  @media (min-width: 0) and (max-width: 30em) {
     .container {
       display: block; } }
   .container .menu {
@@ -66,7 +62,7 @@ header {
     vertical-align: top;
     background: #fff;
     box-sizing: border-box; }
-    @media (max-width: 480px) {
+    @media (min-width: 0) and (max-width: 30em) {
       .container .menu {
         display: inline-block;
         position: absolute;
@@ -80,10 +76,11 @@ header {
       .container .menu ul li {
         display: block;
         border-top: 1px solid #eee; }
-        .container .menu ul li::after {
-          clear: both;
+        .container .menu ul li:before, .container .menu ul li:after {
           content: "";
           display: table; }
+        .container .menu ul li:after {
+          clear: both; }
         .container .menu ul li:first-child {
           border-top: 0; }
         .container .menu ul li:last-child {
@@ -101,14 +98,14 @@ header {
   .container .main {
     display: table-cell;
     vertical-align: top; }
-    @media (max-width: 480px) {
+    @media (min-width: 0) and (max-width: 30em) {
       .container .main {
         display: block; } }
     .container .main .feature {
       padding: 2em 5em;
       color: #fff;
       padding-bottom: 3em; }
-      @media (max-width: 480px) {
+      @media (min-width: 0) and (max-width: 30em) {
         .container .main .feature {
           padding: 1em; } }
       .container .main .feature h3 {
@@ -134,6 +131,9 @@ header {
         box-sizing: border-box;
         display: inline-block;
         vertical-align: middle; }
+        @media (min-width: 0) and (max-width: 30em) {
+          .container .main .feature .feature__search input[type=text] {
+            margin-right: 0; } }
       .container .main .feature .feature__search input[type=submit] {
         display: inline-block;
         background: #ffd100;
@@ -146,39 +146,52 @@ header {
         width: 150px;
         box-sizing: border-box;
         vertical-align: middle; }
+        @media (min-width: 0) and (max-width: 30em) {
+          .container .main .feature .feature__search input[type=submit] {
+            margin-top: 1em; } }
       .container .main .feature .feature__body {
         max-width: 500px; }
     .container .main .main__body {
       background: #fff;
       padding: 1em; }
   .container .panel-list {
-    max-width: 100%;
-    margin-left: auto;
+    float: none;
+    max-width: 80em;
     margin-right: auto;
+    margin-left: auto;
     list-style: none;
     padding-left: 0; }
-    .container .panel-list::after {
-      clear: both;
+    .container .panel-list:before, .container .panel-list:after {
       content: "";
       display: table; }
+    .container .panel-list:after {
+      clear: both; }
   .container .panel {
     float: left;
-    display: block;
-    margin-right: 0.09166%;
-    width: 24.93126%;
+    width: 95.83333%;
+    margin-right: 2.08333%;
+    margin-left: 2.08333%;
     border: 1px solid #eee;
     text-align: center;
-    color: #474a4c; }
-    .container .panel:last-child {
-      margin-right: 0; }
-    @media (max-width: 480px) {
+    color: #474a4c;
+    margin-bottom: 1em; }
+    @media (min-width: 67.8125em) {
       .container .panel {
-        float: left;
-        display: block;
-        margin-right: 0.09166%;
-        width: 100%; }
-        .container .panel:last-child {
-          margin-right: 0; } }
+        width: 23.4375%;
+        margin-right: 0.78125%;
+        margin-left: 0.78125%; } }
+    @media (min-width: 48.0625em) and (max-width: 67.75em) {
+      .container .panel {
+        width: 98.15498%;
+        margin-right: 0.92251%;
+        margin-left: 0.92251%; } }
+    @media (min-width: 30.0625em) and (max-width: 48em) {
+      .container .panel {
+        width: 97.39583%;
+        margin-right: 1.30208%;
+        margin-left: 1.30208%; } }
+    .container .panel:nth-child(4n+5) {
+      clear: left; }
     .container .panel .panel__image {
       padding: 2em; }
     .container .panel .panel__title {
@@ -207,5 +220,19 @@ header {
       text-transform: uppercase;
       color: #fff;
       text-decoration: none; }
+    .container .panel.panel--links {
+      display: table;
+      border: 0; }
+      .container .panel.panel--links .panel__split {
+        color: #fff;
+        margin-bottom: 1em; }
+        .container .panel.panel--links .panel__split:last-child {
+          margin-bottom: 0; }
+        .container .panel.panel--links .panel__split.panel__split--primary {
+          background: #444292; }
+        .container .panel.panel--links .panel__split.panel__split--secondary {
+          background: #00a3ad; }
+        .container .panel.panel--links .panel__split .panel__title span {
+          color: #fff; }
 
 /*# sourceMappingURL=style.css.map */
