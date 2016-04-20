@@ -4,3 +4,5 @@
 bower_components
 node_modules
 .sass-cache
+styleguide/node_modules
+styleguide/.sass-cache
