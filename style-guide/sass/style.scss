@@ -1,163 +1,154 @@
-
 @import 'mixins.scss';
-@import 'fonts.scss';
-// @import 'grid-settings';
+@import 'fonts.scss'; // @import 'grid-settings';
 // @import '../node_modules/bourbon-neat/app/assets/stylesheets/neat';
 @import '../bower_components/flint/stylesheets/flint';
-
-
 $teal: #00a3ad;
 $l-teal: #00a3ad;
 $white: #fff;
 $black: #000;
 $yellow: #ffd100;
+$blue: #006280;
 $purple: #444292;
 $l-grey: #eee;
 $m-grey: #999;
 $d-grey: #474a4c;
-
 $regularfont: "Mark Medium";
 $lightfont: "Mark Light";
-
 * {
     box-sizing: border-box;
 }
-
 body {
     font-family: $regularfont;
     @include linearGradient($l-teal, $teal);
 }
-
 header {
     padding: 1em;
     height: 64px;
 }
-
 .container {
     width: 100%;
     display: table;
     table-layout: fixed;
-    position:relative;
+    position: relative;
     @include _(for mobile) {
         display: block;
     }
-    .menu {
-        width: 300px;
-        display: table-cell;
-        vertical-align: top;
-        background: $white;
-        box-sizing: border-box;
-        @include _(for mobile) {
-            display: inline-block;
-            position: absolute;
-            right: -300px;
-        }
-        ul {
-            height: 100%;
-            margin: 0;
-            padding: .5em;
-            padding-left: 0;
-            list-style: none;
-            li {
-                @include _('clear');
-                display: block;
-                border-top: 1px solid $l-grey;
-                &:first-child {
-                    border-top: 0;
-                }
-                &:last-child {
-                    border-bottom: 1px solid $l-grey;
-                }
-                a {
+    &.page {
+        .page__side {
+            width: 300px;
+            display: table-cell;
+            vertical-align: top;
+            background: $white;
+            box-sizing: border-box;
+            @include _(for mobile) {
+                display: inline-block;
+                position: absolute;
+                right: -300px;
+            }
+            ul {
+                height: 100%;
+                margin: 0;
+                padding: 0.5em 0.5em 0.5em 0;
+                list-style: none;
+                li {
+                    @include _( 'clear');
                     display: block;
-                    padding: 1em;
-                    color: $d-grey;
-                    text-decoration: none;
-                    svg {
-                        width: 20px;
-                        vertical-align: middle;
-                        fill: $m-grey;
-                        float: right;
+                    border-top: 1px solid $l-grey;
+                    &:first-child {
+                        border-top: 0;
+                    }
+                    &:last-child {
+                        border-bottom: 1px solid $l-grey;
+                    }
+                    a {
+                        display: block;
+                        padding: 1em;
+                        color: $d-grey;
+                        text-decoration: none;
+                        svg {
+                            width: 20px;
+                            vertical-align: middle;
+                            fill: $m-grey;
+                            float: right;
+                        }
                     }
                 }
             }
         }
-    }
-
-    .main {
-        display: table-cell;
-        vertical-align: top;
-        @include _(for mobile) {
-            display: block;
-        }
-        .feature {
-            padding: 2em 5em;
-            color: $white;
-            padding-bottom: 3em;
+        .page__main {
+            display: table-cell;
+            vertical-align: top;
             @include _(for mobile) {
+                display: block;
+            }
+            .feature {
+                padding: 2em 5em;
+                color: $white;
+                padding-bottom: 3em;
+                @include _(for mobile) {
+                    padding: 1em;
+                }
+                h3 {
+                    text-transform: uppercase;
+                    font-size: 0.9em;
+                }
+                .feature__heading {
+                    font-size: 5em;
+                    margin-top: 0;
+                    line-height: 1.1em;
+                    margin-bottom: 0.4em;
+                }
+                .feature__description {
+                    font-family: $lightfont;
+                    font-size: 1.3em;
+                    margin-bottom: 2em;
+                }
+                .feature__search {
+                    input[type=text] {
+                        border: 0;
+                        outline: 0;
+                        min-width: 335px;
+                        margin-right: 15px;
+                        padding: 10px;
+                        color: $d-grey;
+                        min-height: 42px;
+                        box-sizing: border-box;
+                        display: inline-block;
+                        vertical-align: middle;
+                        @include _(for mobile) {
+                            margin-right: 0;
+                        }
+                    }
+                    input[type=submit] {
+                        display: inline-block;
+                        background: $yellow;
+                        font-size: 0.9em;
+                        border: 0;
+                        outline: 0;
+                        color: $d-grey;
+                        text-transform: uppercase;
+                        min-height: 42px;
+                        width: 150px;
+                        box-sizing: border-box;
+                        vertical-align: middle;
+                        @include _(for mobile) {
+                            margin-top: 1em;
+                        }
+                    }
+                }
+                .feature__body {
+                    max-width: 500px;
+                }
+            }
+            .main__body {
+                background: $white;
                 padding: 1em;
             }
-            h3 {
-                text-transform: uppercase;
-                font-size: .9em;
-            }
-            .feature__heading {
-                font-size: 5em;
-                margin-top: 0;
-                line-height: 1.1em;
-                margin-bottom: .4em;
-            }
-            .feature__description {
-                font-family: $lightfont;
-                font-size: 1.3em;
-                margin-bottom: 2em;
-            }
-            .feature__search {
-                input[type=text] {
-                    border: 0;
-                    outline: 0;
-                    min-width: 335px;
-                    margin-right: 15px;
-                    padding: 10px;
-                    color: $d-grey;
-                    min-height: 42px;
-                    box-sizing: border-box;
-                    display: inline-block;
-                    vertical-align: middle;
-                    @include _(for mobile) {
-                        margin-right: 0;
-                    }
-                }
-                input[type=submit] {
-                    display: inline-block;
-                    background: $yellow;
-                    font-size: .9em;
-                    border: 0;
-                    outline: 0;
-                    color: $d-grey;
-                    text-transform: uppercase;
-                    min-height: 42px;
-                    width: 150px;
-                    box-sizing: border-box;
-                    vertical-align: middle;
-                    @include _(for mobile) {
-                        margin-top: 1em;
-                    }
-                }
-            }
-            .feature__body {
-                max-width: 500px;
-            }
-        }
-        .main__body {
-            background: $white;
-            padding: 1em;
         }
     }
-
     .panel-list {
-        @include _('container');
-        @include _('clear');
+        @include _( 'container');
+        @include _( 'clear');
         list-style: none;
         padding-left: 0;
     }
@@ -185,7 +176,7 @@ header {
                 color: $m-grey;
                 font-family: $lightfont;
                 text-transform: uppercase;
-                font-size: .8em;
+                font-size: 0.8em;
             }
         }
         .panel__text {
@@ -225,6 +216,85 @@ header {
                 .panel__title {
                     span {
                         color: $white;
+                    }
+                }
+            }
+        }
+    }
+    &.bar {
+        .bar__side {
+            width: 300px;
+            display: table-cell;
+            vertical-align: middle;
+            padding: 1em;
+            background: $white;
+            box-sizing: border-box;
+            border-top: 1px solid $l-grey;
+        }
+        .bar__main {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 1em;
+            background: $black;
+            color: $white;
+            text-align: center;
+        }
+    }
+}
+.blocknav {
+    &.blocknav--threeup {
+        ul {
+            @include _('container');
+            list-style: none;
+            padding-left: 0;
+            .blocknav__item {
+                @include _(5.33333333333 4 2.66666666667 4);
+                &:first-child {
+                    text-align: left;
+                    a {
+                        &:first-child {
+                            margin-right: 1em;
+                        }
+                    }
+                }
+                &:last-child {
+                    text-align: right;
+                    a {
+                        &:last-child {
+                            margin-left: 1em;
+                        }
+                    }
+                }
+                a {
+                    color: $teal;
+                    text-decoration: none;
+                    display: inline-block;
+                    vertical-align: middle;
+                    span {
+                        color: $l-grey;
+                        font-size: .9em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bar--footer {
+    .bar__side {
+        color: $m-grey;
+        a {
+            color: $blue;
+            text-decoration: none;
+        }
+    }
+    .blocknav {
+        &.blocknav--threeup {
+            ul {
+                li:nth-child(2n) {
+                    a {
+                        position: relative;
+                        bottom: 3em;
                     }
                 }
             }
