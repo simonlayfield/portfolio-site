@@ -191,8 +191,6 @@ header {
         margin-left: 1.30208%; } }
     .container .panel:nth-child(4n+5) {
       clear: left; }
-    .container .panel .panel__image {
-      padding: 2em; }
     .container .panel .panel__title {
       text-align: left;
       padding: 1em;
@@ -205,6 +203,8 @@ header {
         font-family: "Mark Light";
         text-transform: uppercase;
         font-size: 0.8em; }
+      .container .panel .panel__title.panel__title--icon span {
+        color: #999; }
     .container .panel .panel__text {
       font-family: "Mark Light";
       text-align: left;
@@ -233,6 +233,28 @@ header {
           background: #00a3ad; }
         .container .panel.panel--links .panel__split .panel__title span {
           color: #fff; }
+    .container .panel.panel--iconbg .panel__image {
+      min-height: 200px;
+      max-height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%; }
+    .container .panel.panel--iconbg img {
+      padding-top: 1em;
+      max-height: 100%; }
+    .container .panel.panel--imagebg .panel__titleWrap {
+      min-height: 200px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      background: #fff url("../img/panel-bg-001.png") no-repeat center center; }
+    .container .panel.panel--imagebg .panel__title {
+      margin-top: 1em;
+      color: #fff;
+      border-bottom: 0; }
+      .container .panel.panel--imagebg .panel__title span {
+        color: #eee; }
   .container.bar .bar__side {
     width: 300px;
     display: table-cell;

@@ -161,9 +161,6 @@ header {
         &:nth-child(4n+5) {
             clear: left;
         }
-        .panel__image {
-            padding: 2em;
-        }
         .panel__title {
             text-align: left;
             padding: 1em;
@@ -177,6 +174,12 @@ header {
                 font-family: $lightfont;
                 text-transform: uppercase;
                 font-size: 0.8em;
+            }
+            &.panel__title--icon {
+                $color: $d-grey;
+                span {
+                    color: $m-grey;
+                }
             }
         }
         .panel__text {
@@ -217,6 +220,37 @@ header {
                     span {
                         color: $white;
                     }
+                }
+            }
+        }
+        &.panel--iconbg {
+            .panel__image {
+                min-height: 200px;
+                max-height: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+            img {
+                padding-top: 1em;
+                max-height: 100%;
+                }
+        }
+        &.panel--imagebg {
+            .panel__titleWrap {
+                min-height: 200px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
+                background: $white url('../img/panel-bg-001.png') no-repeat center center;
+            }
+            .panel__title {
+                margin-top: 1em;
+                color: $white;
+                border-bottom: 0;
+                span {
+                    color: $l-grey;
                 }
             }
         }
