@@ -21,6 +21,12 @@ body {
     font-family: $regularfont;
     @include linearGradient($l-teal, $teal);
 }
+a {
+    color: $blue;
+}
+img {
+    max-width: 100%;
+}
 header {
     padding: 1em;
     height: 64px;
@@ -142,7 +148,7 @@ header {
             }
             .main__body {
                 background: $white;
-                padding: 1em;
+                // padding: 1em;
             }
         }
     }
@@ -151,6 +157,8 @@ header {
         @include _( 'clear');
         list-style: none;
         padding-left: 0;
+        margin: 0;
+        padding: 2em 0;
     }
     .panel {
         @include _(4 12 8 4);
@@ -264,6 +272,10 @@ header {
             background: $white;
             box-sizing: border-box;
             border-top: 1px solid $l-grey;
+            @include _(for mobile) {
+                display: block;
+                width: inherit;
+            }
         }
         .bar__main {
             display: table-cell;
@@ -272,6 +284,9 @@ header {
             background: $black;
             color: $white;
             text-align: center;
+            @include _(for mobile) {
+                display: block;
+            }
         }
     }
 }
@@ -279,6 +294,7 @@ header {
     &.blocknav--threeup {
         ul {
             @include _('container');
+            @include _('clear');
             list-style: none;
             padding-left: 0;
             .blocknav__item {
@@ -313,6 +329,124 @@ header {
         }
     }
 }
+.block {
+    padding: 2em 5em;
+    background: $white;
+    font-family: 'Mark Light';
+    @include _(for mobile) {
+        padding: 1em;
+    }
+    .block__body {
+        h2 {
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+    .block__heading {
+        font-family: 'Mark Heavy';
+        font-size: 2.5em;
+    }
+    .block__title {
+        &.block__title--sectionTitle {
+            text-transform: uppercase;
+            font-family: 'Mark Heavy';
+            font-size: 1em;
+        }
+    }
+    .block__thumbnails {
+        list-style: none;
+        padding-left: 0;
+        li {
+            text-align: right;
+            margin-bottom: 1em;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            @include _(for mobile) {
+                text-align: center;
+            }
+        }
+    }
+    &.block--preview {
+        .block__body {
+            img {
+                padding: 2em 0;
+            }
+        }
+    }
+    &.block--split {
+        @include _('container');
+        @include _('clear');
+        aside {
+            @include _(6 4 8 4);
+            padding: 1em 3em;
+            @include _(for mobile) {
+                padding: 0;
+            }
+        }
+        .block__body {
+            @include _(10 8 8 4);
+        }
+
+
+    }
+}
+
+
+nav {
+    &.inPageMenu {
+        ul {
+            list-style: none;
+            font-size: .9em;
+            padding-left: 0;
+            h3 {
+                text-transform: uppercase;
+                font-family: 'Mark Heavy';
+            }
+            li {
+                border-bottom: 1px solid $m-grey;
+                padding: .5em 0;
+                &.inPageMenu__heading {
+                    border-bottom: 2px solid $black;
+                }
+                a {
+                    color: $black;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.blockList {
+    list-style: none;
+    padding-left: 0;
+    margin: 2em 0;
+    .blockList__row {
+        padding: .8em 0;
+        border-top: 1px solid $m-grey;
+        color: $m-grey;
+        &:last-child {
+            border-bottom: 1px solid $m-grey;
+        }
+        img {
+            margin-right: 1em;
+        }
+    }
+    &.blockList--split {
+        .blockList__row {
+            @include _('clear');
+            span {
+                float: right;
+                text-transform: uppercase;
+                font-family: 'Mark Heavy';
+                font-size: .9em;
+            }
+        }
+    }
+}
+
 
 .bar--footer {
     .bar__side {
