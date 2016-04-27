@@ -19,7 +19,6 @@ $lightfont: "Mark Light";
 }
 body {
     font-family: $regularfont;
-    @include linearGradient($l-teal, $teal);
 }
 a {
     color: $blue;
@@ -30,6 +29,7 @@ img {
 header {
     padding: 1em;
     height: 64px;
+    @include linearGradient($l-teal, $teal);
 }
 .container {
     width: 100%;
@@ -91,6 +91,7 @@ header {
                 padding: 2em 5em;
                 color: $white;
                 padding-bottom: 3em;
+                @include linearGradient($l-teal, $teal);
                 @include _(for mobile) {
                     padding: 1em;
                 }
@@ -158,16 +159,27 @@ header {
         list-style: none;
         padding-left: 0;
         margin: 0;
-        padding: 2em 0;
+        margin: 2em 0;
     }
     .panel {
         @include _(4 12 8 4);
-        border: 1px solid $l-grey;
         text-align: center;
         color: $d-grey;
         margin-bottom: 1em;
+        position: relative;
         &:nth-child(4n+5) {
             clear: left;
+        }
+        &.panel--p1 {
+            border: 1px solid $l-grey;
+            .panel__text {
+                padding: 1em;
+                p {
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+            }
         }
         .panel__title {
             text-align: left;
@@ -193,12 +205,6 @@ header {
         .panel__text {
             font-family: $lightfont;
             text-align: left;
-            padding: 1em;
-            p {
-                &:first-child {
-                    margin-top: 0;
-                }
-            }
         }
         .panel__button {
             display: inline-block;
@@ -229,6 +235,12 @@ header {
                         color: $white;
                     }
                 }
+            }
+        }
+        .panel__image {
+            &.panel__image--overlay {
+                position: absolute;
+                top: 0;
             }
         }
         &.panel--iconbg {
@@ -333,6 +345,7 @@ header {
     padding: 2em 5em;
     background: $white;
     font-family: 'Mark Light';
+    display: block;
     @include _(for mobile) {
         padding: 1em;
     }
@@ -391,6 +404,16 @@ header {
 
 
     }
+    &.block--wide {
+        padding: 0;
+        @include _(15 11 7 4, $gutter: center);
+    }
+}
+
+.rowTitle {
+    color: $m-grey;
+    border-bottom: 1px solid $m-grey;
+    padding-bottom: .5em;
 }
 
 
