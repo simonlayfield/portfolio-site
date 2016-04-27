@@ -1,0 +1,67 @@
+.block {
+    padding: 2em 5em;
+    background: $white;
+    font-family: 'Mark Light';
+    display: block;
+    @include _(for mobile) {
+        padding: 1em;
+    }
+    .block__body {
+        h2 {
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+    .block__heading {
+        font-family: 'Mark Heavy';
+        font-size: 2.5em;
+    }
+    .block__title {
+        &.block__title--sectionTitle {
+            text-transform: uppercase;
+            font-family: 'Mark Heavy';
+            font-size: 1em;
+        }
+    }
+    .block__thumbnails {
+        list-style: none;
+        padding-left: 0;
+        li {
+            text-align: right;
+            margin-bottom: 1em;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            @include _(for mobile) {
+                text-align: center;
+            }
+        }
+    }
+    &.block--preview {
+        .block__body {
+            img {
+                padding: 2em 0;
+            }
+        }
+    }
+    &.block--split {
+        @include _('clear');
+        aside {
+            @include _(6 4 8 4);
+            padding: 1em 3em;
+            @include _(for mobile) {
+                padding: 0;
+            }
+        }
+        .block__body {
+            @include _(10 8 8 4);
+        }
+
+
+    }
+    &.block--wide {
+        padding: 0;
+        @include _(15 11 7 4, $gutter: center);
+    }
+}

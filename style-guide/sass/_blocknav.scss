@@ -1,0 +1,39 @@
+.blocknav {
+    &.blocknav--threeup {
+        ul {
+            @include _('container');
+            @include _('clear');
+            list-style: none;
+            padding-left: 0;
+            .blocknav__item {
+                @include _(5.33333333333 4 2.66666666667 4);
+                &:first-child {
+                    text-align: left;
+                    a {
+                        &:first-child {
+                            margin-right: 1em;
+                        }
+                    }
+                }
+                &:last-child {
+                    text-align: right;
+                    a {
+                        &:last-child {
+                            margin-left: 1em;
+                        }
+                    }
+                }
+                a {
+                    color: $teal;
+                    text-decoration: none;
+                    display: inline-block;
+                    vertical-align: middle;
+                    span {
+                        color: $l-grey;
+                        font-size: .9em;
+                    }
+                }
+            }
+        }
+    }
+}

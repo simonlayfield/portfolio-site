@@ -1,0 +1,121 @@
+.panel-list {
+    @include _( 'clear');
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    margin: 2em 0;
+}
+.panel {
+    @include _(4 12 8 4);
+    text-align: center;
+    color: $d-grey;
+    margin-bottom: 1em;
+    position: relative;
+    &:nth-child(4n+5) {
+        clear: left;
+    }
+    &.panel--p1 {
+        border: 1px solid $l-grey;
+        .panel__text {
+            padding: 1em;
+            p {
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+    .panel__title {
+        text-align: left;
+        padding: 1em;
+        border-bottom: 1px solid $l-grey;
+        h2 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        span {
+            color: $m-grey;
+            font-family: $lightfont;
+            text-transform: uppercase;
+            font-size: 0.8em;
+        }
+        &.panel__title--icon {
+            $color: $d-grey;
+            span {
+                color: $m-grey;
+            }
+        }
+    }
+    .panel__text {
+        font-family: $lightfont;
+        text-align: left;
+    }
+    .panel__button {
+        display: inline-block;
+        margin-bottom: 2em;
+        padding: 0.7em 1.5em;
+        background: $black;
+        text-transform: uppercase;
+        color: $white;
+        text-decoration: none;
+    }
+    &.panel--links {
+        display: table;
+        border: 0;
+        .panel__split {
+            color: $white;
+            margin-bottom: 1em;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            &.panel__split--primary {
+                background: $purple;
+            }
+            &.panel__split--secondary {
+                background: $teal;
+            }
+            .panel__title {
+                span {
+                    color: $white;
+                }
+            }
+        }
+    }
+    .panel__image {
+        &.panel__image--overlay {
+            position: absolute;
+            top: 0;
+        }
+    }
+    &.panel--iconbg {
+        .panel__image {
+            min-height: 200px;
+            max-height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        img {
+            padding-top: 1em;
+            max-height: 100%;
+            }
+    }
+    &.panel--imagebg {
+        .panel__titleWrap {
+            min-height: 288px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            background: $white url('../img/panel-bg-001.png') no-repeat center center;
+        }
+        .panel__title {
+            margin-top: 1em;
+            color: $white;
+            border-bottom: 0;
+            span {
+                color: $l-grey;
+            }
+        }
+    }
+}
