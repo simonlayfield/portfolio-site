@@ -428,8 +428,7 @@ header {
 .container {
   width: 100%;
   display: table;
-  table-layout: fixed;
-  position: relative; }
+  table-layout: fixed; }
   @media (min-width: 0) and (max-width: 30em) {
     .container {
       display: block; } }
@@ -448,12 +447,13 @@ header {
     display: table-cell;
     vertical-align: top;
     background: #fff;
-    box-sizing: border-box; }
-    @media (min-width: 0) and (max-width: 30em) {
+    box-sizing: border-box;
+    z-index: 1000; }
+    @media (max-width: 48em) {
       .container.page .page__side {
         display: inline-block;
-        position: absolute;
-        right: -300px; } }
+        position: fixed;
+        left: -300px; } }
     .container.page .page__side ul {
       height: 100%;
       margin: 0;
@@ -484,16 +484,54 @@ header {
   .container.page .page__main {
     display: table-cell;
     vertical-align: top; }
-    @media (min-width: 0) and (max-width: 30em) {
+    @media (max-width: 48em) {
       .container.page .page__main {
         display: block; } }
     .container.page .page__main .main__body {
       background: #fff; }
 
+body.menuActive header {
+  position: fixed; }
+body.menuActive .container.page .page__side {
+  position: absolute;
+  top: 0;
+  min-height: 100%;
+  -webkit-transition: all 250ms ease-in-out 1;
+  -moz-transition: all 250ms ease-in-out 1;
+  -ms-transition: all 250ms ease-in-out 1;
+  -o-transition: all 250ms ease-in-out 1;
+  transition: all 250ms ease-in-out 1;
+  -ms-transform: translateX(300px);
+  -webkit-transform: translateX(300px);
+  transform: translateX(300px); }
+body.menuActive .container.page .page__main {
+  position: fixed; }
+body.menuActive .overlay {
+  -webkit-transition: all 250ms ease-in-out 1;
+  -moz-transition: all 250ms ease-in-out 1;
+  -ms-transition: all 250ms ease-in-out 1;
+  -o-transition: all 250ms ease-in-out 1;
+  transition: all 250ms ease-in-out 1;
+  position: fixed;
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 500; }
+  @media (min-width: 30.0625em) {
+    body.menuActive .overlay.active {
+      display: none; } }
+
 .rowTitle {
   color: #999;
   border-bottom: 1px solid #999;
   padding-bottom: .5em; }
+
+.overlay {
+  display: none; }
+  @media (min-width: 30.0625em) {
+    .overlay {
+      display: none; } }
 
 nav.inPageMenu ul {
   list-style: none;

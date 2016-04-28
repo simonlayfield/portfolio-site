@@ -1,6 +1,13 @@
 @import 'mixins.scss';
 @import 'fonts.scss';
 @import '../bower_components/flint/stylesheets/flint';
+@mixin transition($property: all, $seconds: 250ms, $ease: ease-in-out, $opacity: 1) {
+	-webkit-transition: $property $seconds $ease $opacity;
+	-moz-transition: $property $seconds $ease $opacity;
+	-ms-transition: $property $seconds $ease $opacity;
+	-o-transition: $property $seconds $ease $opacity;
+	transition: $property $seconds $ease $opacity;
+}
 
 $teal: #00a3ad;
 $l-teal: #00a3ad;
@@ -44,7 +51,6 @@ header {
     width: 100%;
     display: table;
     table-layout: fixed;
-    position: relative;
     @include _(for mobile) {
         display: block;
     }
@@ -59,10 +65,11 @@ header {
             vertical-align: top;
             background: $white;
             box-sizing: border-box;
-            @include _(for mobile) {
+            z-index: 1000;
+            @include _(less than laptop) {
                 display: inline-block;
-                position: absolute;
-                right: -300px;
+                position: fixed;
+                left: -300px;
             }
             ul {
                 height: 100%;
@@ -97,11 +104,52 @@ header {
         .page__main {
             display: table-cell;
             vertical-align: top;
-            @include _(for mobile) {
+            @include _(less than laptop) {
                 display: block;
             }
             .main__body {
                 background: $white;
+            }
+
+        }
+    }
+}
+
+// Menu Active States
+
+body {
+    &.menuActive {
+        header {
+            position: fixed;
+        }
+        .container {
+            &.page {
+                .page__side {
+    				position: absolute;
+                    top: 0;
+                    min-height: 100%;
+                    @include transition;
+    				-ms-transform: translateX(300px);
+    				-webkit-transform: translateX(300px);
+    				transform: translateX(300px);
+                }
+                .page__main {
+                    position: fixed;
+                }
+            }
+        }
+        .overlay {
+    		@include transition;
+    		position: fixed;
+    		display: block;
+    		height: 100%;
+    		width: 100%;
+    		background-color: rgba(0, 0, 0, 0.6);
+    		z-index: 500;
+            @include _(greater than mobile) {
+            	&.active {
+            		display: none;
+            	}
             }
         }
     }
@@ -111,6 +159,13 @@ header {
     color: $m-grey;
     border-bottom: 1px solid $m-grey;
     padding-bottom: .5em;
+}
+
+.overlay {
+	display: none;
+    @include _(greater than mobile) {
+    	display: none;
+    }
 }
 
 
