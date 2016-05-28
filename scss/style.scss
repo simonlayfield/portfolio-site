@@ -25,12 +25,15 @@
 /////
 $primary-color: #0ba4cd;
 $primary-color-dark: #0c94b8;
+
+* {
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     padding: 0;
     font-family: 'Lato', sans-serif;
     font-size: 0.9em;
-    line-height: 160%;
     color: #777;
     background-color: #f1f1f1;
 }
@@ -78,7 +81,7 @@ header {
 .container {
     @include _(container);
     @include _(clear);
-    padding: 2em;
+    padding: 1em;
     max-width:1200px;
     &.container--full {
 
@@ -178,7 +181,14 @@ nav {
 }
 .tnsoc {
   text-align: center;
+  padding: 1em;
   p {
     margin:7em 0;
   }
+}
+video {
+    @include _(less than laptop) {
+        width: 100% !important;
+        height: auto !important;
+    }
 }
