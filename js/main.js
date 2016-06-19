@@ -168,11 +168,25 @@ projects = [{
     }]
 }];
 
+var imagelist = [];
+$.getJSON("./js/imagelist.json", function (data) {
+    $.each(data, function (key, val) {
+
+        var cat = key;
+
+        $.each(data[key], function (key, val) {
+            imagelist.push({"image": val, "cat": cat});
+        });
+
+    });
+});
+
 var ractive = new Ractive({
     el: '.some-container',
     template: '#template',
     data: {
-        projectList: projects
+        projectList: projects,
+        imageList: imagelist
     }
 });
 

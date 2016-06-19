@@ -30,8 +30,22 @@ module.exports = function(grunt) {
                 flatten: true,
                 expand: true
             }
+        },
+        tree: {
+        default: {
+            options: {
+                perttify: true
+            },
+            files: [
+                {
+                    src: ['img/auto'],
+                    dest: 'js/imagelist.json'
+                }
+            ]
         }
+    }
     });
+    grunt.loadNpmTasks('grunt-tree');
     grunt.loadNpmTasks('grunt-include-replace');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');

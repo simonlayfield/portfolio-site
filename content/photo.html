@@ -1,0 +1,21 @@
+@@include('../templates/header-min.html', {"title": "Inspiration"})
+
+<div class="some-container">
+</div>
+
+<script id='template' type='text/ractive'>
+<div class="container tac">
+    <h1>Stuff</h1>
+    <div class="container">
+    <ul class="list-illustration">
+    {{#each imageList:i}}
+        {{#if this.cat === 'photo'}}
+            <li><img src="img/auto/photo/{{image}}"></li>
+        {{/if}}
+    {{/each}}
+    </ul>
+</div>
+
+</script>
+
+@@include('../templates/footer-min.html')

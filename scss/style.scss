@@ -36,6 +36,12 @@ body {
     font-size: 0.9em;
     color: #777;
     background-color: #f1f1f1;
+    &.preview {
+        background: #fff;
+        h2 {
+            font-size: 1.4em;
+        }
+    }
 }
 h1,
 h2 {
@@ -77,6 +83,7 @@ header {
       background-color: #fff;
       padding: 2em 0;
   }
+
 }
 .container {
     @include _(container);
@@ -190,5 +197,27 @@ video {
     @include _(less than laptop) {
         width: 100% !important;
         height: auto !important;
+    }
+}
+.logo-set {
+    @include _('clear');
+    .logo {
+        @include _(5.33333333333 4 2.66666666667 4);
+        text-align: center;
+    }
+}
+.brand-assets {
+    @include _('clear');
+    .brand-colours, .brand-font {
+        @include _(8 6 4 4);
+    }
+    .brand-colours {
+        span {
+            display: block;
+            height: 30px;
+        }
+    }
+    .brand-font {
+        text-align: center;
     }
 }
