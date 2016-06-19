@@ -113,7 +113,7 @@ body		{ font-family:Helvetica, Arial, Verdana, sans-serif; color:#fff; font-size
 html.previewPage { background-image:none; }
 html.previewPage body { color:#666; }
 html.previewPage h1, html.previewPage h2  { color:#000; text-shadow:none; text-align:left; }
-#presentation { display:none; }
+#presentation-page { display:none; }
 
 img			{ max-width:100%; }
 h1, h2		{ font-family:'lulo_cleanone', sans-serif; font-weight:normal; text-transform:uppercase; color:#fff; text-shadow:1px 1px 0px #134671; }
