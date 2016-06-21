@@ -164,26 +164,29 @@ nav {
         }
     }
 }
-.list-illustration {
-    clear: both;
-    -moz-column-count: 3;
-    -moz-column-gap: 20px;
-    -webkit-column-count: 3;
-    -webkit-column-gap: 20px;
-    padding-left: 0;
-    @include _(less than tablet) {
-        -moz-column-count: 1;
-        -moz-column-gap: 0;
-        -webkit-column-count: 1;
-        -webkit-column-gap: 0;
-    }
-    li {
-        width: 100%;
-        display: inline-block;
-        list-style: none;
-        margin-bottom: 20px;
-        text-align: center;
-        /* Gays */
+.imagelist {
+    @include _(4 4 4 4);
+    list-style: none;
+    margin-bottom: 20px;
+    text-align: center;
+    &.imagelist--lazy {
+        img {
+        	opacity: 1;
+        	transition: opacity 1s;
+        }
+
+        img[data-src] {
+        	opacity: 0;
+        }
+        &:nth-child(1) {
+            padding-bottom: 1em;
+        }
+        &:nth-child(2) {
+            padding-bottom: 2em;
+        }
+        &:nth-child(3) {
+            padding-bottom: 3em;
+        }
     }
 }
 .tnsoc {

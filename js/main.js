@@ -187,10 +187,10 @@ var ractive = new Ractive({
     data: {
         projectList: projects,
         imageList: imagelist
+    },
+    oncomplete: function () {
+
+        var images = ractive.get('imageList');
+
     }
 });
-
-// _.each(ractive.get('projectList'), function(item) {
-//     console.log(Object.keys(item)[0]);
-//
-// });

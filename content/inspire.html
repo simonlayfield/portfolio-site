@@ -4,18 +4,16 @@
 </div>
 
 <script id='template' type='text/ractive'>
-<div class="container tac">
-    <h1>Stuff</h1>
-    <div class="container">
-    <ul class="list-illustration">
-    {{#each imageList:i}}
-        {{#if this.cat === 'inspire'}}
-            <li><img src="img/auto/inspire/{{image}}"></li>
-        {{/if}}
-    {{/each}}
-    </ul>
-</div>
-
+    <div class="container tac">
+        <h1>Stuff I Like and Stuff</h1>
+        <div class="imagelist imagelist--lazy">
+        </div>
+        <div class="imagelist imagelist--lazy">
+        </div>
+        <div class="imagelist imagelist--lazy">
+        </div>
+    </div>
 </script>
+
 
 @@include('../templates/footer-min.html')

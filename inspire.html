@@ -30,19 +30,17 @@
 </div>
 
 <script id='template' type='text/ractive'>
-<div class="container tac">
-    <h1>Stuff</h1>
-    <div class="container">
-    <ul class="list-illustration">
-    {{#each imageList:i}}
-        {{#if this.cat === 'inspire'}}
-            <li><img src="img/auto/inspire/{{image}}"></li>
-        {{/if}}
-    {{/each}}
-    </ul>
-</div>
-
+    <div class="container tac">
+        <h1>Stuff I Like and Stuff</h1>
+        <div class="imagelist imagelist--lazy">
+        </div>
+        <div class="imagelist imagelist--lazy">
+        </div>
+        <div class="imagelist imagelist--lazy">
+        </div>
+    </div>
 </script>
+
 
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -50,7 +48,34 @@
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            setTimeout(function(){
+
+                var heights = [];
+                var imagelist = document.querySelectorAll('.imagelist');
+
+                [].forEach.call(imagelist, function(list, index) {
+
+                    heights[index] = list.offsetHeight;
+
+                	// img.setAttribute('src', img.getAttribute('data-src'));
+                	// img.onload = function() {
+                	// 	img.removeAttribute('data-src');
+                	// };
+                });
+
+                var smallestColumn = function (arr) {
+                    var lowest = 0;
+                    for (var i = 1; i < a.length; i++) {
+                        if (a[i] < a[lowest]) lowest = i;
+                    }
+                    return lowest;
+                }
+
+            }, 1000);
+
+        </script>
+
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;

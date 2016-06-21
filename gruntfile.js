@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+    var gifsicle = require('imagemin-gifsicle');
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         sass: {
@@ -43,8 +44,26 @@ module.exports = function(grunt) {
                 }
             ]
         }
+    },
+    imagemin: {
+        gif: {
+            options: {
+                interlaced: true,
+                use: [gifsicle()]
+            },
+            files: [{
+                expand: true,
+                cwd: 'img/auto/gif/orig',
+                src: ['**/*.gif'],
+                dest: 'img/auto/gif',
+                ext: '.gif'
+            }]
+        }
     }
+
+
     });
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-tree');
     grunt.loadNpmTasks('grunt-include-replace');
     grunt.loadNpmTasks('grunt-contrib-sass');
