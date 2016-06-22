@@ -190,7 +190,43 @@ var ractive = new Ractive({
     },
     oncomplete: function () {
 
-        var images = ractive.get('imageList');
+        setTimeout(function(){
+
+            var heights = [];
+            var imagelist = document.querySelectorAll('.imagelist');
+
+            [].forEach.call(imagelist, function(list, index) {
+
+                heights[index] = list.offsetHeight;
+
+            });
+
+        }, 1000);
+
 
     }
+
+    var shortestColumn = function (arr) {
+        var lowest = 0;
+        for (var i = 1; i < a.length; i++) {
+            if (a[i] < a[lowest]) lowest = i;
+        }
+        return lowest;
+    }
+
+    ractive.on('loadImages', function () {
+
+        var imageIndex = this.get('imageIndex'),
+        imageIncrement = this.get('imageIncrement');
+
+        for (var i = imageIndex; i < imageIndex + imageIncrement; i++) {
+
+            var imagelist = document.querySelectorAll('.imagelist'),
+            shortestColumn = shortestColumn(heights);
+
+            imagelist[]
+
+        }
+
+    });
 });
