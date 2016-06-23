@@ -31,12 +31,21 @@
 
 <script id='template' type='text/ractive'>
     <div class="container tac">
-        <h1>Stuff I Like and Stuff</h1>
-        <div class="imagelist imagelist--lazy">
+        <h1>Stuff</h1>
+        <div class="imagelist">
+        {{#each imageList1}}
+            <li><img src="img/auto/inspire/{{image}}"></li>
+        {{/each}}
         </div>
-        <div class="imagelist imagelist--lazy">
+        <div class="imagelist">
+        {{#each imageList2}}
+            <li><img src="img/auto/inspire/{{image}}"></li>
+        {{/each}}
         </div>
-        <div class="imagelist imagelist--lazy">
+        <div class="imagelist">
+        {{#each imageList3}}
+            <li><img src="img/auto/inspire/{{image}}"></li>
+        {{/each}}
         </div>
     </div>
 </script>

@@ -168,17 +168,21 @@ projects = [{
     }]
 }];
 
-var imagelist = [];
-$.getJSON("./js/imagelist.json", function (data) {
-    $.each(data, function (key, val) {
+var listInspire = [[],[],[]];
 
-        var cat = key;
 
-        $.each(data[key], function (key, val) {
-            imagelist.push({"image": val, "cat": cat});
-        });
+$.getJSON("./js/list-inspire.json", function (json) {
 
+    var n = 0;
+
+    $.each(json, function (key, val) {
+        listInspire[n].push({"image": val});
+        n += 1;
+        if (n == 3) {
+            n = 0;
+        }
     });
+
 });
 
 var ractive = new Ractive({
@@ -186,47 +190,39 @@ var ractive = new Ractive({
     template: '#template',
     data: {
         projectList: projects,
-        imageList: imagelist
+        imageList1: listInspire[0],
+        imageList2: listInspire[1],
+        imageList3: listInspire[2]
     },
     oncomplete: function () {
 
-        setTimeout(function(){
-
-            var heights = [];
-            var imagelist = document.querySelectorAll('.imagelist');
-
-            [].forEach.call(imagelist, function(list, index) {
-
-                heights[index] = list.offsetHeight;
-
-            });
-
-        }, 1000);
+        // setTimeout(function(){
+        //
+        //     var columnHeights = [];
+        //     var imagelist = document.querySelectorAll('.imagelist');
+        //
+        //     [].forEach.call(imagelist, function(list, index) {
+        //         columnHeights[index] = list.offsetHeight;
+        //     });
+        //
+        //     var shortestColumn = function (arr) {
+        //         var lowest = 0;
+        //         for (var i = 1; i < arr.length; i++) {
+        //             if (arr[i] < arr[lowest]) lowest = i;
+        //         }
+        //         return lowest;
+        //     }
+        //
+        //     console.log(shortestColumn(columnHeights));
+        //
+        //
+        //
+        //
+        //
+        // }, 1000);
 
 
     }
 
-    var shortestColumn = function (arr) {
-        var lowest = 0;
-        for (var i = 1; i < a.length; i++) {
-            if (a[i] < a[lowest]) lowest = i;
-        }
-        return lowest;
-    }
 
-    ractive.on('loadImages', function () {
-
-        var imageIndex = this.get('imageIndex'),
-        imageIncrement = this.get('imageIncrement');
-
-        for (var i = imageIndex; i < imageIndex + imageIncrement; i++) {
-
-            var imagelist = document.querySelectorAll('.imagelist'),
-            shortestColumn = shortestColumn(heights);
-
-            imagelist[]
-
-        }
-
-    });
 });

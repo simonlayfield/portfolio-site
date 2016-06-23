@@ -206,7 +206,7 @@ nav {
   text-align: center; }
   @media (min-width: 60.0625em) {
     .imagelist {
-      width: 23.4375%;
+      width: 31.77083%;
       margin-right: 0.78125%;
       margin-left: 0.78125%; } }
   @media (min-width: 48.0625em) and (max-width: 60em) {
@@ -230,6 +230,8 @@ nav {
     padding-bottom: 2em; }
   .imagelist.imagelist--lazy:nth-child(3) {
     padding-bottom: 3em; }
+  .imagelist img {
+    margin-bottom: 20px; }
 
 .tnsoc {
   text-align: center;

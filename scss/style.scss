@@ -165,7 +165,7 @@ nav {
     }
 }
 .imagelist {
-    @include _(4 4 4 4);
+    @include _(5.33333333333 4 4 4);
     list-style: none;
     margin-bottom: 20px;
     text-align: center;
@@ -187,6 +187,9 @@ nav {
         &:nth-child(3) {
             padding-bottom: 3em;
         }
+    }
+    img {
+        margin-bottom: 20px;
     }
 }
 .tnsoc {

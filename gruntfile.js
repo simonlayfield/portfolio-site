@@ -15,8 +15,8 @@ module.exports = function(grunt) {
                 tasks: ['sass']
             },
             html: {
-              files: 'content/*.html',
-              tasks: ['includereplace']
+                files: 'content/*.html',
+                tasks: ['includereplace']
             }
         },
         includereplace: {
@@ -33,33 +33,37 @@ module.exports = function(grunt) {
             }
         },
         tree: {
-        default: {
-            options: {
-                perttify: true
-            },
-            files: [
-                {
-                    src: ['img/auto'],
-                    dest: 'js/imagelist.json'
-                }
-            ]
+            default: {
+                options: {
+                    perttify: true
+                },
+                files: [{
+                    src: ['img/auto/gif'],
+                    dest: 'js/list-gif.json'
+                }, {
+                    src: ['img/auto/photo'],
+                    dest: 'js/list-photo.json'
+                }, {
+                    src: ['img/auto/inspire'],
+                    dest: 'js/list-inspire.json'
+                }]
+            }
+        },
+        imagemin: {
+            gif: {
+                options: {
+                    interlaced: true,
+                    use: [gifsicle()]
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'img/auto/gif/orig',
+                    src: ['**/*.gif'],
+                    dest: 'img/auto/gif',
+                    ext: '.gif'
+                }]
+            }
         }
-    },
-    imagemin: {
-        gif: {
-            options: {
-                interlaced: true,
-                use: [gifsicle()]
-            },
-            files: [{
-                expand: true,
-                cwd: 'img/auto/gif/orig',
-                src: ['**/*.gif'],
-                dest: 'img/auto/gif',
-                ext: '.gif'
-            }]
-        }
-    }
 
 
     });
