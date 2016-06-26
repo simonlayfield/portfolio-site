@@ -53,6 +53,7 @@ module.exports = function(grunt) {
             gif: {
                 options: {
                     interlaced: true,
+                    optimizationLevel: 1,
                     use: [gifsicle()]
                 },
                 files: [{

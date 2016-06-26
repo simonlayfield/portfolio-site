@@ -32,14 +32,12 @@
 <script id='template' type='text/ractive'>
 <div class="container tac">
     <h1>Stuff</h1>
-    <div class="container">
-    <ul class="list-illustration">
-    {{#each imageList:i}}
-        {{#if this.cat === 'gif'}}
-            <li><img src="img/auto/gif/{{image}}"></li>
-        {{/if}}
-    {{/each}}
-    </ul>
+    <div style="padding-bottom: 0px;" class="imagelist">
+    </div>
+    <div style="padding-bottom: 2px;" class="imagelist">
+    </div>
+    <div style="padding-bottom: 5px;" class="imagelist">
+    </div>
 </div>
 
 </script>

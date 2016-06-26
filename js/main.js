@@ -168,7 +168,7 @@ projects = [{
     }]
 }];
 
-var listInspire = [[],[],[]];
+var listInspire = [];
 
 
 $.getJSON("./js/list-inspire.json", function (json) {
@@ -176,7 +176,7 @@ $.getJSON("./js/list-inspire.json", function (json) {
     var n = 0;
 
     $.each(json, function (key, val) {
-        listInspire[n].push({"image": val});
+        listInspire.push({"image": val});
         n += 1;
         if (n == 3) {
             n = 0;
@@ -190,39 +190,79 @@ var ractive = new Ractive({
     template: '#template',
     data: {
         projectList: projects,
-        imageList1: listInspire[0],
-        imageList2: listInspire[1],
-        imageList3: listInspire[2]
+        imageList: listInspire
     },
     oncomplete: function () {
 
-        // setTimeout(function(){
-        //
-        //     var columnHeights = [];
-        //     var imagelist = document.querySelectorAll('.imagelist');
-        //
-        //     [].forEach.call(imagelist, function(list, index) {
-        //         columnHeights[index] = list.offsetHeight;
-        //     });
-        //
-        //     var shortestColumn = function (arr) {
-        //         var lowest = 0;
-        //         for (var i = 1; i < arr.length; i++) {
-        //             if (arr[i] < arr[lowest]) lowest = i;
-        //         }
-        //         return lowest;
-        //     }
-        //
-        //     console.log(shortestColumn(columnHeights));
-        //
-        //
-        //
-        //
-        //
-        // }, 1000);
+        setTimeout(function(){
 
+            var columnHeights = [],
+            imagelists = document.querySelectorAll('.imagelist'),
+            imageIncrement = 9,
+            n = 0,
+            scrollLock = true;
+
+            var shortestColumn = function (arr) {
+                var lowest = 0;
+                for (var i = 1; i < arr.length; i++) {
+                    if (arr[i] < arr[lowest]) lowest = i;
+                }
+                return lowest;
+            }
+
+            function insertImage (image) {
+
+                [].forEach.call(imagelists, function(list, index) {
+                    columnHeights[index] = list.offsetHeight;
+                });
+
+                var column = shortestColumn(columnHeights);
+
+                imagelists[column].appendChild(image);
+
+                setTimeout (function () {
+                    image.className = 'loaded';
+                }, 500);
+
+            }
+
+            function loadImage (image) {
+
+                var img = new Image();
+                img.src = '/img/auto/inspire/' + image;
+                img.onload = function() {
+                    insertImage(img);
+                };
+            }
+
+            function cycleImages () {
+
+                for (var i = n; i < (n + imageIncrement); i++) {
+
+                    scrollLock = false;
+
+                    var nextImage = ractive.get('imageList.' + i + '.image');
+                    loadImage(nextImage);
+
+                }
+
+                n = n + imageIncrement;
+                scrollLock = true;
+
+            }
+
+            cycleImages();
+
+            window.onscroll = function(ev) {
+                if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 100)) {
+                    if (scrollLock) {
+                        cycleImages();
+                    }
+                }
+            };
+
+        }, 1000);
 
     }
-
 
 });
