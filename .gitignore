@@ -4,5 +4,6 @@
 ./bower_components
 node_modules
 .sass-cache
+.tmp
 style-guide/node_modules
 style-guide/.sass-cache
