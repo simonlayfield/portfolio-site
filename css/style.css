@@ -220,6 +220,7 @@ nav {
       margin-right: 1.30208%;
       margin-left: 1.30208%; } }
   .imagelist img {
+    border-radius: 3px;
     opacity: 0;
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
@@ -233,7 +234,11 @@ nav {
       -ms-transition: all 1s ease;
       -o-transition: all 1s ease;
       transition: all 1s ease; }
-  .imagelist img {
+  .imagelist video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px; }
+  .imagelist img, .imagelist video {
     margin-bottom: 20px; }
 
 .tnsoc {

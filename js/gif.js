@@ -49,19 +49,28 @@ var ractive = new Ractive({
 
                 imagelists[column].appendChild(image);
 
-                setTimeout (function () {
-                    image.className = 'loaded';
-                }, 500);
-
             }
 
             function loadImage (image) {
 
-                var img = new Image();
-                img.src = '/img/auto/gif/' + image;
-                img.onload = function() {
-                    insertImage(img);
-                };
+                if (image.indexOf('.webm') > 0) {
+                    var video = document.createElement('video');
+                    video.src = '/img/auto/gif/' + image;
+                    console.log(image);
+                    video.autoplay = true;
+                    video.loop = true;
+                    video.addEventListener('loadeddata', function() {
+                       insertImage(video);
+                    }, false);
+                } else {
+                    var img = new Image();
+                    img.src = '/img/auto/gif/' + image;
+                    img.className = 'loaded';
+                    img.onload = function() {
+                        insertImage(img);
+                    };
+                }
+
             }
 
             function cycleImages () {

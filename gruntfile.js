@@ -73,15 +73,18 @@ module.exports = function(grunt) {
                         webm: [
                             '-c:v libvpx',
                             '-pix_fmt yuv420p',
-                            '-crf 10'
+                            '-crf 10',
+                            '-quality best',
                         ]
-                    }
+                    },
+                    cleanup: true,
+                    limit: 1
                 },
                 files: [{
                     expand: true,
-                    cwd: 'img/auto/orig/gif',
+                    cwd: 'img/auto/process/gif',
                     src: ['*.gif'],
-                    dest: 'img/auto/gif'
+                    dest: 'img/auto/gif',
                 }]
             }
         }
