@@ -15,6 +15,7 @@ $.getJSON("./js/list-photo.json", function (json) {
 
 });
 
+
 var ractive = new Ractive({
     el: '.some-container',
     template: '#template',
@@ -25,11 +26,13 @@ var ractive = new Ractive({
 
         setTimeout(function(){
 
+            listInspire = listInspire.reverse();
+
             var columnHeights = [],
             imagelists = document.querySelectorAll('.imagelist'),
             imageIncrement = 9,
             n = 0,
-            scrollLock = true;
+            scrollEnabled = true;
 
             var shortestColumn = function (arr) {
                 var lowest = 0;
@@ -39,7 +42,7 @@ var ractive = new Ractive({
                 return lowest;
             }
 
-            function insertImage (image) {
+            function insertImage (image, nextImage, lastImage) {
 
                 [].forEach.call(imagelists, function(list, index) {
                     columnHeights[index] = list.offsetHeight;
@@ -51,43 +54,49 @@ var ractive = new Ractive({
 
                 setTimeout (function () {
                     image.className = 'loaded';
+                    if (nextImage == lastImage) {
+                        scrollEnabled = true;
+                    }
                 }, 500);
 
             }
 
-            function loadImage (image) {
+            function loadImage (nextImage, lastImage) {
 
                 var img = new Image();
-                img.src = '/img/auto/photo/' + image;
+                img.src = '/img/auto/photo/' + nextImage;
                 img.onload = function() {
-                    insertImage(img);
+                    insertImage(img, nextImage, lastImage);
                 };
             }
 
             function cycleImages () {
 
+                scrollEnabled = false;
+
                 if (n == listInspire.length) {
-                    scrollLock = false;
+                    console.log('true');
+                    scrollEnabled = false;
                     return;
                 }
 
                 if (n + imageIncrement > listInspire.length) {
-                    var limit = listInspire.length - n;
+                    var limit = listInspire.length;
                 } else {
                     var limit = n + imageIncrement;
                 }
 
+                var lastImage = ractive.get('imageList.' + (limit - 1) + '.image');
+
                 for (var i = n; i < limit; i++) {
 
-                    scrollLock = false;
-
                     var nextImage = ractive.get('imageList.' + i + '.image');
-                    loadImage(nextImage);
+                    loadImage(nextImage, lastImage);
+                    console.log(n, listInspire.length);
 
                 }
 
                 n = n + imageIncrement;
-                scrollLock = true;
 
             }
 
@@ -95,7 +104,7 @@ var ractive = new Ractive({
 
             window.onscroll = function(ev) {
                 if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 100)) {
-                    if (scrollLock) {
+                    if (scrollEnabled) {
                         cycleImages();
                     }
                 }
