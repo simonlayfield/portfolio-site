@@ -55,20 +55,27 @@ var ractive = new Ractive({
 
                 if (image.indexOf('.webm') > 0) {
                     var video = document.createElement('video');
-                    video.src = '/img/auto/gif/' + image;
-                    console.log(image);
                     video.autoplay = true;
                     video.loop = true;
+
+                    var source = document.createElement('source');
+                    source.src = '/img/auto/gif/' + image;
+                    source.type = "video/webm";
+                    video.appendChild(source);
+
                     video.addEventListener('loadeddata', function() {
                        insertImage(video);
                     }, false);
+
                 } else {
+
                     var img = new Image();
                     img.src = '/img/auto/gif/' + image;
                     img.className = 'loaded';
                     img.onload = function() {
                         insertImage(img);
                     };
+
                 }
 
             }
