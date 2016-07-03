@@ -57,6 +57,7 @@ var ractive = new Ractive({
                     var video = document.createElement('video');
                     video.autoplay = true;
                     video.loop = true;
+                    video.controls = "controls";
 
                     var source = document.createElement('source');
                     source.src = '/img/auto/gif/' + image;
