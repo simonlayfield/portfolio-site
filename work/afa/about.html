@@ -1,0 +1,125 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:300,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <section id="site-wrapper">
+
+        <ul class="main-menu">
+            <li><a href="index.html">HOME</a></li>
+            <li class="selected"><a href="#">ABOUT AFA</a></li>
+            <li><a href="training.html">TRAINING PROGRAMS</a></li>
+            <li><a href="location.html">WHERE &amp; WHEN</a></li>
+            <li class="highlight"><a href="register.html"><span>REGISTER</span></a></li>
+            <li><a href="contact.html">GET IN TOUCH</a></li>
+        </ul>
+        <section id="site-container">
+            <div class="row">
+                <div class="feature-text">
+                    <h1>About Advanced Football Academy</h1>
+
+                    <p>At Advanced Football Academy our vision is very simple:</p>
+
+                    <p>
+                        <em>“help develop better football players”</em>
+                    </p>
+
+                    <p>The goal at Advanced Football Academy is to provide young players with an environment that is conducive to learning the game of football, encourages fun and provides for player safety. </p>
+
+                    <p>Our objective is to:</p>
+                    <ul>
+                        <li>Improve the technical skills of every player and progress from beginner to advanced</li>
+                        <li>Develop player tactical awareness through practice and game play</li>
+                        <li>Encourage creativity and confidence in the players</li>
+                        <li>Foster good sportsmanship and fair play in all the players</li>
+                        <li>Treat every player respectfully and without discrimination</li>
+                    </ul>
+                    <p>Our coaches are FFA certified and combine extensive playing experience with modern football knowledge and techniques to help deliver effective and enjoyable sessions.</p>
+
+                    <p>All coaches are WWC approved.</p>
+                </div>
+                <div class="feature-image">
+                    <img src="img/soccer-kid-001.png" width="400" alt="">
+                </div>
+            </div>
+
+        </section>
+    </section>
+
+    <footer>
+        <p>All content &copy; Advanced Football Academy 2015</p>
+    </footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')
+</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+        var tncLink = false;
+        $(":checkbox").bind("click", false);
+
+        function checkTnc () {
+            tncLink = true;
+            var tncInput = document.getElementById('afa-agreement-check');
+            tncInput.disabled = false;
+        }
+
+        function tncRemind (el) {
+
+            if (tncLink === false) {
+                alert('Please read the Terms and Conditions before accepting');
+            } else {
+                $(":checkbox").off("click");
+            }
+        }
+
+</script>
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function() {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = 'https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X', 'auto');
+    ga('send', 'pageview');
+</script>
+</body>
+
+</html>
