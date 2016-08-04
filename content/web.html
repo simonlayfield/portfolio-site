@@ -5,12 +5,15 @@
 
 <script id='template' type='text/ractive'>
 
-    <div class="row row--bg">
+    <div class="row">
         <nav>
-            <li><a href="/branding">Branding</a></li>
-            <li><a class="active" href="/web">Web</a></li>
-            <li><a href="/illustration">Illustration</a></li>
+            <li><a class="btn" href="/branding.html">Branding</a></li>
+            <li><a class="btn active" href="/web.html">Web</a></li>
+            <li><a class="btn" href="/illustration.html">Illustration</a></li>
         </nav>
+    </div>
+    <div class="container container--full notification">
+        <p>Recently I've mainly been working on my own personal projects which include <a href="http://typereel.io" target="_blank">TYPEREEL</a> and <a href="#">HEY GAMES</a>.</p>
     </div>
     <div class="container">
         {{#each projectList:i}} {{#if title === "web"}} {{#each projectList[i].projects}}
@@ -18,7 +21,7 @@
             <img src="{{image}}" alt="">
             <h3>{{name}}</h3>
             <p>
-              <a href="{{url}}" target="_blank" class="btn">View site</a>
+              <a href="{{url}}" target="_blank">View site</a>
             </p>
         </div>
         {{/each}} {{/if}} {{/each}}

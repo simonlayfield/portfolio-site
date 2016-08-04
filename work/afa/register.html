@@ -40,85 +40,90 @@
 
             <div class="form-container">
 
-                <form method="post" class="form" novalidate="novalidate">
+                <form method="post" action="formRegisterEngine.php" class="form" novalidate="novalidate">
                     <h1>Register a Player for AFA</h1>
                     <h3>Child/Player Details</h3>
 
                     <div class="singleinput">
                         <label>Player First Name</label>
-                        <input type="text" name="player-first" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                        <input type="text" name="player-first" value="" size="40" aria-required="true" aria-invalid="false">
                     </div>
 
                     <div class="singleinput">
                         <label>Player Family Name</label>
-                        <input type="text" name="player-family" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                        <input type="text" name="player-family" value="" size="40" aria-required="true" aria-invalid="false">
                     </div>
 
-                    <label>Is the Player Registered with Banksia Tigers</label>
-                    <div class="radiogroup">
-                        <label>
-                            <input type="radio" name="player-registered" value="Yes">Yes</label>
-                        <label>
-                            <input type="radio" name="player-registered" value="No">No</label>
+                    <label>Is the Player registered with a designated club or team?</label>
+                    <div class="radiogroup" id="registeredCheck">
+                        <label><input type="radio" name="player-registered" onclick="registeredCheck(this.value)" value="Yes">Yes</label>
+                        <label><input type="radio" name="player-registered" onclick="registeredCheck(this.value)" value="No">No</label>
+                    </div>
+                    <div id="club-details">
+                        <label>Please provide current Club Name and Grade</label>
+                        <input type="text" name="player-club" placeholder="e.g. Sylvania Heights, U8As">
                     </div>
                     <label>Player Date of Birth (e.g. 28/10/04)</label>
-                    <input type="text" name="player-age" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                    <input type="text" name="player-age" value="" size="40" aria-required="true" aria-invalid="false">
                     <label>Player Gender</label>
                     <div class="radiogroup">
-                        <label>
-                            <input type="radio" name="player-gender" value="Male">Male</label>
-                        <label>
-                            <input type="radio" name="player-gender" value="Female">Female</label>
+                        <label><input type="radio" name="player-gender" value="Male">Male</label>
+                        <label><input type="radio" name="player-gender" value="Female">Female</label>
                     </div>
                     <label>Player Level</label>
                     <div class="radiogroup">
-                        <label>
-                            <input type="radio" name="player-level" value="Beginner">Beginner</label>
-                        <label>
-                            <input type="radio" name="player-level" value="Average">Average</label>
-                        <label>
-                            <input type="radio" name="player-level" value="Talented">Talented</label>
+                        <label><input type="radio" name="player-level" value="Beginner">Beginner</label>
+                        <label><input type="radio" name="player-level" value="Average">Average</label>
+                        <label><input type="radio" name="player-level" value="Talented">Talented</label>
                     </div>
 
                     <h3>Parent/Guardian Contact Details</h3>
 
                     <div class="singleinput">
                         <label>Parent First Name</label>
-                        <input type="text" name="parent-first" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                        <input type="text" name="parent-first" value="" size="40" aria-required="true" aria-invalid="false">
                     </div>
 
                     <div class="singleinput">
                         <label>Parent Family Name</label>
-                        <input type="text" name="parent-family" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                        <input type="text" name="parent-family" value="" size="40" aria-required="true" aria-invalid="false">
                     </div>
 
                     <div class="singleinput">
                         <label>Parent Mobile</label>
-                        <input type="tel" name="parent-mobile" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false">
+                        <input type="tel" name="parent-mobile" value="" size="40" aria-required="true" aria-invalid="false">
                     </div>
 
                     <div class="singleinput">
                         <label>Parent Email</label>
-                        <input type="email" name="parent-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false">
+                        <input type="email" name="parent-email" value="" size="40" aria-required="true" aria-invalid="false">
                     </div>
 
                     <label>Parent Address (e.g. Street, Suburb &amp; Postcode)</label>
-                    <input type="text" name="parent-address" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                    <input type="text" name="parent-address" value="" size="40" aria-required="true" aria-invalid="false">
                     <h3>Your Session Availability</h3>
-                    <p>AFA will run these development sessions on Friday afternoons/evenings at Gardiner Park, Banksia. To better understand your availability, please check ALL the sessions below that your child/player is able to attend.</p>
+                    <p>Advanced Football Academy runs the following training programs annually. Please refer to <a href="http://advancedfootballacademy.com.au/training.html" target="_blank">advancedfootballacademy.com.au/training.html</a> for more information about the benefits of each program.</p>
+                    <p>Please select the programs you are interested in participating in, specific details will be provided to you via email communication.</p>
                     <label>Friday Afternoon/Evening Sessions (Check all that apply)</label>
                     <div class="radiogroup">
-                        <label>
-                            <input type="checkbox" name="friday-sessions[]" value="5pm to 6pm">&nbsp;5pm to 6pm</label>
-                        <label>
-                            <input type="checkbox" name="friday-sessions[]" value="6pm to 7pm">&nbsp;6pm to 7pm</label>
-                        <label>
-                            <input type="checkbox" name="friday-sessions[]" value="7pm to 8pm">&nbsp;7pm to 8pm</label>
-                        <label>
-                            <input type="checkbox" name="friday-sessions[]" value="8pm to 9pm">&nbsp;8pm to 9pm</label>
+                        <label><input type="checkbox" name="sessions" value="Pre-season">Pre-season Training</label>
+                        <label><input type="checkbox" name="sessions" value="Mid-season">Mid-season Training</label>
+                        <label><input type="checkbox" name="sessions" value="Off-season">Off-season Training</label>
+                    </div>
+                    <p>AFA is now calling on parents/players to register their interest to participate in the upcoming 2016 10 week off-season program. Please choose the sessions below that your child/player is able to attend. Girls session starting Wednesday 14th September 2016 both boys sessions starting Thursday 15th September 2016. Refer to the following link for further information.</p>
+                    <div class="inputgroup">
+                        <div class="radiogroup singleinput">
+                            <p><strong>5:15pm – 6:30pm</strong></p>
+                            <label><input type="checkbox" name="offseason-sessions" value="Girls">Girls (11-16 years old)</label>
+                            <label><input type="checkbox" name="offseason-sessions" value="Junior Boys">Junior Boys (7- 10 years old)</label>
+                        </div>
+                        <div class="radiogroup singleinput">
+                            <p><strong>5:15pm – 6:30pm</strong></p>
+                            <label><input type="checkbox" name="offseason-sessions" value="Boys">Boys (11- 16 years </label>
+                        </div>
                     </div>
                     <h3>Additional Message to AFA</h3>
-                    <p>e.g. Child/player's special needs or requirements, you would like your child to have small focused group or one-on-one training, or what you would like to achieve from the sessions, etc.</p>
+                    <p>e.g. Child/player's special needs or requirements, you would like your child to have small focused group or one-on-one training, or what you would like to achieve from the sessions, etc</p>
                     <div class="message">
                         <textarea name="your-message" cols="40" rows="10" aria-invalid="false"></textarea>
                     </div>
@@ -143,6 +148,10 @@
         <p>All content &copy; Advanced Football Academy 2015</p>
     </footer>
 
+    <script>
+
+    </script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')
@@ -166,6 +175,14 @@
                 alert('Please read the Terms and Conditions before accepting');
             } else {
                 $(":checkbox").off("click");
+            }
+        }
+
+        function registeredCheck (val) {
+            if (val == 'Yes') {
+                document.getElementById('club-details').style.display = 'block';
+            } else {
+                document.getElementById('club-details').style.display = 'none';
             }
         }
 

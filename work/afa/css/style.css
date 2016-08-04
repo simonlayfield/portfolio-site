@@ -520,6 +520,15 @@ a {
     outline: none;
     padding: 0.5em;
     color: #666; }
+  .form .inputgroup {
+    zoom: 1; }
+    .form .inputgroup:before, .form .inputgroup:after {
+      content: "\0020";
+      display: block;
+      height: 0;
+      overflow: hidden; }
+    .form .inputgroup:after {
+      clear: both; }
   .form .radiogroup {
     margin-bottom: 1.5em; }
     .form .radiogroup input {
@@ -603,6 +612,9 @@ a {
       border: none;
       outline: none;
       color: #fff; }
+
+#club-details {
+  display: none; }
 
 footer {
   float: left;

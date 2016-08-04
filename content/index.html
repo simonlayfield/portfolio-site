@@ -8,49 +8,17 @@
         {{#each projectList}}
         <div class="category">
             <p>
-                <a href="/{{title}}">
-                    <img src="img/category-{{title}}-static.gif" srcset="img/category-{{title}}-static.gif 1x, img/category-{{title}}-static@2x.gif 2x" alt="" class="category-image" data-cat="{{title}}">
+                <a href="/{{title}}.html">
+                    <img src="img/category-{{title}}.svg" alt="" class="category-image">
                 </a>
             </p>
             <h2>{{title}}</h2>
             <p>{{{description}}}</p>
-            <p class="category__cta"><a href="/{{title}}" class="btn">View work</a></p>
+            <p class="category__cta"><a href="/{{title}}.html" class="btn">View work</a></p>
         </div>
         {{/each}}
     </div>
 </script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
 
-        $('.category img').hover(
-            function() {
-                var cat = $(this).attr('data-cat');
-                $(this).attr("srcset", "img/category-" + cat + ".gif 1x, img/category-" + cat + "@2x.gif 2x");
-            },
-            function() {
-                var cat = $(this).attr('data-cat');
-                $(this).attr("srcset", "img/category-" + cat + "-static.gif 1x, img/category-" + cat + "-static@2x.gif 2x");
-            });
-    });
-</script>
-
-<div class="hidden">
-	<script type="text/javascript">
-		<!--//--><![CDATA[//><!--
-			var images = new Array()
-			function preload() {
-				for (i = 0; i < preload.arguments.length; i++) {
-					images[i] = new Image()
-					images[i].src = preload.arguments[i]
-				}
-			}
-			preload(
-				"img/category-branding@2x.gif",
-				"img/category-illustration@2x.gif",
-				"img/category-web@2x.gif"
-			)
-		//--><!]]>
-	</script>
-</div>
 
 @@include('../templates/footer.html', {"jsfile": "main"})

@@ -40,27 +40,38 @@
 
             <div class="form-container contact">
 
-                <div class="form">
-                    <div class="singleinput">
-                        <label for="firstname">First Name</label>
-                        <input type="text" name="firstname">
+                <h1>Get in touch</h1>
+
+                <p>Use our the form below to submit your enquiry. We aim to respond to all enquiries within 24 hours.</p>
+
+                <form method="post" action="contactengine.php">
+                    <div class="form">
+                        <div class="singleinput">
+                            <label for="firstname">First Name</label>
+                            <input type="text" name="firstname">
+                        </div>
+                        <div class="singleinput">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" name="lastname">
+                        </div>
+                        <div class="singleinput">
+                            <label for="email">Email Address</label>
+                            <input type="email" name="email">
+                        </div>
+                        <div class="message">
+                            <label for="message">Message</label>
+                            <textarea name="message" rows="8" cols="40"></textarea>
+                        </div>
+                        <div class="captcha">
+                          <div class="g-recaptcha" data-sitekey="6LcFlhUTAAAAAFMduRVr-0UBvRhBHvGTdHMiMlAO"></div>
+                        </div>
+                        <div class="submit">
+                          <p>
+                              <input type="submit" value="SEND">
+                          </p>
+                        </div>
                     </div>
-                    <div class="singleinput">
-                        <label for="lastname">Last Name</label>
-                        <input type="text" name="lastname">
-                    </div>
-                    <div class="singleinput">
-                        <label for="lastname">Email</label>
-                        <input type="email" name="email">
-                    </div>
-                    <div class="message">
-                        <label for="message">Message</label>
-                        <textarea name="name" rows="8" cols="40"></textarea>
-                    </div>
-                    <p class="submit">
-                        <input type="submit" value="SEND">
-                    </p>
-                </div>
+                </form>
 
             </div>
 
@@ -94,6 +105,14 @@
                 alert('Please read the Terms and Conditions before accepting');
             } else {
                 $(":checkbox").off("click");
+            }
+        }
+
+        function registeredCheck (val) {
+            if (val == 'Yes') {
+                document.getElementById('club-details').style.display = 'block';
+            } else {
+                document.getElementById('club-details').style.display = 'none';
             }
         }
 
