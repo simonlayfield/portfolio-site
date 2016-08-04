@@ -91,7 +91,7 @@
 
 <script>
         var tncLink = false;
-        $(":checkbox").bind("click", false);
+        $("#afa-agreement-check:checkbox").bind("click", false);
 
         function checkTnc () {
             tncLink = true;
@@ -104,7 +104,7 @@
             if (tncLink === false) {
                 alert('Please read the Terms and Conditions before accepting');
             } else {
-                $(":checkbox").off("click");
+                $("#afa-agreement-check:checkbox").off("click");
             }
         }
 

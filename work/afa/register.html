@@ -106,20 +106,20 @@
                     <p>Please select the programs you are interested in participating in, specific details will be provided to you via email communication.</p>
                     <label>Friday Afternoon/Evening Sessions (Check all that apply)</label>
                     <div class="radiogroup">
-                        <label><input type="checkbox" name="sessions" value="Pre-season">Pre-season Training</label>
-                        <label><input type="checkbox" name="sessions" value="Mid-season">Mid-season Training</label>
-                        <label><input type="checkbox" name="sessions" value="Off-season">Off-season Training</label>
+                        <label for="sessions"><input type="checkbox" name="sessions" value="Pre-season">Pre-season Training</label>
+                        <label for="sessions"><input type="checkbox" name="sessions" value="Mid-season">Mid-season Training</label>
+                        <label for="sessions"><input type="checkbox" name="sessions" value="Off-season">Off-season Training</label>
                     </div>
                     <p>AFA is now calling on parents/players to register their interest to participate in the upcoming 2016 10 week off-season program. Please choose the sessions below that your child/player is able to attend. Girls session starting Wednesday 14th September 2016 both boys sessions starting Thursday 15th September 2016. Refer to the following link for further information.</p>
                     <div class="inputgroup">
                         <div class="radiogroup singleinput">
                             <p><strong>5:15pm – 6:30pm</strong></p>
-                            <label><input type="checkbox" name="offseason-sessions" value="Girls">Girls (11-16 years old)</label>
-                            <label><input type="checkbox" name="offseason-sessions" value="Junior Boys">Junior Boys (7- 10 years old)</label>
+                            <label for="offseason-sessions"><input type="checkbox" name="offseason-sessions" value="Girls">Girls (11-16 years old)</label>
+                            <label for="offseason-sessions"><input type="checkbox" name="offseason-sessions" value="Junior Boys">Junior Boys (7- 10 years old)</label>
                         </div>
                         <div class="radiogroup singleinput">
                             <p><strong>5:15pm – 6:30pm</strong></p>
-                            <label><input type="checkbox" name="offseason-sessions" value="Boys">Boys (11- 16 years </label>
+                            <label for="offseason-sessions"><input type="checkbox" name="offseason-sessions" value="Boys">Boys (11- 16 years </label>
                         </div>
                     </div>
                     <h3>Additional Message to AFA</h3>
@@ -130,7 +130,7 @@
                     <h3>AFA Terms &amp; Conditions Agreement</h3>
                     <p><a href="./terms-and-conditions.html" target="_blank" id="afa-agreement-link" onclick="checkTnc()">Click to review Terms and Conditions</a></p>
                     <div class="radiogroup">
-                        <label><input type="checkbox" name="afa-agreement-check" id="afa-agreement-check" onclick="tncRemind(this)" value="Yes" required>I agree to the AFA Terms &amp; Conditions</label>
+                        <label><input type="checkbox" name="afa-agreement-chec" onclick="tncRemind(this)" value="Yes" required>I agree to the AFA Terms &amp; Conditions</label>
                     </div>
                     <h3>Submit the Form</h3> Once you have completed the form, please press the "Submit" button below and wait until a confirmation appears on the screen. If successful, an email should be sent to your nominated address within 10 mins. Please also check your
                     junk/spam mail just in case it appears there. </p>
@@ -161,7 +161,7 @@
 
 <script>
         var tncLink = false;
-        $(":checkbox").bind("click", false);
+        $("#afa-agreement-check:checkbox").bind("click", false);
 
         function checkTnc () {
             tncLink = true;
@@ -174,7 +174,7 @@
             if (tncLink === false) {
                 alert('Please read the Terms and Conditions before accepting');
             } else {
-                $(":checkbox").off("click");
+                $("#afa-agreement-check:checkbox").off("click");
             }
         }
 
