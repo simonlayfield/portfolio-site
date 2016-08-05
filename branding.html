@@ -26,8 +26,8 @@
         <![endif]-->
 
     <header>
-        <a href="http://simonlayfield.com/">
-            <img src="img/logo-header.png" srcset="img/logo-header@2x.png 2x" alt="Simon Layfield Logo">
+        <a href="./">
+            <img src="img/logo-signature.svg" alt="Simon Layfield Logo">
         </a>
     </header>
 
@@ -37,19 +37,21 @@
 
 <script id='template' type='text/ractive'>
 
-    <div class="row row--bg">
+    <div class="row">
         <nav>
-            <li><a class="active" href="/branding">Branding</a></li>
-            <li><a href="/web">Web</a></li>
-            <li><a href="/illustration">Illustration</a></li>
+            <li><a class="btn active" href="/branding.html">Branding</a></li>
+            <li><a class="btn" href="/web.html">Web</a></li>
+            <li><a class="btn" href="/illustration.html">Illustration</a></li>
         </nav>
     </div>
-    <div class="container">
-        {{#each projectList:i}} {{#if title === "branding"}} {{#each projectList[i].projects}}
-        <div class="project project--branding">
-            <img src="{{image}}" alt="">
+    <div class="row row--bg">
+        <div class="container">
+            {{#each projectList:i}} {{#if title === "branding"}} {{#each projectList[i].projects}}
+            <div class="project project--branding">
+                <img src="{{image}}" alt="">
+            </div>
+            {{/each}} {{/if}} {{/each}}
         </div>
-        {{/each}} {{/if}} {{/each}}
     </div>
 
 </script>

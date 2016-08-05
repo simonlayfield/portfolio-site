@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                 tasks: ['sass']
             },
             html: {
-                files: 'content/*.html',
+                files: ['content/*.html', 'templates/*.html'],
                 tasks: ['includereplace']
             }
         },
@@ -39,7 +39,8 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     src: ['img/auto/gif'],
-                    dest: 'js/list-gif.json'
+                    dest: 'js/list-gif.json',
+                    recurse: false
                 }, {
                     src: ['img/auto/photo'],
                     dest: 'js/list-photo.json'
@@ -64,11 +65,33 @@ module.exports = function(grunt) {
                     ext: '.gif'
                 }]
             }
+        },
+        gif_video: {
+            animated: {
+                options: {
+                    ffmpeg: {
+                        webm: [
+                            '-c:v libvpx',
+                            '-pix_fmt yuv420p',
+                            '-crf 10',
+                            '-quality best',
+                        ]
+                    },
+                    cleanup: true,
+                    limit: 1
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'img/auto/process/gif',
+                    src: ['*.gif'],
+                    dest: 'img/auto/gif',
+                }]
+            }
         }
-
 
     });
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-gif-video');
     grunt.loadNpmTasks('grunt-tree');
     grunt.loadNpmTasks('grunt-include-replace');
     grunt.loadNpmTasks('grunt-contrib-sass');

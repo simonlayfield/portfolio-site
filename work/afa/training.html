@@ -1,0 +1,153 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:300,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <section id="site-wrapper">
+
+        <ul class="main-menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT AFA</a></li>
+            <li class="selected"><a href="#">TRAINING PROGRAMS</a></li>
+            <li><a href="location.html">WHERE &amp; WHEN</a></li>
+            <li class="highlight"><a href="register.html"><span>REGISTER</span></a></li>
+            <li><a href="contact.html">GET IN TOUCH</a></li>
+        </ul>
+        <section id="site-container">
+
+            <div class="row">
+                <h1>Our sessions</h1>
+
+                <p>The beautiful game of football is a wonderful sport for both boys and girls of all ages and abilities and can be a very rewarding life activity. All parents want the best for their children and football provides a great way to have fun,
+                    learn new skills and participate in a team activity. As with many sports, mastering Football can be a life long journey.</p>
+
+                <p>At Advanced Football Academy our goal is to work with our youths (boys and girls) to help educate and develop better football players.</p>
+
+                <p>The worlds best coaches all agree that advance Player development requires equal focus on the four key player development elements including technical &amp; tactical development, Physical Conditioning and Psychological development.</p>
+
+                <p>At AFA we use modern training techniques and tools to create training programs and coaching sessions geared towards optimising player development.</p>
+
+                <h2>Our Training Programs</h2>
+
+                <p>
+                    The training programs are geared towards developing the best outcome for the players during the various phases of the season.
+                </p>
+
+            </div>
+
+            <div class="card-container">
+                <div class="card active" data-content="preseason"><a href="#"><!--<img src="img/training-card-001.png">--><span>Pre-season</span></a></div>
+                <div class="card" data-content="midseason"><a href="#"><!--<img src="img/training-card-002.png">--><span>Mid-season</span></a></div>
+                <div class="card" data-content="offseason"><a href="#"><!--<img src="img/training-card-003.png">--><span>Off-season</span></a></div>
+            </div>
+
+            <div class="container">
+
+                <div class="card-content" id="preseason">
+                    <h2>Pre-season</h2>
+                    <p>The preseason program is ideal for players who are seeking to get into optimum condition for the upcoming start of the competitive season, Focus is provided on executing skills with speed, agility and quickness with and without the
+                        ball. In conjunction with your personal and team based activities players can expect to be technically and physically sharper, tactically aware of positional play and motivated and ready to compete.</p>
+                </div>
+
+                <div class="card-content" id="midseason">
+                    <h2>Mid-season</h2>
+                    <p>The mid-season program is targeted towards players who are eager to maintain peak performance whilst refining all individual skill development areas. Sessions are focused on lots of game-centred attacking and defensive drills simulating
+                        real game environments.
+                    </p>
+                </div>
+
+                <div class="card-content" id="offseason">
+                    <h2>Off-season</h2>
+                    <p>The offseason program provides and opportunity for the player to acquire and develop new and advanced skills across the foundational areas of ball mastery, passing, receiving, Feints and turns, shooting and defending. Individual tactical
+                        development is also addressed with players learning how and when to utilize the skills in game simulation. Training comprises Lots of 1v1, 2v2 and small sided games.</p>
+                </div>
+
+            </div>
+
+        </section>
+    </section>
+
+    <footer>
+        <p>All content &copy; Advanced Football Academy 2015</p>
+    </footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')
+</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+        var tncLink = false;
+        $("#afa-agreement-check:checkbox").bind("click", false);
+
+        function checkTnc () {
+            tncLink = true;
+            var tncInput = document.getElementById('afa-agreement-check');
+            tncInput.disabled = false;
+        }
+
+        function tncRemind (el) {
+
+            if (tncLink === false) {
+                alert('Please read the Terms and Conditions before accepting');
+            } else {
+                $("#afa-agreement-check:checkbox").off("click");
+            }
+        }
+
+        function registeredCheck (val) {
+            if (val == 'Yes') {
+                document.getElementById('club-details').style.display = 'block';
+            } else {
+                document.getElementById('club-details').style.display = 'none';
+            }
+        }
+
+</script>
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function() {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = 'https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X', 'auto');
+    ga('send', 'pageview');
+</script>
+</body>
+
+</html>

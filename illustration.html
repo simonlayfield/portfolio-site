@@ -26,8 +26,8 @@
         <![endif]-->
 
     <header>
-        <a href="http://simonlayfield.com/">
-            <img src="img/logo-header.png" srcset="img/logo-header@2x.png 2x" alt="Simon Layfield Logo">
+        <a href="./">
+            <img src="img/logo-signature.svg" alt="Simon Layfield Logo">
         </a>
     </header>
 
@@ -37,27 +37,27 @@
 
 <script id='template' type='text/ractive'>
 
-    <div class="row row--bg">
+    <div class="row">
         <nav>
-            <li><a href="/branding">Branding</a></li>
-            <li><a href="/web">Web</a></li>
-            <li><a class="active" href="/illustration">Illustration</a></li>
+            <li><a class="btn" href="/branding.html">Branding</a></li>
+            <li><a class="btn" href="/web.html">Web</a></li>
+            <li><a class="btn active" href="/illustration.html">Illustration</a></li>
         </nav>
     </div>
-
-    <div class="container">
-    <ul class="list-illustration">
-        {{#each projectList:i}} {{#if title === "illustration"}}
-        {{#each projectList[i].projects}}
-        <li>
-          <img src="{{image}}" alt="">
-        </li>
-        {{/each}}
-        {{/if}}
-        {{/each}}
-        </ul>
+    <div class="row row--bg">
+        <div class="container">
+            <ul class="list-illustration">
+                {{#each projectList:i}} {{#if title === "illustration"}}
+                {{#each projectList[i].projects}}
+                <li>
+                  <img src="{{image}}" alt="" class="loaded">
+                </li>
+                {{/each}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
     </div>
-
 </script>
 
 

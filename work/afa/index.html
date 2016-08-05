@@ -1,0 +1,126 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:300,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <section id="site-wrapper">
+
+        <ul class="main-menu">
+            <li class="selected"><a href="#">HOME</a></li>
+            <li><a href="about.html">ABOUT AFA</a></li>
+            <li><a href="training.html">TRAINING PROGRAMS</a></li>
+            <li><a href="location.html">WHERE &amp; WHEN</a></li>
+            <li class="highlight"><a href="register.html"><span>REGISTER</span></a></li>
+            <li><a href="contact.html">GET IN TOUCH</a></li>
+        </ul>
+
+        <section id="site-container">
+
+            <div class="row">
+                <div class="logo-home">
+                    <img src="img/logo-home.png">
+                </div>
+
+                <div class="text-home">
+                    <h1>Advanced football training for youths and young athletes</h1>
+
+                    <p>The beautiful game of football is a wonderful sport for both boys and girls of all ages and abilities and can be a very rewarding life activity. All parents want the best for their children and football provides a great way to have
+                        fun, learn new skills and participate in a team activity. As with many sports, mastering Football can be a life long journey.</p>
+
+                    <p>At Advanced Football Academy our goal is to work with our youths (boys and girls) to help educate and develop better football players.</p>
+
+                    <p>The worlds best coaches all agree that advance Player development requires equal focus on the four key player development elements including technical &amp; tactical development, Physical Conditioning and Psychological development.</p>
+
+                    <p>At AFA we use modern training techniques and tools to create training programs and coaching sessions geared towards optimising player development.</p>
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+
+    <footer id="footer">
+        <p>All content &copy; Advanced Football Academy 2015</p>
+    </footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')
+</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+        var tncLink = false;
+        $("#afa-agreement-check:checkbox").bind("click", false);
+
+        function checkTnc () {
+            tncLink = true;
+            var tncInput = document.getElementById('afa-agreement-check');
+            tncInput.disabled = false;
+        }
+
+        function tncRemind (el) {
+
+            if (tncLink === false) {
+                alert('Please read the Terms and Conditions before accepting');
+            } else {
+                $("#afa-agreement-check:checkbox").off("click");
+            }
+        }
+
+        function registeredCheck (val) {
+            if (val == 'Yes') {
+                document.getElementById('club-details').style.display = 'block';
+            } else {
+                document.getElementById('club-details').style.display = 'none';
+            }
+        }
+
+</script>
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function() {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = 'https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X', 'auto');
+    ga('send', 'pageview');
+</script>
+</body>
+
+</html>

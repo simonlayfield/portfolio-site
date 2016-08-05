@@ -1,0 +1,211 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:300,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <section id="site-wrapper">
+        <ul class="main-menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT AFA</a></li>
+            <li><a href="training.html">TRAINING PROGRAMS</a></li>
+            <li><a href="location.html">WHERE &amp; WHEN</a></li>
+            <li class="selected highlight"><a href="register.html"><span>REGISTER</span></a></li>
+            <li><a href="contact.html">GET IN TOUCH</a></li>
+        </ul>
+
+        <section id="site-container">
+
+            <div class="form-container">
+
+                <form method="post" action="formRegisterEngine.php" class="form" novalidate="novalidate">
+                    <h1>Register a Player for AFA</h1>
+                    <h3>Child/Player Details</h3>
+
+                    <div class="singleinput">
+                        <label>Player First Name</label>
+                        <input type="text" name="player-first" value="" size="40" aria-required="true" aria-invalid="false">
+                    </div>
+
+                    <div class="singleinput">
+                        <label>Player Family Name</label>
+                        <input type="text" name="player-family" value="" size="40" aria-required="true" aria-invalid="false">
+                    </div>
+
+                    <label>Is the Player registered with a designated club or team?</label>
+                    <div class="radiogroup" id="registeredCheck">
+                        <label><input type="radio" name="player-registered" onclick="registeredCheck(this.value)" value="Yes">Yes</label>
+                        <label><input type="radio" name="player-registered" onclick="registeredCheck(this.value)" value="No">No</label>
+                    </div>
+                    <div id="club-details">
+                        <label>Please provide current Club Name and Grade</label>
+                        <input type="text" name="player-club" placeholder="e.g. Sylvania Heights, U8As">
+                    </div>
+                    <label>Player Date of Birth (e.g. 28/10/04)</label>
+                    <input type="text" name="player-age" value="" size="40" aria-required="true" aria-invalid="false">
+                    <label>Player Gender</label>
+                    <div class="radiogroup">
+                        <label><input type="radio" name="player-gender" value="Male">Male</label>
+                        <label><input type="radio" name="player-gender" value="Female">Female</label>
+                    </div>
+                    <label>Player Level</label>
+                    <div class="radiogroup">
+                        <label><input type="radio" name="player-level" value="Beginner">Beginner</label>
+                        <label><input type="radio" name="player-level" value="Average">Average</label>
+                        <label><input type="radio" name="player-level" value="Talented">Talented</label>
+                    </div>
+
+                    <h3>Parent/Guardian Contact Details</h3>
+
+                    <div class="singleinput">
+                        <label>Parent First Name</label>
+                        <input type="text" name="parent-first" value="" size="40" aria-required="true" aria-invalid="false">
+                    </div>
+
+                    <div class="singleinput">
+                        <label>Parent Family Name</label>
+                        <input type="text" name="parent-family" value="" size="40" aria-required="true" aria-invalid="false">
+                    </div>
+
+                    <div class="singleinput">
+                        <label>Parent Mobile</label>
+                        <input type="tel" name="parent-mobile" value="" size="40" aria-required="true" aria-invalid="false">
+                    </div>
+
+                    <div class="singleinput">
+                        <label>Parent Email</label>
+                        <input type="email" name="parent-email" value="" size="40" aria-required="true" aria-invalid="false">
+                    </div>
+
+                    <label>Parent Address (e.g. Street, Suburb &amp; Postcode)</label>
+                    <input type="text" name="parent-address" value="" size="40" aria-required="true" aria-invalid="false">
+                    <h3>Your Session Availability</h3>
+                    <p>Advanced Football Academy runs the following training programs annually. Please refer to <a href="http://advancedfootballacademy.com.au/training.html" target="_blank">advancedfootballacademy.com.au/training.html</a> for more information about the benefits of each program.</p>
+                    <p>Please select the programs you are interested in participating in, specific details will be provided to you via email communication.</p>
+                    <label>Friday Afternoon/Evening Sessions (Check all that apply)</label>
+                    <div class="radiogroup">
+                        <label for="sessions"><input type="checkbox" name="sessions" value="Pre-season">Pre-season Training</label>
+                        <label for="sessions"><input type="checkbox" name="sessions" value="Mid-season">Mid-season Training</label>
+                        <label for="sessions"><input type="checkbox" name="sessions" value="Off-season">Off-season Training</label>
+                    </div>
+                    <p>AFA is now calling on parents/players to register their interest to participate in the upcoming 2016 10 week off-season program. Please choose the sessions below that your child/player is able to attend. Girls session starting Wednesday 14th September 2016 both boys sessions starting Thursday 15th September 2016. Refer to the following link for further information.</p>
+                    <div class="inputgroup">
+                        <div class="radiogroup singleinput">
+                            <p><strong>5:15pm – 6:30pm</strong></p>
+                            <label for="offseason-sessions"><input type="checkbox" name="offseason-sessions" value="Girls">Girls (11-16 years old)</label>
+                            <label for="offseason-sessions"><input type="checkbox" name="offseason-sessions" value="Junior Boys">Junior Boys (7- 10 years old)</label>
+                        </div>
+                        <div class="radiogroup singleinput">
+                            <p><strong>5:15pm – 6:30pm</strong></p>
+                            <label for="offseason-sessions"><input type="checkbox" name="offseason-sessions" value="Boys">Boys (11- 16 years </label>
+                        </div>
+                    </div>
+                    <h3>Additional Message to AFA</h3>
+                    <p>e.g. Child/player's special needs or requirements, you would like your child to have small focused group or one-on-one training, or what you would like to achieve from the sessions, etc</p>
+                    <div class="message">
+                        <textarea name="your-message" cols="40" rows="10" aria-invalid="false"></textarea>
+                    </div>
+                    <h3>AFA Terms &amp; Conditions Agreement</h3>
+                    <p><a href="./terms-and-conditions.html" target="_blank" id="afa-agreement-link" onclick="checkTnc()">Click to review Terms and Conditions</a></p>
+                    <div class="radiogroup">
+                        <label><input type="checkbox" name="afa-agreement-chec" onclick="tncRemind(this)" value="Yes" required>I agree to the AFA Terms &amp; Conditions</label>
+                    </div>
+                    <h3>Submit the Form</h3> Once you have completed the form, please press the "Submit" button below and wait until a confirmation appears on the screen. If successful, an email should be sent to your nominated address within 10 mins. Please also check your
+                    junk/spam mail just in case it appears there. </p>
+                    <p class="submit">
+                        <input type="submit" value="Submit Registration">
+                    </p>
+                </form>
+
+            </div>
+
+        </section>
+    </section>
+
+    <footer>
+        <p>All content &copy; Advanced Football Academy 2015</p>
+    </footer>
+
+    <script>
+
+    </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')
+</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+        var tncLink = false;
+        $("#afa-agreement-check:checkbox").bind("click", false);
+
+        function checkTnc () {
+            tncLink = true;
+            var tncInput = document.getElementById('afa-agreement-check');
+            tncInput.disabled = false;
+        }
+
+        function tncRemind (el) {
+
+            if (tncLink === false) {
+                alert('Please read the Terms and Conditions before accepting');
+            } else {
+                $("#afa-agreement-check:checkbox").off("click");
+            }
+        }
+
+        function registeredCheck (val) {
+            if (val == 'Yes') {
+                document.getElementById('club-details').style.display = 'block';
+            } else {
+                document.getElementById('club-details').style.display = 'none';
+            }
+        }
+
+</script>
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function() {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = 'https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X', 'auto');
+    ga('send', 'pageview');
+</script>
+</body>
+
+</html>
