@@ -75,6 +75,10 @@ header {
   margin: 2em 0 0;
   background-color: #fff;
   padding: 2em 0; }
+  .row.row--bg.row--flat {
+    margin-top: 0; }
+.row.row--flat {
+  margin-top: 0; }
 
 .container {
   float: none;
@@ -210,7 +214,7 @@ nav {
     .project.project--web h3, .project.project--web a {
       color: #4CA1AF; }
 
-.list-illustration {
+.gallery {
   clear: both;
   -moz-column-count: 3;
   -moz-column-gap: 20px;
@@ -218,12 +222,12 @@ nav {
   -webkit-column-gap: 20px;
   padding-left: 0; }
   @media (max-width: 30em) {
-    .list-illustration {
+    .gallery {
       -moz-column-count: 1;
       -moz-column-gap: 0;
       -webkit-column-count: 1;
       -webkit-column-gap: 0; } }
-  .list-illustration li {
+  .gallery li {
     width: 100%;
     display: inline-block;
     list-style: none;

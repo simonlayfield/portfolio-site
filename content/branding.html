@@ -14,11 +14,26 @@
     </div>
     <div class="row row--bg">
         <div class="container">
-            {{#each projectList:i}} {{#if title === "branding"}} {{#each projectList[i].projects}}
+            {{#each projectList:i}} {{#if title === "branding"}} {{#each projectList[i].logos}}
             <div class="project project--branding">
                 <img src="{{image}}" alt="">
             </div>
             {{/each}} {{/if}} {{/each}}
+        </div>
+    </div>
+
+    <div class="row row--bg row--flat">
+        <div class="container">
+            <ul class="gallery">
+                {{#each projectList:i}} {{#if title === "branding"}}
+                {{#each projectList[i].mockups}}
+                <li>
+                  <img src="{{image}}" alt="" class="loaded">
+                </li>
+                {{/each}}
+                {{/if}}
+                {{/each}}
+            </ul>
         </div>
     </div>
 

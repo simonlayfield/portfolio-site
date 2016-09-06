@@ -1,7 +1,7 @@
 projects = [{
     "title": "branding",
     "description": "I design purposeful, visually balanced branding. Tell me all about your company and I'll build you an identity.",
-    "projects": [{
+    "logos": [{
         "image": "img/branding/thumbnail-k-nit.jpg",
         "name": "K-nit"
     }, {
@@ -58,7 +58,24 @@ projects = [{
     }, {
         "image": "img/branding/thumbnail-bowerbird.jpg",
         "name": "Bowerbird"
+    }],
+    "mockups": [{
+        "image": "img/branding/mockup-get-recruits.jpg",
+        "name": "K-nit"
+    }, {
+        "image": "img/branding/mockup-afa.jpg",
+        "name": "Get Recruits"
+    }, {
+        "image": "img/branding/mockup-k-nit-tee.jpg",
+        "name": "Marlow and Finch"
+    }, {
+        "image": "img/branding/mockup-rob-baker.jpg",
+        "name": "The Paper Nation"
+    }, {
+        "image": "img/branding/mockup-enjees.jpg",
+        "name": "The Paper Nation"
     }]
+
 }, {
     "title": "web",
     "description": "I build <strong>simple</strong>, <strong>user-friendly</strong> websites. Most recently, I've been tinkering with <a href='http://flint.gs/'>FLINT</a>, <a href='https://nodejs.org/'>Node.js</a> and <a href='http://www.ractivejs.org/'>Ractive.js</a> templating.",
@@ -93,7 +110,7 @@ projects = [{
     }, {
         "image": "img/web/thumbnail-advanced-football-academy.jpg",
         "name": "Advanced Football Academy",
-        "url": "http://advancedfootballacademy.com.au/preview/"
+        "url": "http://advancedfootballacademy.com.au/"
     }, {
         "image": "img/web/thumbnail-frankie-unsworth.jpg",
         "name": "Frankie Unsworth",
@@ -122,6 +139,9 @@ projects = [{
         "image": "img/illustration/thumbnail-geoff.jpg"
     }, {
         "name": "Awesome Project",
+        "image": "img/illustration/thumbnail-dinos.jpg"
+    }, {
+        "name": "Awesome Project",
         "image": "img/illustration/thumbnail-girl-and-boys.jpg"
     }, {
         "name": "Awesome Project",
@@ -129,6 +149,9 @@ projects = [{
     }, {
         "name": "Awesome Project",
         "image": "img/illustration/thumbnail-king-for-a-day.jpg"
+    }, {
+        "name": "Awesome Project",
+        "image": "img/illustration/thumbnail-jude-gofather-advice.jpg"
     }, {
         "name": "Awesome Project",
         "image": "img/illustration/thumbnail-lance.jpg"
