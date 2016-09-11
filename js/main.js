@@ -14,8 +14,8 @@ projects = [{
         "image": "img/branding/thumbnail-the-paper-nation.jpg",
         "name": "The Paper Nation"
     }, {
-        "image": "img/branding/thumbnail-advanced-football-academy.jpg",
-        "name": "Advanced Football Academy"
+        "image": "img/branding/thumbnail-tiyan-baker.jpg",
+        "name": "Tiyan Baker"
     }, {
         "image": "img/branding/thumbnail-the-rob-baker-band.jpg",
         "name": "The Rob Baker Band"
@@ -26,6 +26,9 @@ projects = [{
         "image": "img/branding/thumbnail-design-bytes.jpg",
         "name": "Design Bytes"
     }, {
+        "image": "img/branding/thumbnail-advanced-football-academy.jpg",
+        "name": "Advanced Football Academy"
+    }, {
         "image": "img/branding/thumbnail-one-touch.jpg",
         "name": "One Touch"
     }, {
@@ -34,6 +37,9 @@ projects = [{
     }, {
         "image": "img/branding/thumbnail-barefeet-nomads.jpg",
         "name": "Barefeet Nomads"
+    }, {
+        "image": "img/branding/thumbnail-custom-golf-gifts.jpg",
+        "name": "Custom Golf Gifts"
     }, {
         "image": "img/branding/thumbnail-the-keepsaker.jpg",
         "name": "The Keepsaker"
@@ -80,41 +86,55 @@ projects = [{
     "title": "web",
     "description": "I build <strong>simple</strong>, <strong>user-friendly</strong> websites. Most recently, I've been tinkering with <a href='http://flint.gs/'>FLINT</a>, <a href='https://nodejs.org/'>Node.js</a> and <a href='http://www.ractivejs.org/'>Ractive.js</a> templating.",
     "projects": [{
-        "image": "img/web/thumbnail-design-bytes.jpg",
-        "name": "Design Bytes",
-        "url": "http://designbytes.com.au/"
+        "image": "img/web/thumbnail-k-nit.jpg",
+        "name": "K-nit",
+        "url": "http://k-nit.co.uk/",
+        "type": "commercial"
     }, {
-        "image": "img/web/thumbnail-marlow-and-finch.jpg",
-        "name": "Marlow and Finch",
-        "url": "http://www.marlowandfinch.com.au/"
-    }, {
-        "image": "img/web/thumbnail-ximula.jpg",
-        "name": "Ximula",
-        "url": "http://ximula.com.au"
+        "image": "img/web/thumbnail-typereel.jpg",
+        "name": "Typereel",
+        "url": "http://typereel.io/",
+        "type": "personal"
     }, {
         "image": "img/web/thumbnail-thinking-loud.jpg",
         "name": "Thinking Loud",
-        "url": "http://thinkingloud.com.au/"
+        "url": "http://thinkingloud.com.au/",
+        "type": "commercial"
     }, {
-        "image": "img/web/thumbnail-lexisnexis-media-centre.jpg",
-        "name": "LexisNexis Media Centre",
-        "url": "http://lexisnexis.com.au/media-centre/"
-    }, {
-        "image": "img/web/thumbnail-k-nit.jpg",
-        "name": "K-nit",
-        "url": "http://k-nit.co.uk/"
-    }, {
-        "image": "img/web/thumbnail-orchard-holdings.jpg",
-        "name": "Orchard Holdings",
-        "url": "http://orchardholdingsplc.com/"
+        "image": "img/web/thumbnail-marlow-and-finch.jpg",
+        "name": "Marlow and Finch",
+        "url": "http://www.marlowandfinch.com.au/",
+        "type": "commercial"
     }, {
         "image": "img/web/thumbnail-advanced-football-academy.jpg",
         "name": "Advanced Football Academy",
-        "url": "http://advancedfootballacademy.com.au/"
+        "url": "http://advancedfootballacademy.com.au/",
+        "type": "commercial"
+    }, {
+        "image": "img/web/thumbnail-ximula.jpg",
+        "name": "Ximula",
+        "url": "http://ximula.com.au",
+        "type": "commercial"
+    }, {
+        "image": "img/web/thumbnail-lexisnexis-media-centre.jpg",
+        "name": "LexisNexis Media Centre",
+        "url": "http://lexisnexis.com.au/media-centre/",
+        "type": "commercial"
+    }, {
+        "image": "img/web/thumbnail-orchard-holdings.jpg",
+        "name": "Orchard Holdings",
+        "url": "http://orchardholdingsplc.com/",
+        "type": "commercial"
     }, {
         "image": "img/web/thumbnail-frankie-unsworth.jpg",
         "name": "Frankie Unsworth",
-        "url": "http://frankieunsworth.com/"
+        "url": "http://frankieunsworth.com/",
+        "type": "commercial"
+    },{
+        "image": "img/web/thumbnail-design-bytes.jpg",
+        "name": "Design Bytes",
+        "url": "http://designbytes.com.au/",
+        "type": "commercial"
     }]
 }, {
     "title": "illustration",
@@ -167,6 +187,9 @@ projects = [{
     }, {
         "name": "Awesome Project",
         "image": "img/illustration/thumbnail-pixie-monster.jpg"
+    }, {
+        "name": "Awesome Project",
+        "image": "img/illustration/thumbnail-derren-brown.jpg"
     }, {
         "name": "Awesome Project",
         "image": "img/illustration/thumbnail-rollneck-dude.jpg"
