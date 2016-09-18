@@ -38,8 +38,8 @@ projects = [{
         "image": "img/branding/thumbnail-barefeet-nomads.jpg",
         "name": "Barefeet Nomads"
     }, {
-        "image": "img/branding/thumbnail-custom-golf-gifts.jpg",
-        "name": "Custom Golf Gifts"
+        "image": "img/branding/thumbnail-yaty.jpg",
+        "name": "YATY"
     }, {
         "image": "img/branding/thumbnail-the-keepsaker.jpg",
         "name": "The Keepsaker"
