@@ -24,7 +24,11 @@
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
+    <div class="contactTab">
+        <div class="contactTab__icon">
+            <img src="img/icon-mail.svg" alt="Mail">
+        </div>
+        <div class="contactTab__label"><a href="javascript:location='mailto:\u0073\u0069\u006d\u006f\u006e\u006c\u0061\u0079\u0066\u0069\u0065\u006c\u0064\u0040\u0067\u006d\u0061\u0069\u006c\u002e\u0063\u006f\u006d';void 0">Say hello!</a></div></div>
     <header>
         <a href="./">
             <img src="img/logo-signature.svg" alt="Simon Layfield Logo">
@@ -46,7 +50,7 @@
     </div>
     <div class="row row--bg">
         <div class="container">
-            {{#each projectList:i}} {{#if title === "branding"}} {{#each projectList[i].projects}}
+            {{#each projectList:i}} {{#if title === "branding"}} {{#each projectList[i].logos}}
             <div class="project project--branding">
                 <img src="{{image}}" alt="">
             </div>
@@ -54,9 +58,27 @@
         </div>
     </div>
 
+    <div class="row row--bg row--flat">
+        <div class="container">
+            <ul class="gallery">
+                {{#each projectList:i}} {{#if title === "branding"}}
+                {{#each projectList[i].mockups}}
+                <li>
+                  <img src="{{image}}" alt="" class="loaded">
+                </li>
+                {{/each}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
 </script>
 
 
+        <footer class="footer">
+            <!-- <p>If you'd like </p> -->
+        </footer>
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>

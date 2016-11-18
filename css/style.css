@@ -21,11 +21,12 @@ html {
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 0 0 4em;
   font-family: 'Lato', sans-serif;
   letter-spacing: 1px;
   font-size: 0.9375rem;
-  color: #fff; }
+  color: #fff;
+  overflow-x: hidden; }
   body.preview {
     background: #fff; }
     body.preview h2 {
@@ -65,9 +66,51 @@ p {
   padding: 0.5em 2.5em;
   cursor: pointer; }
 
+.contactTab {
+  position: absolute;
+  right: -95px;
+  width: 140px;
+  top: 40px;
+  background: #92c6ce;
+  -webkit-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-border-top-left-radius: 5px;
+  border-top-left-radius: 5px;
+  background-clip: padding-box;
+  display: flex;
+  align-items: center;
+  color: #92c6ce;
+  transition: transform .1s linear;
+  overflow: hidden; }
+  .contactTab .contactTab__icon {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+    margin-right: 10px; }
+    .contactTab .contactTab__icon img {
+      width: 25px; }
+  .contactTab .contactTab__label a {
+    color: #fff; }
+  .contactTab:hover {
+    transform: translate(-95px, 0); }
+  *, *:before, *:after {
+    box-sizing: border-box; }
+  @media (min-width: 0) and (max-width: 30em) {
+    .contactTab {
+      position: relative;
+      width: 100%;
+      right: 0;
+      top: 0;
+      border-radius: 0;
+      justify-content: center;
+      background: #fff; }
+      .contactTab .contactTab__label a {
+        color: #92c6ce; } }
+
 header {
   text-align: center;
-  padding: 4em 0; }
+  padding: 4em 2em; }
   header img {
     max-width: 400px; }
 
@@ -75,6 +118,10 @@ header {
   margin: 2em 0 0;
   background-color: #fff;
   padding: 2em 0; }
+  .row.row--bg.row--flat {
+    margin-top: 0; }
+.row.row--flat {
+  margin-top: 0; }
 
 .container {
   float: none;
@@ -84,8 +131,6 @@ header {
   zoom: 1;
   padding: 1em;
   max-width: 1200px; }
-  *, *:before, *:after {
-    box-sizing: border-box; }
   .container:before, .container:after {
     content: "\0020";
     display: block;
@@ -154,6 +199,12 @@ nav {
       display: inline-block; }
       nav li a.btn.active {
         color: #666; }
+  @media (min-width: 0) and (max-width: 30em) {
+    nav li {
+      display: block;
+      margin-bottom: 1em; }
+      nav li a.btn {
+        display: block; } }
 
 .project {
   margin-bottom: 2em; }
@@ -182,14 +233,7 @@ nav {
     width: 95.83333%;
     margin-right: 2.08333%;
     margin-left: 2.08333%;
-    background-color: #fff;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    background-clip: padding-box;
-    /* stops bg color from leaking outside the border: */
-    overflow: hidden;
-    text-align: center;
-    padding-bottom: 1em; }
+    text-align: center; }
     @media (min-width: 60.0625em) {
       .project.project--web {
         width: 31.77083%;
@@ -205,12 +249,37 @@ nav {
         width: 97.39583%;
         margin-right: 1.30208%;
         margin-left: 1.30208%; } }
+    .project.project--web .project__details {
+      background-color: #fff;
+      -webkit-border-bottom-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      border-top-right-radius: 5px;
+      background-clip: padding-box;
+      -webkit-border-bottom-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      -webkit-border-bottom-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      background-clip: padding-box;
+      overflow: hidden;
+      padding-bottom: 1em; }
     .project.project--web img {
       border-bottom: 1px solid #ddd; }
     .project.project--web h3, .project.project--web a {
       color: #4CA1AF; }
+  .project .projectLabel {
+    text-align: left; }
+    .project .projectLabel span {
+      display: inline-block;
+      font-size: .8em;
+      background: #216d89;
+      padding: .5em 1em;
+      color: #fff; }
+    .project .projectLabel.projectLabel--alt span {
+      background: #FFFBE1;
+      color: #216d89; }
 
-.list-illustration {
+.gallery {
   clear: both;
   -moz-column-count: 3;
   -moz-column-gap: 20px;
@@ -218,12 +287,12 @@ nav {
   -webkit-column-gap: 20px;
   padding-left: 0; }
   @media (max-width: 30em) {
-    .list-illustration {
+    .gallery {
       -moz-column-count: 1;
       -moz-column-gap: 0;
       -webkit-column-count: 1;
       -webkit-column-gap: 0; } }
-  .list-illustration li {
+  .gallery li {
     width: 100%;
     display: inline-block;
     list-style: none;
@@ -364,5 +433,8 @@ nav {
     height: 30px; }
   .brand-assets .brand-font {
     text-align: center; }
+
+footer {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
