@@ -19,16 +19,22 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+        <div class="container container--swap">
+            <div class="swap">
+                <button onclick="swapWord()">swap</button>
+            </div>
+        </div>
+
         <div class="container">
-            <div class="word">
+            <div class="word" id="word--one">
                 <div id="the" class="active">The</div>
                 <button onclick="switchWord('the')">toggle</button>
             </div>
-            <div class="word">
+            <div class="word" id="word--two">
                 <div id="two" class="active"></div>
                 <button onclick="switchWord('two')">switch</button>
             </div>
-            <div class="word">
+            <div class="word" id="word--three">
                 <div id="one" class="active"></div>
                 <button onclick="switchWord('one')">switch</button>
             </div>

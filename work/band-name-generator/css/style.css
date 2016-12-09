@@ -3,44 +3,26 @@
   max-width: 80em;
   margin-right: auto;
   margin-left: auto;
-  zoom: 1;
-  max-width: 600px; }
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  margin-top: 2em; }
   *, *:before, *:after {
     box-sizing: border-box; }
-  .container:before, .container:after {
-    content: "\0020";
-    display: block;
-    height: 0;
-    overflow: hidden; }
-  .container:after {
-    clear: both; }
+  .container.container--swap {
+    justify-content: flex-end; }
+
+.swap {
+  width: 33%; }
 
 .word {
-  float: left;
-  width: 27.08333%;
-  margin-right: 3.125%;
-  margin-left: 3.125%;
   text-align: center;
-  text-transform: capitalize; }
-  @media (min-width: 60.0625em) {
-    .word {
-      width: 31.77083%;
-      margin-right: 0.78125%;
-      margin-left: 0.78125%; } }
-  @media (min-width: 40.0625em) and (max-width: 60em) {
-    .word {
-      width: 31.25%;
-      margin-right: 1.04167%;
-      margin-left: 1.04167%; } }
-  @media (min-width: 20.0625em) and (max-width: 40em) {
-    .word {
-      width: 30.20833%;
-      margin-right: 1.5625%;
-      margin-left: 1.5625%; } }
+  text-transform: capitalize;
+  order: 3; }
   .word div {
     visibility: hidden;
     transform: translateY(-10px);
-    margin: 4em 0;
+    margin: 0 0 2em;
     font-size: 2em;
     color: #999; }
     @media (min-width: 0) and (max-width: 20em) {
@@ -51,8 +33,20 @@
       visibility: visible;
       transition: all .2s linear;
       transform: translateY(0); }
-  .word button {
-    background: #ccc;
-    color: #fff;
-    outline: none;
-    border: none; }
+
+#word--one {
+  order: 1; }
+
+#word--two {
+  order: 3; }
+
+#word--three {
+  order: 4; }
+  #word--three.swapped {
+    order: 2; }
+
+button {
+  background: #ccc;
+  color: #fff;
+  outline: none;
+  border: none; }

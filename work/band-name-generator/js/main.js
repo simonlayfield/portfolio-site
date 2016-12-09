@@ -1,8 +1,8 @@
 
 
-var oneWords = ['saint', 'stone', 'fray', 'bay', 'lake', 'break', 'kid', 'fire', 'slate', 'wake', 'trip', 'tape', 'park', 'fair', 'trade', 'cross', 'war', 'cold', 'part', 'march', 'tide', 'may', 'way', 'mark', 'wild', 'line', 'suns', 'sail', 'trace', 'light', 'raid', 'plan', 'bond', 'shore', 'day', 'kite', 'switch', 'doors', 'turn', 'maps', 'tour', 'leaves', 'quits', 'chimes', 'grace', 'score', 'wait', 'beat', 'joy', 'catch', 'coast'];
+var oneWords = ['saint', 'stone', 'fray', 'bay', 'lake', 'break', 'kid', 'fire', 'slate', 'wake', 'trip', 'tape', 'park', 'fair', 'trade', 'cross', 'war', 'cold', 'part', 'march', 'tide', 'may', 'way', 'mark', 'wild', 'line', 'suns', 'sail', 'trace', 'light', 'raid', 'plan', 'bond', 'shore', 'day', 'kite', 'switch', 'doors', 'turn', 'maps', 'tour', 'leaves', 'quits', 'chimes', 'grace', 'score', 'wait', 'beat', 'joy', 'catch', 'coast', 'road'];
 
-var twoWords =   ['future', 'amber', 'tiger', 'china', 'border', 'river', 'cinder', 'armour', 'raven', 'reader', 'aero', 'fever', 'taper', 'savour', 'circle', 'karma', 'pilot', 'mirror', 'awake', 'service', 'skyline', 'silence', 'silver', 'zebra', 'echo', 'haven', 'idle', 'arrow', 'promise', 'open', 'timber', 'teardrop', 'paper', 'maven', 'spirit', 'cover', 'further', 'second', 'every', 'weather', 'moment'];
+var twoWords = ['future', 'amber', 'tiger', 'china', 'border', 'river', 'cinder', 'armour', 'raven', 'reader', 'aero', 'fever', 'taper', 'savour', 'circle', 'karma', 'pilot', 'mirror', 'awake', 'service', 'skyline', 'silence', 'silver', 'zebra', 'echo', 'haven', 'idle', 'arrow', 'promise', 'open', 'timber', 'teardrop', 'paper', 'maven', 'spirit', 'cover', 'further', 'second', 'every', 'weather', 'moment'];
 
 var threeWords = ['memory', 'kindling', 'origin', 'radio', 'union', 'waterfall'];
 
@@ -19,6 +19,16 @@ window.onload = function () {
 function randomNumber (maximum) {
 
     return Math.floor(Math.random() * (maximum - minimum)) + minimum;
+}
+
+function swapWord() {
+    var word = document.getElementById('word--three');
+
+    if (word.classList.contains('swapped')) {
+        word.classList.remove('swapped');
+    } else {
+        word.classList.add('swapped');
+    }
 }
 
 function switchWord (word) {
