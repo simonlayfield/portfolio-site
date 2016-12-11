@@ -1,3 +1,13 @@
+html {
+  position: relative;
+  height: 100%; }
+
+body {
+  background: linear-gradient(top, #7cb9d6 0%, #3f91b7 100%);
+  background: -webkit-linear-gradient(top, #7cb9d6 0%, #98d1d4 100%);
+  color: #fff;
+  min-height: 100%; }
+
 .container {
   float: none;
   max-width: 80em;
@@ -13,7 +23,20 @@
     justify-content: flex-end; }
 
 .swap {
-  width: 40%; }
+  width: 66.6666666667%;
+  text-align: center;
+  border-left: 1px solid #3f91b7;
+  border-right: 1px solid #3f91b7;
+  position: relative; }
+  .swap hr {
+    margin: 0;
+    border-color: #3f91b7;
+    position: absolute;
+    width: 100%;
+    bottom: 50%; }
+  .swap button {
+    position: relative;
+    z-index: 1000; }
 
 .word {
   float: left;
@@ -42,8 +65,7 @@
     visibility: hidden;
     transform: translateY(-10px);
     margin: 0 0 2em;
-    font-size: 2em;
-    color: #999; }
+    font-size: 2em; }
     @media (min-width: 0) and (max-width: 20em) {
       .word div {
         font-size: 1em;
@@ -65,7 +87,7 @@
     order: 2; }
 
 button {
-  background: #ccc;
+  background: #3f91b7;
   color: #fff;
   outline: none;
   border: none; }
