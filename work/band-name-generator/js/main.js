@@ -1,14 +1,15 @@
 
 
-var oneWords = ['saint', 'stone', 'fray', 'bay', 'lake', 'break', 'kid', 'fire', 'slate', 'wake', 'trip', 'tape', 'park', 'fair', 'trade', 'cross', 'war', 'cold', 'part', 'march', 'tide', 'may', 'way', 'mark', 'wild', 'line', 'suns', 'sail', 'trace', 'light', 'raid', 'plan', 'bond', 'shore', 'day', 'kite', 'switch', 'doors', 'turn', 'maps', 'tour', 'leaves', 'quits', 'chimes', 'grace', 'score', 'wait', 'beat', 'joy', 'catch', 'coast', 'road'];
+var oneWords = ['saint', 'stone', 'fray', 'bay', 'lake', 'break', 'kid', 'fire', 'slate', 'wake', 'trip', 'tape', 'park', 'fair', 'trade', 'cross', 'war', 'cold', 'part', 'march', 'tide', 'may', 'way', 'mark', 'wild', 'line', 'suns', 'sail', 'trace', 'light', 'raid', 'plan', 'bond', 'shore', 'day', 'kite', 'switch', 'lock', 'turn', 'maps', 'tour', 'leaves', 'chime', 'grace', 'score', 'wait', 'beat', 'joy', 'catch', 'coast', 'road', 'tilt', 'wave', 'burst', 'pale', 'ale', 'stars', 'church', 'bells', 'bell', 'end', 'trail', 'seal', 'coil', 'risk', 'notes', 'soar', 'ray'];
 
-var twoWords = ['future', 'amber', 'tiger', 'china', 'border', 'river', 'cinder', 'armour', 'raven', 'reader', 'aero', 'fever', 'taper', 'savour', 'circle', 'karma', 'pilot', 'mirror', 'awake', 'service', 'skyline', 'silence', 'silver', 'zebra', 'echo', 'haven', 'idle', 'arrow', 'promise', 'open', 'timber', 'teardrop', 'paper', 'maven', 'spirit', 'cover', 'further', 'second', 'every', 'weather', 'moment'];
+var twoWords = ['future', 'amber', 'tiger', 'china', 'border', 'river', 'cinder', 'armour', 'raven', 'reader', 'aero', 'fever', 'taper', 'savour', 'circle', 'karma', 'pilot', 'mirror', 'awake', 'service', 'skyline', 'silence', 'silver', 'zebra', 'echo', 'haven', 'idle', 'arrow', 'promise', 'open', 'timber', 'teardrop', 'paper', 'maven', 'spirit', 'cover', 'further', 'second', 'every', 'weather', 'moment', 'pressure', 'retreat', 'pheonix', 'glory', 'waiver', 'spiral', 'mission', 'circuit', 'sabre', 'fleeting', 'liner', 'bearing', 'glimmer', 'halo'];
 
-var threeWords = ['memory', 'kindling', 'origin', 'radio', 'union', 'waterfall'];
+var threeWords = ['memory', 'kindling', 'origin', 'radio', 'union', 'waterfall', 'whitewater', 'collective', 'priory'];
 
 var latch = true,
 minimum = 0,
-maximum = 10;
+maximum = 10,
+randNumber = null;
 
 window.onload = function () {
     var randomnumber = Math.floor(Math.random() * (maximum - minimum)) + minimum;
@@ -18,7 +19,16 @@ window.onload = function () {
 
 function randomNumber (maximum) {
 
-    return Math.floor(Math.random() * (maximum - minimum)) + minimum;
+    var generatedNumber = Math.floor(Math.random() * (maximum - minimum)) + minimum;
+    // Make sure we don't generate the same number consecutively
+    // This doesn't work if it's 0
+    // Duh.
+    if (generatedNumber != randNumber) {
+        randNumber = generatedNumber;
+        return generatedNumber;
+    } else {
+        return randNumber -1;
+    }
 }
 
 function swapWord() {
