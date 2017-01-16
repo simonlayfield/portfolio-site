@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Home | Simon Layfield | Designer</title>
+    <title>Sam Johnson | Simon Layfield | Designer</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -31,7 +31,7 @@
         <div class="contactTab__label"><a href="javascript:location='mailto:\u0073\u0069\u006d\u006f\u006e\u006c\u0061\u0079\u0066\u0069\u0065\u006c\u0064\u0040\u0067\u006d\u0061\u0069\u006c\u002e\u0063\u006f\u006d';void 0">Say hello!</a></div></div>
     <header>
         <a href="./">
-            <img src="img/logo-signature-home.svg" alt="Simon Layfield Logo">
+            <img src="img/logo-signature-sam.svg" alt="Simon Layfield Logo">
         </a>
     </header>
 
@@ -41,17 +41,16 @@
 
 <script id='template' type='text/ractive'>
     <div class="container">
-        {{#each memberList}}
+        {{#each memberList[2].projects}}
         <div class="category">
             <p>
-                <a href="/{{name}}.html">
-                    <!-- <img src="img/category-{{title}}.svg" alt="" class="category-image"> -->
-                    {{name}}
+                <a href="/{{title}}.html">
+                    <img src="img/category-{{title}}.svg" alt="" class="category-image">
                 </a>
             </p>
             <h2>{{title}}</h2>
             <p>{{{description}}}</p>
-            <p class="category__cta"><a href="/{{name}}.html" class="btn">View work</a></p>
+            <p class="category__cta"><a href="/{{title}}.html" class="btn">View work</a></p>
         </div>
         {{/each}}
     </div>
