@@ -7,15 +7,15 @@
     <div class="container">
         {{#each memberList}}
         <div class="category">
-            <p>
-                <a href="/{{name}}.html">
+            <p class="category__name">
+                <a href="/{{name}}-illustration.html">
                     <!-- <img src="img/category-{{title}}.svg" alt="" class="category-image"> -->
                     {{name}}
                 </a>
             </p>
             <h2>{{title}}</h2>
             <p>{{{description}}}</p>
-            <p class="category__cta"><a href="/{{name}}.html" class="btn">View work</a></p>
+            <p class="category__cta"><a href="/{{name}}-illustration.html" class="btn">View work</a></p>
         </div>
         {{/each}}
     </div>

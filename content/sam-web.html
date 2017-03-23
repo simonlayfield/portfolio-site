@@ -1,0 +1,48 @@
+@@include('../templates/header.html', {"title": "Web", "key": "sam"})
+
+<div class="some-container">
+</div>
+
+<script id='template' type='text/ractive'>
+
+    <div class="row">
+    <nav>
+        {{#each memberList[2].projects}}
+            <li><a class="btn{{title == 'web' ? ' active' : ''}}" href="/{{memberList[2].name}}-{{title}}.html">{{title}}</a></li>
+        {{/each}}
+    </nav>
+    </div>
+    <div class="container container--full notification">
+        <p>Recently I have mainly been working on my own personal project, <a href="http://typereel.io" target="_blank">TYPEREEL</a>.</p>
+    </div>
+    <div class="container">
+        {{#each memberList[2].projects}}
+            {{#if title === "web"}}
+                {{#each memberList[2].projects[@index].sites}}
+                <div class="project project--web">
+                    {{#if this.type === 'commercial'}}
+                        <div class="projectLabel">
+                            <span>commercial</span>
+                        </div>
+                    {{else}}
+                        <div class="projectLabel projectLabel--alt">
+                            <span>personal</span>
+                        </div>
+                    {{/if}}
+                    <div class="project__details">
+                        <img src="{{image}}" alt="">
+                        <h3>{{name}}</h3>
+                        <p>
+                          <a href="{{url}}" target="_blank">View site</a>
+                        </p>
+                    </div>
+                </div>
+
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    </div>
+
+</script>
+
+@@include('../templates/footer.html')

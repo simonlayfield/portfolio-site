@@ -19,6 +19,28 @@ html {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   min-height: 100%; }
 
+html.sam {
+  background: #4CA1AF;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(top, #BCA6C9 100px, #9D7EAF 400px, #8A4DAD 100%);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(top, #C4E0E5 100px, #8DC3CC 400px, #4CA1AF 100%);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  min-height: 100%; }
+  html.sam a {
+    color: #8A4DAD; }
+
+html.angus {
+  background: #4CA1AF;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(top, #dddddd 100px, #bbbbbb 400px, #777777 100%);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(top, #C4E0E5 100px, #8DC3CC 400px, #4CA1AF 100%);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  min-height: 100%; }
+  html.angus a {
+    color: #000; }
+
 body {
   margin: 0;
   padding: 0 0 4em;
@@ -185,6 +207,8 @@ header {
     margin-bottom: 1em; }
   .category .category__cta {
     margin: 2em 0; }
+  .category .category__name {
+    text-transform: capitalize; }
 
 nav {
   list-style: none;
@@ -196,7 +220,8 @@ nav {
     nav li a {
       color: #999;
       text-decoration: none;
-      display: inline-block; }
+      display: inline-block;
+      text-transform: capitalize; }
       nav li a.btn.active {
         color: #666; }
   @media (min-width: 0) and (max-width: 30em) {

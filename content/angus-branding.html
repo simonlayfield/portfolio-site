@@ -1,0 +1,47 @@
+@@include('../templates/header.html', {"title": "Branding", "key": "angus"})
+
+<div class="some-container">
+</div>
+
+<script id='template' type='text/ractive'>
+
+    <div class="row">
+    <nav>
+        {{#each memberList[1].projects}}
+            <li><a class="btn{{title == 'branding' ? ' active' : ''}}" href="/{{memberList[1].name}}-{{title}}.html">{{title}}</a></li>
+        {{/each}}
+    </nav>
+    </div>
+    <div class="row row--bg">
+        <div class="container">
+            {{#each memberList[1].projects}}
+                {{#if title === "branding"}}
+                    {{#each memberList[1].projects[@index].logos}}
+                        <div class="project project--branding">
+                            <img src="{{image}}" alt="">
+                        </div>
+                    {{/each}}
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="row row--bg row--flat">
+        <div class="container">
+            <ul class="gallery">
+                {{#each memberList[1].projects}}
+                    {{#if title === "branding"}}
+                        {{#each memberList[1].projects[@index].mockups}}
+                            <li>
+                              <img src="{{image}}" alt="" class="loaded">
+                            </li>
+                        {{/each}}
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+</script>
+
+@@include('../templates/footer.html')

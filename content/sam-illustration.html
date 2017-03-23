@@ -1,0 +1,32 @@
+@@include('../templates/header.html', {"title": "Illustration", "key": "sam"})
+
+<div class="some-container">
+</div>
+
+<script id='template' type='text/ractive'>
+
+    <div class="row">
+        <nav>
+            {{#each memberList[2].projects}}
+                <li><a class="btn{{title == 'illustration' ? ' active' : ''}}" href="/{{memberList[2].name}}-{{title}}.html">{{title}}</a></li>
+            {{/each}}
+        </nav>
+    </div>
+    <div class="row row--bg">
+        <div class="container">
+            <ul class="gallery">
+                {{#each memberList[2].projects}}
+                    {{#if title === "illustration"}}
+                        {{#each projects}}
+                            <li>
+                              <img src="{{image}}" alt="" class="loaded">
+                            </li>
+                        {{/each}}
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</script>
+
+@@include('../templates/footer.html')

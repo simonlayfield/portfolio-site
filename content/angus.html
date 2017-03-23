@@ -6,19 +6,18 @@
 <script id='template' type='text/ractive'>
     <div class="container">
         {{#each memberList[1].projects}}
-        <div class="category">
-            <p>
-                <a href="/{{title}}.html">
-                    <img src="img/category-{{title}}.svg" alt="" class="category-image">
-                </a>
-            </p>
-            <h2>{{title}}</h2>
-            <p>{{{description}}}</p>
-            <p class="category__cta"><a href="/{{title}}.html" class="btn">View work</a></p>
-        </div>
+            <div class="category">
+                <p>
+                    <a href="/{{title}}.html">
+                        <img src="img/category-{{title}}.svg" alt="" class="category-image">
+                    </a>
+                </p>
+                <h2>{{title}}</h2>
+                <p>{{{description}}}</p>
+                <p class="category__cta"><a href="/{{memberList[1].name}}-{{title}}.html" class="btn">View work</a></p>
+            </div>
         {{/each}}
     </div>
 </script>
-
 
 @@include('../templates/footer.html', {"jsfile": "main"})
