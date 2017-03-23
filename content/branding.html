@@ -1,4 +1,4 @@
-@@include('../templates/header.html', {"title": "Branding"})
+@@include('../templates/header.html', {"title": "Branding", "key": "index"})
 
 <div class="some-container">
 </div>
@@ -14,7 +14,7 @@
     </div>
     <div class="row row--bg">
         <div class="container">
-            {{#each projectList:i}} {{#if title === "branding"}} {{#each projectList[i].logos}}
+            {{#each memberList.0.projects}} {{#if title === "branding"}} {{#each memberList.0.projects[@index].logos}}
             <div class="project project--branding">
                 <img src="{{image}}" alt="">
             </div>
@@ -25,8 +25,8 @@
     <div class="row row--bg row--flat">
         <div class="container">
             <ul class="gallery">
-                {{#each projectList:i}} {{#if title === "branding"}}
-                {{#each projectList[i].mockups}}
+                {{#each memberList.0.projects:i}} {{#if title === "branding"}}
+                {{#each memberList.0.projects[i].mockups}}
                 <li>
                   <img src="{{image}}" alt="" class="loaded">
                 </li>
