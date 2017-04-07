@@ -1,4 +1,4 @@
-@@include('../templates/header.html', {"title": "Web"})
+@@include('../includes/header.html', {"title": "Web", "key": "simon"})
 
 <div class="some-container">
 </div>
@@ -13,32 +13,36 @@
         </nav>
     </div>
     <div class="container container--full notification">
-        <p>Recently I've mainly been working on my own personal project, <a href="http://typereel.io" target="_blank">TYPEREEL</a>.</p>
+        <p>Recently I have mainly been working on my own personal project, <a href="http://typereel.io" target="_blank">TYPEREEL</a>.</p>
     </div>
     <div class="container">
-        {{#each projectList:i}} {{#if title === "web"}} {{#each projectList[i].projects}}
-        <div class="project project--web">
-            {{#if this.type === 'commercial'}}
-                <div class="projectLabel">
-                    <span>commercial</span>
-                </div>
-            {{else}}
-                <div class="projectLabel projectLabel--alt">
-                    <span>personal</span>
-                </div>
-            {{/if}}
-            <div class="project__details">
-                <img src="{{image}}" alt="">
-                <h3>{{name}}</h3>
-                <p>
-                  <a href="{{url}}" target="_blank">View site</a>
-                </p>
-            </div>
-        </div>
+        {{#each projectList:i}}
+            {{#if title === "web"}}
+            {{#each projectList[i].projects}}
+                    <div class="project project--web">
+                        {{#if this.type === 'commercial'}}
+                            <div class="projectLabel">
+                                <span>commercial</span>
+                            </div>
+                        {{else}}
+                            <div class="projectLabel projectLabel--alt">
+                                <span>personal</span>
+                            </div>
+                        {{/if}}
+                        <div class="project__details">
+                            <img src="{{image}}" alt="">
+                            <h3>{{name}}</h3>
+                            <p>
+                              <a href="{{url}}" target="_blank">View site</a>
+                            </p>
+                        </div>
+                    </div>
 
-        {{/each}} {{/if}} {{/each}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
     </div>
 
 </script>
 
-@@include('../templates/footer.html')
+@@include('../includes/footer.html')
