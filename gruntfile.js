@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 files: {
-                    'css/style.css': 'scss/style.scss'
+                    'assets/css/style.css': 'scss/style.scss'
                 }
             }
         },
@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                 tasks: ['sass']
             },
             html: {
-                files: ['content/*.html', 'templates/*.html'],
+                files: ['content/*.html', 'includes/*.html'],
                 tasks: ['includereplace']
             }
         },
@@ -38,15 +38,15 @@ module.exports = function(grunt) {
                     perttify: true
                 },
                 files: [{
-                    src: ['img/auto/gif'],
-                    dest: 'js/list-gif.json',
+                    src: ['assets/img/auto/gif'],
+                    dest: 'assets/js/list-gif.json',
                     recurse: false
                 }, {
-                    src: ['img/auto/photo'],
-                    dest: 'js/list-photo.json'
+                    src: ['assets/img/auto/photo'],
+                    dest: 'assets/js/list-photo.json'
                 }, {
-                    src: ['img/auto/inspire'],
-                    dest: 'js/list-inspire.json'
+                    src: ['assets/img/auto/inspire'],
+                    dest: 'assets/js/list-inspire.json'
                 }]
             }
         },
@@ -59,9 +59,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'img/auto/gif/orig',
-                    src: ['**/*.gif'],
-                    dest: 'img/auto/gif',
+                    cwd: 'assets/img/auto/gif/orig',
+                    src: ['**/**/*.gif'],
+                    dest: 'assets/img/auto/gif',
                     ext: '.gif'
                 }]
             }
@@ -82,9 +82,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'img/auto/process/gif',
+                    cwd: 'assets/img/auto/process/gif',
                     src: ['*.gif'],
-                    dest: 'img/auto/gif',
+                    dest: 'assets/img/auto/gif',
                 }]
             }
         }

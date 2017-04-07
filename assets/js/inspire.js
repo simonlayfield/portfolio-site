@@ -1,7 +1,7 @@
 var listInspire = [];
 
 
-$.getJSON("./js/list-inspire.json", function (json) {
+$.getJSON("./assets/js/list-inspire.json", function (json) {
 
     var n = 0;
 
