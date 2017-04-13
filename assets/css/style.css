@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'lulo_cleanone';
-  src: url("../fonts/lulocleanone-webfont.eot");
-  src: url("../fonts/lulocleanone-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/lulocleanone-webfont.woff") format("woff"), url("../fonts/lulocleanone-webfont.ttf") format("truetype"), url("../fonts/lulocleanone-webfont.svg#lulo_cleanone") format("svg");
+  src: url("../../assets/fonts/lulocleanone-webfont.eot");
+  src: url("../../assets/fonts/lulocleanone-webfont.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/lulocleanone-webfont.woff") format("woff"), url("../assets/fonts/lulocleanone-webfont.ttf") format("truetype"), url("../../assets/fonts/lulocleanone-webfont.svg#lulo_cleanone") format("svg");
   font-weight: normal;
   font-style: normal; }
 .tac {
@@ -11,12 +11,7 @@
   box-sizing: border-box; }
 
 html {
-  background: #4CA1AF;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(top, #C4E0E5 100px, #8DC3CC 400px, #4CA1AF 100%);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(top, #C4E0E5 100px, #8DC3CC 400px, #4CA1AF 100%);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #fff;
   min-height: 100%; }
 
 body {
@@ -25,7 +20,7 @@ body {
   font-family: 'Lato', sans-serif;
   letter-spacing: 1px;
   font-size: 0.9375rem;
-  color: #fff;
+  color: #000;
   overflow-x: hidden; }
   body.preview {
     background: #fff; }
@@ -48,7 +43,8 @@ img {
   max-width: 100%; }
 
 a {
-  color: #FFFBE1; }
+  color: #ff0000;
+  font-weight: bold; }
 
 p {
   font-size: 0.875rem;
@@ -56,12 +52,12 @@ p {
 
 .btn {
   display: inline-block;
-  background-color: #fff;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
+  border: 2px solid #006fa2;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
   background-clip: padding-box;
   /* stops bg color from leaking outside the border: */
-  color: #4CA1AF;
+  color: #006fa2;
   text-decoration: none;
   padding: 0.5em 2.5em;
   cursor: pointer; }
@@ -71,7 +67,7 @@ p {
   right: -95px;
   width: 140px;
   top: 40px;
-  background: #92c6ce;
+  background: #006fa2;
   -webkit-border-bottom-left-radius: 5px;
   border-bottom-left-radius: 5px;
   -webkit-border-top-left-radius: 5px;
@@ -79,13 +75,12 @@ p {
   background-clip: padding-box;
   display: flex;
   align-items: center;
-  color: #92c6ce;
+  color: #006fa2;
   transition: transform .1s linear;
   overflow: hidden; }
   .contactTab .contactTab__icon {
     display: flex;
     align-items: center;
-    background: #fff;
     padding: 10px;
     margin-right: 10px; }
     .contactTab .contactTab__icon img {
@@ -112,7 +107,7 @@ header {
   text-align: center;
   padding: 4em 2em; }
   header img {
-    max-width: 400px; }
+    max-width: 500px; }
 
 .row.row--bg {
   margin: 2em 0 0;
@@ -191,14 +186,16 @@ nav {
   text-align: center;
   margin-bottom: 2.5rem; }
   nav li {
-    display: inline;
-    margin: 0 1em; }
+    display: inline-block;
+    min-width: 150px; }
     nav li a {
-      color: #999;
+      color: #006fa2;
       text-decoration: none;
-      display: inline-block; }
-      nav li a.btn.active {
-        color: #666; }
+      display: block;
+      border-bottom: 3px solid #006fa2;
+      padding: 1em 0; }
+      nav li a.active {
+        border-bottom: 3px solid #ff0000; }
   @media (min-width: 0) and (max-width: 30em) {
     nav li {
       display: block;
@@ -250,7 +247,7 @@ nav {
         margin-right: 1.30208%;
         margin-left: 1.30208%; } }
     .project.project--web .project__details {
-      background-color: #fff;
+      border: 1px solid #006fa2;
       -webkit-border-bottom-right-radius: 5px;
       border-bottom-right-radius: 5px;
       -webkit-border-top-right-radius: 5px;
@@ -261,23 +258,25 @@ nav {
       -webkit-border-bottom-left-radius: 5px;
       border-bottom-left-radius: 5px;
       background-clip: padding-box;
-      overflow: hidden;
-      padding-bottom: 1em; }
+      overflow: hidden; }
     .project.project--web img {
       border-bottom: 1px solid #ddd; }
+    .project.project--web h3 {
+      margin-top: 1em;
+      margin-bottom: 1em; }
     .project.project--web h3, .project.project--web a {
-      color: #4CA1AF; }
+      text-decoration: none; }
   .project .projectLabel {
     text-align: left; }
     .project .projectLabel span {
       display: inline-block;
       font-size: .8em;
-      background: #216d89;
+      background: #006fa2;
       padding: .5em 1em;
       color: #fff; }
     .project .projectLabel.projectLabel--alt span {
-      background: #FFFBE1;
-      color: #216d89; }
+      background: #ff0000;
+      color: #fff; }
 
 .gallery {
   clear: both;

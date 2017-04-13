@@ -43,12 +43,13 @@
 
     <div class="row">
         <nav>
-            <li><a class="btn" href="/branding.html">Branding</a></li>
-            <li><a class="btn active" href="/web.html">Web</a></li>
-            <li><a class="btn" href="/illustration.html">Illustration</a></li>
+            <li><a href="/branding.html">Branding</a></li><!--
+            --><li><a class="active" href="/web.html">Web</a></li><!--
+            --><li><a href="/illustration.html">Illustration</a></li>
         </nav>
     </div>
     <div class="container container--full notification">
+        <p>I <em>try</em> to keep these projects as up-to-date as possible.</p>
         <p>Recently I have mainly been working on my own personal project, <a href="http://typereel.io" target="_blank">TYPEREEL</a>.</p>
     </div>
     <div class="container">
@@ -66,11 +67,10 @@
                             </div>
                         {{/if}}
                         <div class="project__details">
-                            <img src="{{image}}" alt="">
-                            <h3>{{name}}</h3>
-                            <p>
-                              <a href="{{url}}" target="_blank">View site</a>
-                            </p>
+                            <a href="{{url}}" target="_blank">
+                                <img src="{{image}}" alt="">
+                                <h3>{{name}}</h3>
+                            </a>
                         </div>
                     </div>
 
@@ -85,8 +85,7 @@
         <footer class="footer">
             <!-- <p>If you'd like </p> -->
         </footer>
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/main.js"></script>
 
