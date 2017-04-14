@@ -1,5 +1,5 @@
 var projects = [{
-        "title": "branding",
+        "title": "Branding",
         "description": "I design purposeful, visually balanced branding. Tell me all about your company and I'll build you an identity.",
         "logos": [{
             "image": "assets/img/branding/thumbnail-k-nit.jpg",
@@ -83,12 +83,12 @@ var projects = [{
         }]
 
     }, {
-        "title": "web",
+        "title": "Web",
         "description": "I build <strong>simple</strong>, <strong>user-friendly</strong> websites. Most recently, I've been tinkering with <a href='http://flint.gs/' target='_blank'>FLINT</a>, <a href='http://postcss.org/' target='_blank'>PostCSS</a> and <a href='http://www.ractivejs.org/' target='_blank'>Ractive.js</a> templating.",
         "projects": [{
             "image": "assets/img/web/thumbnail-k-nit.jpg",
-            "name": "K-nit",
-            "url": "http://k-nit.co.uk/",
+            "name": "K-nit Beanie Designer",
+            "url": "http://k-nit.co.uk/custom",
             "type": "commercial"
         }, {
             "image": "assets/img/web/thumbnail-typereel.jpg",
@@ -101,44 +101,14 @@ var projects = [{
             "url": "http://thinkingloud.com.au/",
             "type": "commercial"
         }, {
-            "image": "assets/img/web/thumbnail-marlow-and-finch.jpg",
-            "name": "Marlow and Finch",
-            "url": "http://www.marlowandfinch.com.au/",
-            "type": "commercial"
-        }, {
             "image": "assets/img/web/thumbnail-advanced-football-academy.jpg",
             "name": "Advanced Football Academy",
             "url": "http://advancedfootballacademy.com.au/",
             "type": "commercial"
-        }, {
-            "image": "assets/img/web/thumbnail-ximula.jpg",
-            "name": "Ximula",
-            "url": "http://ximula.com.au",
-            "type": "commercial"
-        }, {
-            "image": "assets/img/web/thumbnail-lexisnexis-media-centre.jpg",
-            "name": "LexisNexis Media Centre",
-            "url": "http://lexisnexis.com.au/media-centre/",
-            "type": "commercial"
-        }, {
-            "image": "assets/img/web/thumbnail-orchard-holdings.jpg",
-            "name": "Orchard Holdings",
-            "url": "http://orchardholdingsplc.com/",
-            "type": "commercial"
-        }, {
-            "image": "assets/img/web/thumbnail-frankie-unsworth.jpg",
-            "name": "Frankie Unsworth",
-            "url": "http://frankieunsworth.com/",
-            "type": "commercial"
-        },{
-            "image": "assets/img/web/thumbnail-design-bytes.jpg",
-            "name": "Design Bytes",
-            "url": "http://designbytes.com.au/",
-            "type": "commercial"
         }]
     }, {
-        "title": "illustration",
-        "description": "I've always been a keen doodler, and more recently this has lead to a professional job here and there. More to come in 2016.",
+        "title": "Illustration",
+        "description": "I've always been a keen doodler, and more recently this has lead to a professional job here and there. More to come in 2017.",
         "projects": [{
             "name": "Awesome Project",
             "image": "assets/img/illustration/thumbnail-baby-shower-invitation.jpg"

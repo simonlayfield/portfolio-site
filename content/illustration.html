@@ -7,15 +7,15 @@
 
     <div class="row">
         <nav>
-            <li><a class="btn" href="/branding.html">Branding</a></li>
-            <li><a class="btn" href="/web.html">Web</a></li>
-            <li><a class="btn active" href="/illustration.html">Illustration</a></li>
+            <li><a href="/branding.html">Branding</a></li><!--
+            --><li><a href="/web.html">Web</a></li><!--
+            --><li><a class="active" href="/illustration.html">Illustration</a></li>
         </nav>
     </div>
     <div class="row row--bg">
         <div class="container">
             <ul class="gallery">
-                {{#each projectList:i}} {{#if title === "illustration"}}
+                {{#each projectList:i}} {{#if title === "Illustration"}}
                 {{#each projectList[i].projects}}
                 <li>
                   <img src="{{image}}" alt="" class="loaded">

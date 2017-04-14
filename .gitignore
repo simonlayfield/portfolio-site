@@ -5,6 +5,7 @@ bower_components
 node_modules
 .sass-cache
 .tmp
+.DS_Store
 style-guide/node_modules
 style-guide/.sass-cache
 img/auto/process

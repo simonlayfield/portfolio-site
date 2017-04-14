@@ -7,17 +7,18 @@
 
     <div class="row">
         <nav>
-            <li><a class="btn" href="/branding.html">Branding</a></li>
-            <li><a class="btn active" href="/web.html">Web</a></li>
-            <li><a class="btn" href="/illustration.html">Illustration</a></li>
+            <li><a href="/branding.html">Branding</a></li><!--
+            --><li><a class="active" href="/web.html">Web</a></li><!--
+            --><li><a href="/illustration.html">Illustration</a></li>
         </nav>
     </div>
     <div class="container container--full notification">
+        <p>I <em>try</em> to keep these projects as up-to-date as possible.</p>
         <p>Recently I have mainly been working on my own personal project, <a href="http://typereel.io" target="_blank">TYPEREEL</a>.</p>
     </div>
     <div class="container">
         {{#each projectList:i}}
-            {{#if title === "web"}}
+            {{#if title === "Web"}}
             {{#each projectList[i].projects}}
                     <div class="project project--web">
                         {{#if this.type === 'commercial'}}
@@ -30,11 +31,10 @@
                             </div>
                         {{/if}}
                         <div class="project__details">
-                            <img src="{{image}}" alt="">
-                            <h3>{{name}}</h3>
-                            <p>
-                              <a href="{{url}}" target="_blank">View site</a>
-                            </p>
+                            <a href="{{url}}" target="_blank">
+                                <img src="{{image}}" alt="">
+                                <h3>{{name}}</h3>
+                            </a>
                         </div>
                     </div>
 

@@ -20,15 +20,27 @@
 
 </head>
 
-<body class="chocolate-teapot">
+<body>
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <div class="contactTab">
-        <div class="contactTab__icon">
-            <img src="assets/img/icon-mail.svg" alt="Mail">
-        </div>
-        <div class="contactTab__label"><a href="javascript:location='mailto:\u0073\u0069\u006d\u006f\u006e\u006c\u0061\u0079\u0066\u0069\u0065\u006c\u0064\u0040\u0067\u006d\u0061\u0069\u006c\u002e\u0063\u006f\u006d';void 0">Say hello!</a></div></div>
+    <ul class="contactTab">
+
+        <li class="contact__option">
+            <a class="contact__label" href="javascript:location='mailto:u0073u0069u006du006fu006eu006cu0061u0079u0066u0069u0065u006cu0064u0040u0067u006du0061u0069u006cu002eu0063u006fu006d';void 0">
+                <img src="assets/img/icon-mail.svg" alt="Mail" class="contactTab__icon">
+                <span>Say hello!</span>
+            </a>
+        </li>
+
+        <li class="contact__option">
+            <a class="contact__label" href="https://bitbucket.org/simonlayfield/" target="_blank">
+                <img width="21px" height="24px" src="assets/img/icon-bitbucket.svg" alt="Mail" class="contactTab__icon">
+                <span>Bitbucket</span>
+             </a>
+        </li>
+
+    </ul>
     <header>
         <a href="./">
             <img src="assets/img/logo-signature-simon.svg" alt="Simon Layfield Logo">
@@ -43,17 +55,18 @@
 
     <div class="row">
         <nav>
-            <li><a class="btn" href="/branding.html">Branding</a></li>
-            <li><a class="btn active" href="/web.html">Web</a></li>
-            <li><a class="btn" href="/illustration.html">Illustration</a></li>
+            <li><a href="/branding.html">Branding</a></li><!--
+            --><li><a class="active" href="/web.html">Web</a></li><!--
+            --><li><a href="/illustration.html">Illustration</a></li>
         </nav>
     </div>
     <div class="container container--full notification">
+        <p>I <em>try</em> to keep these projects as up-to-date as possible.</p>
         <p>Recently I have mainly been working on my own personal project, <a href="http://typereel.io" target="_blank">TYPEREEL</a>.</p>
     </div>
     <div class="container">
         {{#each projectList:i}}
-            {{#if title === "web"}}
+            {{#if title === "Web"}}
             {{#each projectList[i].projects}}
                     <div class="project project--web">
                         {{#if this.type === 'commercial'}}
@@ -66,11 +79,10 @@
                             </div>
                         {{/if}}
                         <div class="project__details">
-                            <img src="{{image}}" alt="">
-                            <h3>{{name}}</h3>
-                            <p>
-                              <a href="{{url}}" target="_blank">View site</a>
-                            </p>
+                            <a href="{{url}}" target="_blank">
+                                <img src="{{image}}" alt="">
+                                <h3>{{name}}</h3>
+                            </a>
                         </div>
                     </div>
 
@@ -85,8 +97,7 @@
         <footer class="footer">
             <!-- <p>If you'd like </p> -->
         </footer>
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/main.js"></script>
 
