@@ -1,5 +1,5 @@
 var projects = [{
-        "title": "branding",
+        "title": "Branding",
         "description": "I design purposeful, visually balanced branding. Tell me all about your company and I'll build you an identity.",
         "logos": [{
             "image": "assets/img/branding/thumbnail-k-nit.jpg",
@@ -83,7 +83,7 @@ var projects = [{
         }]
 
     }, {
-        "title": "web",
+        "title": "Web",
         "description": "I build <strong>simple</strong>, <strong>user-friendly</strong> websites. Most recently, I've been tinkering with <a href='http://flint.gs/' target='_blank'>FLINT</a>, <a href='http://postcss.org/' target='_blank'>PostCSS</a> and <a href='http://www.ractivejs.org/' target='_blank'>Ractive.js</a> templating.",
         "projects": [{
             "image": "assets/img/web/thumbnail-k-nit.jpg",
@@ -107,7 +107,7 @@ var projects = [{
             "type": "commercial"
         }]
     }, {
-        "title": "illustration",
+        "title": "Illustration",
         "description": "I've always been a keen doodler, and more recently this has lead to a professional job here and there. More to come in 2017.",
         "projects": [{
             "name": "Awesome Project",

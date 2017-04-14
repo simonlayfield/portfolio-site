@@ -29,12 +29,8 @@ body {
 
 h1,
 h2 {
-  font-family: 'lulo_cleanone', serif;
   text-align: center;
-  color: #fff; }
-
-h1 {
-  color: #fff; }
+  color: #006fa2; }
 
 h2 {
   font-size: 1.125rem; }
@@ -52,7 +48,7 @@ p {
 
 .btn {
   display: inline-block;
-  border: 2px solid #006fa2;
+  border: 1px solid #006fa2;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   background-clip: padding-box;
@@ -60,35 +56,43 @@ p {
   color: #006fa2;
   text-decoration: none;
   padding: 0.5em 2.5em;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: all .3s linear; }
+  .btn:hover {
+    background: #006fa2;
+    color: #fff; }
 
 .contactTab {
   position: absolute;
   right: -95px;
   width: 140px;
   top: 40px;
-  background: #006fa2;
-  -webkit-border-bottom-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  -webkit-border-top-left-radius: 5px;
-  border-top-left-radius: 5px;
-  background-clip: padding-box;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   color: #006fa2;
   transition: transform .1s linear;
-  overflow: hidden; }
-  .contactTab .contactTab__icon {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .contactTab .contact__option {
+    width: 140px;
+    background: #006fa2;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: all .2s ease-out; }
+    .contactTab .contact__option:hover {
+      transform: translate(-85px, 0); }
+    .contactTab .contact__option img {
+      width: 25px;
+      margin-right: 10px; }
+  .contactTab .contact__label {
     display: flex;
     align-items: center;
-    padding: 10px;
-    margin-right: 10px; }
-    .contactTab .contactTab__icon img {
-      width: 25px; }
-  .contactTab .contactTab__label a {
     color: #fff; }
-  .contactTab:hover {
-    transform: translate(-95px, 0); }
   *, *:before, *:after {
     box-sizing: border-box; }
   @media (min-width: 0) and (max-width: 30em) {
@@ -178,6 +182,8 @@ header {
   .category img {
     max-height: 140px;
     margin-bottom: 1em; }
+  .category h2 {
+    font-size: 1.6em; }
   .category .category__cta {
     margin: 2em 0; }
 
