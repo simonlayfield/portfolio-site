@@ -5,18 +5,16 @@
 
 <script id='template' type='text/ractive'>
     <div class="container">
-        {{#each projectList}}
-        <div class="category">
-            <p>
-                <a href="/{{title.toLowerCase()}}.html">
-                    <img src="assets/img/category-{{title.toLowerCase()}}.svg" alt="" class="category-image">
-                </a>
-            </p>
-            <h2>{{title}}</h2>
-            <p>{{{description}}}</p>
-            <p class="category__cta"><a href="/{{title.toLowerCase()}}.html" class="btn">View work</a></p>
-        </div>
-        {{/each}}
+
+        <section class="main" role="main">
+            <p><img src="assets/img/profile.png" alt="" class="profile" width="150px"/></p>
+            <p><em>Hello</em>, I'm <a href="./">Simon Layfield</a>.</p>
+            <p>I build meaningful user experiences within lightweight, scalable web prototypes. Currently, my free time in this area goes towards my personal project, <a href="#">Typereel</a>.</p>
+            <hr>
+            <p>Other interests include freelance <a href="#">branding and illustration</a>, amateur <a href="#">photography</a> and <a href="#">board game design</a>. I also play in a band called <a href="#">Youth &amp; The Young</a>.</p>
+        </section>
+
+
     </div>
 </script>
 

@@ -324,6 +324,10 @@ AddDefaultCharset utf-8
     # (1)
     RewriteEngine On
 
+    RewriteCond %{HTTP_HOST} blog.example.com$
+    RewriteCond %{REQUEST_URI} !^/blog
+    RewriteRule ^(.*)$ /blog/$1 [L] 
+
     # (2)
     Options +FollowSymlinks
 

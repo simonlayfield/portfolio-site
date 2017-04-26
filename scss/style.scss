@@ -13,9 +13,10 @@
 }
 /////
 
-$primary-color: #006fa2;
-$secondary-color: #000;
+$primary-color: #007aa2;
+$secondary-color: #ff55a1;
 $tertiary-color: #fff;
+$primary-font: 'Vollkorn', serif;
 
 
 * {
@@ -24,28 +25,15 @@ $tertiary-color: #fff;
 
 html {
     background: $tertiary-color;
-    // background: -moz-linear-gradient(bottom, $primary-color 0%, #ffffff 100%);
-    // background: -webkit-linear-gradient(bottom, $primary-color 0%,#ffffff 100%);
-    // background: linear-gradient(to top, $primary-color 0%,#ffffff 100%);
-    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$primary-color', endColorstr='#ffffff',GradientType=0 );
     min-height: 100%;
 }
 body {
     margin: 0;
     padding: 0 0 4em;
-    font-family: 'Lato', sans-serif;
-    letter-spacing: 1px;
-    font-size: remCalc(15);
-    color: #000;
-    overflow-x: hidden;
-
-    &.preview {
-        background: #fff;
-        h2 {
-            font-size: remCalc(24);
-        }
-    }
+    font-family: $primary-font;
+    color: $primary-color;
 }
+
 h1,
 h2 {
     text-align: center;
@@ -59,12 +47,16 @@ img {
     max-width: 100%;
 }
 a {
-    color: #ff0000;
-    font-weight: bold;
+    color: $secondary-color;
 }
-p {
-    font-size: remCalc(14);
-    line-height: remCalc(24);
+hr {
+    display: inline-block;
+    width: 200px;
+    border-bottom: 2px solid #ddd;
+    border-top: none;
+}
+.profile {
+    border-radius: 50%;
 }
 .btn {
     display: inline-block;
@@ -80,62 +72,32 @@ p {
         color: #fff;
     }
 }
-.contactTab {
-    position: absolute;
-    right: -95px;
-    width: 140px;
-    top: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    color: $primary-color;
-    transition: transform .1s linear;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    .contact__option {
-        width: 140px;
-        background: $primary-color;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-        padding: 10px;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        transition: all .2s ease-out;
-        &:hover {
-            transform: translate(-85px, 0);
-        }
-        img {
-            width: 25px;
-            margin-right: 10px;
-        }
-    }
-    .contact__label {
-        display: flex;
-        align-items: center;
-        color: #fff;
-    }
 
-    @include _(for mobile) {
-        position: relative;
-        width: 100%;
-        right: 0;
-        top: 0;
-        border-radius: 0;
+.main {
+    font-size: 1.5rem;
+    line-height: 2.7rem;
+    text-align: center;
+}
+
+header {
+    @include _('container');
+    padding: 2em;
+    nav {
+        list-style: none;
+        display: flex;
         justify-content: center;
-        background: #fff;
-        .contactTab__label {
+
+        li {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
             a {
-                color: #92c6ce;
+                &:before {
+                    display: inline-block;
+
+                }
             }
         }
-    }
-}
-header {
-    text-align: center;
-    padding: 4em 2em;
-    img {
-        max-width: 500px;
     }
 }
 .row {
@@ -155,7 +117,7 @@ header {
     @include _(container);
     @include _(clear);
     padding: 1em;
-    max-width: 1200px;
+    max-width: 900px;
     &.container--full {
         max-width: none;
     }
@@ -182,37 +144,7 @@ header {
         margin: 2em 0;
     }
 }
-nav {
-    list-style: none;
-    text-align: center;
-    margin-bottom: remCalc(40);
-    li {
-        display: inline-block;
-        min-width: 150px;
-        a {
-            color: $primary-color;
-            text-decoration: none;
-            display: block;
-            border-bottom: 3px solid $primary-color;
-            padding: 1em 0;
-            &.active {
-                border-bottom: 3px solid #ff0000;
-            }
 
-        }
-    }
-    @include _(for mobile) {
-        li {
-            display: block;
-            margin-bottom: 1em;
-            a {
-                &.btn {
-                    display: block;
-                }
-            }
-        }
-    }
-}
 .project {
     margin-bottom: 2em;
     &.project--branding {

@@ -1,9 +1,31 @@
 @font-face {
-  font-family: 'lulo_cleanone';
-  src: url("../../assets/fonts/lulocleanone-webfont.eot");
-  src: url("../../assets/fonts/lulocleanone-webfont.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/lulocleanone-webfont.woff") format("woff"), url("../assets/fonts/lulocleanone-webfont.ttf") format("truetype"), url("../../assets/fonts/lulocleanone-webfont.svg#lulo_cleanone") format("svg");
+  font-family: 'LigatureSymbols';
+  src: url("../fonts/LigatureSymbols/LigatureSymbols-2.11.eot");
+  src: url("../fonts/LigatureSymbols/LigatureSymbols-2.11.eot?#iefix") format("embedded-opentype"), url("../fonts/LigatureSymbols/LigatureSymbols-2.11.woff") format("woff"), url("../fonts/LigatureSymbols/LigatureSymbols-2.11.ttf") format("truetype"), url("../fonts/LigatureSymbols/LigatureSymbols-2.11.svg#LigatureSymbols") format("svg");
+  src: url("../fonts/LigatureSymbols/LigatureSymbols-2.11.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
+.lsf, .lsf-icon:before {
+  font-family: 'LigatureSymbols';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased; }
+
+.lsf-icon:before {
+  content: attr(title);
+  margin-right: 0.3em;
+  font-size: 130%; }
+
+.lsf-icon.amazon:before {
+  content: '\E007'; }
+
 .tac {
   text-align: center; }
 
@@ -17,20 +39,13 @@ html {
 body {
   margin: 0;
   padding: 0 0 4em;
-  font-family: 'Lato', sans-serif;
-  letter-spacing: 1px;
-  font-size: 0.9375rem;
-  color: #000;
-  overflow-x: hidden; }
-  body.preview {
-    background: #fff; }
-    body.preview h2 {
-      font-size: 1.5rem; }
+  font-family: "Vollkorn", serif;
+  color: #007aa2; }
 
 h1,
 h2 {
   text-align: center;
-  color: #006fa2; }
+  color: #007aa2; }
 
 h2 {
   font-size: 1.125rem; }
@@ -39,79 +54,56 @@ img {
   max-width: 100%; }
 
 a {
-  color: #ff0000;
-  font-weight: bold; }
+  color: #ff55a1; }
 
-p {
-  font-size: 0.875rem;
-  line-height: 1.5rem; }
+hr {
+  display: inline-block;
+  width: 200px;
+  border-bottom: 2px solid #ddd;
+  border-top: none; }
+
+.profile {
+  border-radius: 50%; }
 
 .btn {
   display: inline-block;
-  border: 1px solid #006fa2;
+  border: 1px solid #007aa2;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   background-clip: padding-box;
   /* stops bg color from leaking outside the border: */
-  color: #006fa2;
+  color: #007aa2;
   text-decoration: none;
   padding: 0.5em 2.5em;
   cursor: pointer;
   transition: all .3s linear; }
   .btn:hover {
-    background: #006fa2;
+    background: #007aa2;
     color: #fff; }
 
-.contactTab {
-  position: absolute;
-  right: -95px;
-  width: 140px;
-  top: 40px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  color: #006fa2;
-  transition: transform .1s linear;
-  list-style: none;
-  padding: 0;
-  margin: 0; }
-  .contactTab .contact__option {
-    width: 140px;
-    background: #006fa2;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    padding: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    transition: all .2s ease-out; }
-    .contactTab .contact__option:hover {
-      transform: translate(-85px, 0); }
-    .contactTab .contact__option img {
-      width: 25px;
-      margin-right: 10px; }
-  .contactTab .contact__label {
-    display: flex;
-    align-items: center;
-    color: #fff; }
-  *, *:before, *:after {
-    box-sizing: border-box; }
-  @media (min-width: 0) and (max-width: 30em) {
-    .contactTab {
-      position: relative;
-      width: 100%;
-      right: 0;
-      top: 0;
-      border-radius: 0;
-      justify-content: center;
-      background: #fff; }
-      .contactTab .contactTab__label a {
-        color: #92c6ce; } }
+.main {
+  font-size: 1.5rem;
+  line-height: 2.7rem;
+  text-align: center; }
 
 header {
-  text-align: center;
-  padding: 4em 2em; }
-  header img {
-    max-width: 500px; }
+  float: none;
+  max-width: 80em;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 2em; }
+  *, *:before, *:after {
+    box-sizing: border-box; }
+  header nav {
+    list-style: none;
+    display: flex;
+    justify-content: center; }
+    header nav li {
+      padding: 1rem;
+      display: flex;
+      align-items: center; }
+      header nav li a:before {
+        display: inline-block; }
 
 .row.row--bg {
   margin: 2em 0 0;
@@ -129,7 +121,7 @@ header {
   margin-left: auto;
   zoom: 1;
   padding: 1em;
-  max-width: 1200px; }
+  max-width: 900px; }
   .container:before, .container:after {
     content: "\0020";
     display: block;
@@ -187,28 +179,6 @@ header {
   .category .category__cta {
     margin: 2em 0; }
 
-nav {
-  list-style: none;
-  text-align: center;
-  margin-bottom: 2.5rem; }
-  nav li {
-    display: inline-block;
-    min-width: 150px; }
-    nav li a {
-      color: #006fa2;
-      text-decoration: none;
-      display: block;
-      border-bottom: 3px solid #006fa2;
-      padding: 1em 0; }
-      nav li a.active {
-        border-bottom: 3px solid #ff0000; }
-  @media (min-width: 0) and (max-width: 30em) {
-    nav li {
-      display: block;
-      margin-bottom: 1em; }
-      nav li a.btn {
-        display: block; } }
-
 .project {
   margin-bottom: 2em; }
   .project.project--branding {
@@ -253,7 +223,7 @@ nav {
         margin-right: 1.30208%;
         margin-left: 1.30208%; } }
     .project.project--web .project__details {
-      border: 1px solid #006fa2;
+      border: 1px solid #007aa2;
       -webkit-border-bottom-right-radius: 5px;
       border-bottom-right-radius: 5px;
       -webkit-border-top-right-radius: 5px;
@@ -277,7 +247,7 @@ nav {
     .project .projectLabel span {
       display: inline-block;
       font-size: .8em;
-      background: #006fa2;
+      background: #007aa2;
       padding: .5em 1em;
       color: #fff; }
     .project .projectLabel.projectLabel--alt span {
