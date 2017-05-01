@@ -1,0 +1,46 @@
+nav {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+
+    li {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        a {
+            cursor: pointer;
+            &:before {
+                display: inline-block;
+
+            }
+        }
+
+        &.home-link {
+            a {
+                font-size: 130%;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &.nav--alt {
+        height: 70px;
+        transition: height .4s cubic-bezier(0, 0, 0.15, 1);
+        li {
+            a {
+                opacity: 1;
+                transition: opacity .6s linear;
+
+            }
+        }
+
+        &.nav--inactive {
+            height: 0;
+            li {
+                a {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}

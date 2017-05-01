@@ -24,69 +24,77 @@
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <header>
-        <nav>
-            <li>
-                <a href="#">Projects</a>
-            </li>
-            <li><a href="https://bitbucket.org/simonlayfield/" target="_blank" title="github" class="lsf-icon">Github</a></li>
-             <li><a href="javascript:location='mailto:u0073u0069u006du006fu006eu006cu0061u0079u0066u0069u0065u006cu0064u0040u0067u006du0061u0069u006cu002eu0063u006fu006d';void 0" class="lsf-icon" title="mail">Contact</a></li>
-        </nav>
-    </header>
 
 
 <div class="some-container">
 </div>
 
 <script id='template' type='text/ractive'>
-
-    <div class="row">
+    <header>
         <nav>
-            <li><a href="/branding.html">Branding</a></li><!--
-            --><li><a class="active" href="/web.html">Web</a></li><!--
-            --><li><a href="/illustration.html">Illustration</a></li>
+            <li class="home-link"><a class="lsf" href="index.html">home</a></li>
+            <li><a onclick="showMenu()">Projects</a></li>
+            <li><a href="http://blog.simonlayfield.com">Blog</a></li>
+            <li><a href="https://bitbucket.org/simonlayfield/" target="_blank" title="github" class="lsf-icon">Github</a></li>
+            <li><a href="javascript:location='mailto:u0073u0069u006du006fu006eu006cu0061u0079u0066u0069u0065u006cu0064u0040u0067u006du0061u0069u006cu002eu0063u006fu006d';void 0" class="lsf-icon" title="mail">Contact</a></li>
         </nav>
-    </div>
+        <div class="row">
+            <nav class="nav--alt" id="navAlt">
+                {{#each pages}}
+                    <li><a href="./{{title.toLowerCase()}}.html">{{title}}</a></li>
+                {{/each}}
+            </nav>
+        </div>
+    </header>
     <div class="container container--full notification">
         <p>I <em>try</em> to keep these projects as up-to-date as possible.</p>
         <p>Recently I have mainly been working on my own personal project, <a href="http://typereel.io" target="_blank">TYPEREEL</a>.</p>
     </div>
-    <div class="container">
-        {{#each projectList:i}}
-            {{#if title === "Web"}}
-            {{#each projectList[i].projects}}
-                    <div class="project project--web">
-                        {{#if this.type === 'commercial'}}
-                            <div class="projectLabel">
-                                <span>commercial</span>
+    <div class="row row--bg row--flat">
+        <div class="container">
+            {{#each pages:i}}
+                {{#if title === "Web"}}
+                {{#each pages[i].projects}}
+                        <div class="project project--web">
+                            {{#if this.type === 'commercial'}}
+                                <div class="projectLabel">
+                                    <span>commercial</span>
+                                </div>
+                            {{else}}
+                                <div class="projectLabel projectLabel--alt">
+                                    <span>personal</span>
+                                </div>
+                            {{/if}}
+                            <div class="project__details">
+                                <a href="{{url}}" target="_blank">
+                                    <img src="{{image}}" alt="">
+                                    <h3>{{name}}</h3>
+                                </a>
                             </div>
-                        {{else}}
-                            <div class="projectLabel projectLabel--alt">
-                                <span>personal</span>
-                            </div>
-                        {{/if}}
-                        <div class="project__details">
-                            <a href="{{url}}" target="_blank">
-                                <img src="{{image}}" alt="">
-                                <h3>{{name}}</h3>
-                            </a>
                         </div>
-                    </div>
 
-                {{/each}}
-            {{/if}}
-        {{/each}}
+                    {{/each}}
+                {{/if}}
+            {{/each}}
+        </div>
     </div>
 
 </script>
 
 
-        <footer class="footer">
-            <!-- <p>If you'd like </p> -->
-        </footer>
+
         <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/main.js"></script>
+
+        <script>
+            function showMenu() {
+
+                var submenu = document.getElementById('navAlt');
+                submenu.classList.remove('nav--inactive');
+
+            }
+        </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

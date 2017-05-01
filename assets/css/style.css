@@ -26,6 +26,32 @@
 .lsf-icon.amazon:before {
   content: '\E007'; }
 
+nav {
+  list-style: none;
+  display: flex;
+  justify-content: center; }
+  nav li {
+    padding: 1rem;
+    display: flex;
+    align-items: center; }
+    nav li a {
+      cursor: pointer; }
+      nav li a:before {
+        display: inline-block; }
+    nav li.home-link a {
+      font-size: 130%;
+      text-decoration: none; }
+  nav.nav--alt {
+    height: 70px;
+    transition: height 0.4s cubic-bezier(0, 0, 0.15, 1); }
+    nav.nav--alt li a {
+      opacity: 1;
+      transition: opacity .6s linear; }
+    nav.nav--alt.nav--inactive {
+      height: 0; }
+      nav.nav--alt.nav--inactive li a {
+        opacity: 0; }
+
 .tac {
   text-align: center; }
 
@@ -54,7 +80,8 @@ img {
   max-width: 100%; }
 
 a {
-  color: #ff55a1; }
+  color: #ff55a1;
+  text-decoration: underline; }
 
 hr {
   display: inline-block;
@@ -87,27 +114,11 @@ hr {
   text-align: center; }
 
 header {
-  float: none;
-  max-width: 80em;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 2em; }
-  *, *:before, *:after {
-    box-sizing: border-box; }
-  header nav {
-    list-style: none;
-    display: flex;
-    justify-content: center; }
-    header nav li {
-      padding: 1rem;
-      display: flex;
-      align-items: center; }
-      header nav li a:before {
-        display: inline-block; }
+  padding: 2em 0; }
 
 .row.row--bg {
   margin: 2em 0 0;
-  background-color: #fff;
+  background-color: #f1f1f1;
   padding: 2em 0; }
   .row.row--bg.row--flat {
     margin-top: 0; }
@@ -120,8 +131,9 @@ header {
   margin-right: auto;
   margin-left: auto;
   zoom: 1;
-  padding: 1em;
-  max-width: 900px; }
+  padding: 1em; }
+  *, *:before, *:after {
+    box-sizing: border-box; }
   .container:before, .container:after {
     content: "\0020";
     display: block;
@@ -131,6 +143,8 @@ header {
     clear: both; }
   .container.container--full {
     max-width: none; }
+  .container.container--slim {
+    max-width: 900px; }
 
 .some-container {
   zoom: 1; }
@@ -239,7 +253,8 @@ header {
       border-bottom: 1px solid #ddd; }
     .project.project--web h3 {
       margin-top: 1em;
-      margin-bottom: 1em; }
+      margin-bottom: 1em;
+      font-weight: normal; }
     .project.project--web h3, .project.project--web a {
       text-decoration: none; }
   .project .projectLabel {
@@ -251,7 +266,7 @@ header {
       padding: .5em 1em;
       color: #fff; }
     .project .projectLabel.projectLabel--alt span {
-      background: #ff0000;
+      background: #ff55a1;
       color: #fff; }
 
 .gallery {

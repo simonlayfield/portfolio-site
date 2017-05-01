@@ -1,6 +1,8 @@
 @import "../bower_components/flint/stylesheets/flint";
+@import "settings";
 @import "mixins";
 @import "fonts";
+@import "navigation";
 //////
 
 @function remCalc($value){
@@ -13,10 +15,7 @@
 }
 /////
 
-$primary-color: #007aa2;
-$secondary-color: #ff55a1;
-$tertiary-color: #fff;
-$primary-font: 'Vollkorn', serif;
+
 
 
 * {
@@ -48,6 +47,7 @@ img {
 }
 a {
     color: $secondary-color;
+    text-decoration: underline;
 }
 hr {
     display: inline-block;
@@ -80,30 +80,13 @@ hr {
 }
 
 header {
-    @include _('container');
-    padding: 2em;
-    nav {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-
-        li {
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-            a {
-                &:before {
-                    display: inline-block;
-
-                }
-            }
-        }
-    }
+    padding: 2em 0;
 }
+
 .row {
     &.row--bg {
         margin: 2em 0 0;
-        background-color: #fff;
+        background-color: #f1f1f1;
         padding: 2em 0;
         &.row--flat {
             margin-top: 0;
@@ -117,9 +100,12 @@ header {
     @include _(container);
     @include _(clear);
     padding: 1em;
-    max-width: 900px;
+
     &.container--full {
         max-width: none;
+    }
+    &.container--slim {
+        max-width: 900px;
     }
 }
 .some-container {
@@ -167,6 +153,7 @@ header {
         h3 {
             margin-top: 1em;
             margin-bottom: 1em;
+            font-weight: normal;
         }
         h3, a {
             text-decoration: none;
@@ -183,7 +170,7 @@ header {
         }
         &.projectLabel--alt {
             span {
-                background: #ff0000;
+                background: $secondary-color;
                 color: #fff;
             }
         }

@@ -24,43 +24,56 @@
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <header>
-        <nav>
-            <li>
-                <a href="#">Projects</a>
-            </li>
-            <li><a href="https://bitbucket.org/simonlayfield/" target="_blank" title="github" class="lsf-icon">Github</a></li>
-             <li><a href="javascript:location='mailto:u0073u0069u006du006fu006eu006cu0061u0079u0066u0069u0065u006cu0064u0040u0067u006du0061u0069u006cu002eu0063u006fu006d';void 0" class="lsf-icon" title="mail">Contact</a></li>
-        </nav>
-    </header>
 
 
 <div class="some-container">
 </div>
 
-<script id='template' type='text/ractive'>
-    <div class="container">
+<script id='template' type='text/html'>
+
+    <header>
+        <nav>
+            <li><a onclick="showMenu()">Projects</a></li>
+            <li><a href="http://blog.simonlayfield.com">Blog</a></li>
+            <li><a href="https://bitbucket.org/simonlayfield/" target="_blank" title="github" class="lsf-icon">Github</a></li>
+            <li><a href="javascript:location='mailto:u0073u0069u006du006fu006eu006cu0061u0079u0066u0069u0065u006cu0064u0040u0067u006du0061u0069u006cu002eu0063u006fu006d';void 0" class="lsf-icon" title="mail">Contact</a></li>
+        </nav>
+        <div class="row">
+            <nav class="nav--alt nav--inactive" id="navAlt">
+                {{#each pages}}
+                    <li><a href="./{{title.toLowerCase()}}.html">{{title}}</a></li>
+                {{/each}}
+            </nav>
+        </div>
+    </header>
+
+    <div class="container container--slim">
 
         <section class="main" role="main">
             <p><img src="assets/img/profile.png" alt="" class="profile" width="150px"/></p>
             <p><em>Hello</em>, I'm <a href="./">Simon Layfield</a>.</p>
-            <p>I build meaningful user experiences within lightweight, scalable web prototypes. Currently, my free time in this area goes towards my personal project, <a href="#">Typereel</a>.</p>
+            <p>I build meaningful user experiences into lightweight, scalable web prototypes. Currently, my free time in this area goes towards my personal project, <a href="#">Typereel</a>.</p>
             <hr>
             <p>Other interests include freelance <a href="#">branding and illustration</a>, amateur <a href="#">photography</a> and <a href="#">board game design</a>. I also play in a band called <a href="#">Youth &amp; The Young</a>.</p>
         </section>
-
 
     </div>
 </script>
 
 
 
-        <footer class="footer">
-            <!-- <p>If you'd like </p> -->
-        </footer>
         <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/main.js"></script>
+
+        <script>
+            function showMenu() {
+
+                var submenu = document.getElementById('navAlt');
+                submenu.classList.remove('nav--inactive');
+
+            }
+        </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

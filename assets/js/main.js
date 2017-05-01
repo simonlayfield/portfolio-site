@@ -1,4 +1,5 @@
-var projects = [{
+
+var pages = [{
         "title": "Branding",
         "description": "I design purposeful, visually balanced branding. Tell me all about your company and I'll build you an identity.",
         "logos": [{
@@ -206,7 +207,7 @@ var ractive = new Ractive({
     el: '.some-container',
     template: '#template',
     data: {
-        projectList: projects,
+        pages: pages,
         imageList: listInspire
     }
 });

@@ -4,19 +4,29 @@
 </div>
 
 <script id='template' type='text/ractive'>
-
-    <div class="row">
+    <header>
         <nav>
-            <li><a class="active" href="/branding.html">Branding</a></li><!--
-            --><li><a href="/web.html">Web</a></li><!--
-            --><li><a href="/illustration.html">Illustration</a></li>
+        <li class="home-link"><a class="lsf" href="index.html">home</a></li>
+
+            <li><a onclick="showMenu()">Projects</a></li>
+            <li><a href="http://blog.simonlayfield.com">Blog</a></li>
+            <li><a href="https://bitbucket.org/simonlayfield/" target="_blank" title="github" class="lsf-icon">Github</a></li>
+            <li><a href="javascript:location='mailto:u0073u0069u006du006fu006eu006cu0061u0079u0066u0069u0065u006cu0064u0040u0067u006du0061u0069u006cu002eu0063u006fu006d';void 0" class="lsf-icon" title="mail">Contact</a></li>
         </nav>
-    </div>
+        <div class="row">
+            <nav class="nav--alt" id="navAlt">
+                {{#each pages}}
+                    <li><a href="./{{title.toLowerCase()}}.html">{{title}}</a></li>
+                {{/each}}
+            </nav>
+        </div>
+    </header>
+
     <div class="row row--bg">
         <div class="container">
-            {{#each projectList:i}}
+            {{#each pages:i}}
                 {{#if title === "Branding"}}
-                    {{#each projectList[i].logos}}
+                    {{#each pages[i].logos}}
                         <div class="project project--branding">
                             <img src="{{image}}" alt="">
                         </div>
