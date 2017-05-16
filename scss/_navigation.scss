@@ -1,17 +1,36 @@
 nav {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    padding: 3px;
+
+    &.nav--main {
+        li {
+            border: 3px solid #fff;
+        }
+    }
 
     li {
-        padding: 1rem;
-        display: flex;
-        align-items: center;
+        height: 50px;
+        width: 50%;
+        @include breakpointMedium {
+            width: auto;
+            justify-content: flex-start;
+            margin: 0 1rem;
+            border: none;
+        }
         a {
+            background: $primary-color;
+            color: #fff;
+            display: block;
+            width: 100%;
+            padding-top: 10px;
+            text-align: center;
+            text-decoration: none;
             cursor: pointer;
             &:before {
                 display: inline-block;
-
             }
         }
 
@@ -21,6 +40,23 @@ nav {
                 text-decoration: none;
             }
         }
+
+        &.nav__item {
+            &--disabled {
+                display: none;
+            }
+
+            &--active {
+                display: flex;
+            }
+
+            &--sub {
+                a {
+                    background: $secondary-color;
+                }
+            }
+        }
+
     }
 
     &.nav--alt {

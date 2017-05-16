@@ -209,5 +209,14 @@ var ractive = new Ractive({
     data: {
         pages: pages,
         imageList: listInspire
+    },
+    oncomplete: function() {
+        this.on('toggleMenu', function() {
+            this.toggle('activeMenu');
+        });
+
+        this.on('switchMenu', function () {
+            this.toggle('subMenu');
+        });
     }
 });

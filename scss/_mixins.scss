@@ -1,7 +1,7 @@
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   border-radius: $radius;
-  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+  background-clip: padding-box;
 }
 
 // Single side border-radius
@@ -33,4 +33,14 @@
      -webkit-border-top-left-radius: $radius;
      border-top-left-radius: $radius;
      background-clip: padding-box;
+}
+
+@mixin breakpointMedium {
+    @media only screen and (min-width : 30em)  {
+        @content
+    }
+}
+
+@function remCalc($value){
+  @return ($value/16) + rem;
 }
