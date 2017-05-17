@@ -32,18 +32,32 @@ nav {
             &:before {
                 display: inline-block;
             }
+            @include breakpointMedium {
+                background: transparent;
+                color: $secondary-color;
+            }
         }
 
         &.home-link {
             a {
                 font-size: 130%;
+                line-height: 100%;
                 text-decoration: none;
             }
         }
 
         &.nav__item {
+            @include breakpointMedium {
+                &:nth-child(5n) {
+                  page-break-after: always; /* CSS 2.1 syntax */
+                  break-after: always; /* New syntax */
+                }
+            }
             &--disabled {
                 display: none;
+                @include breakpointMedium {
+                    display: flex;
+                }
             }
 
             &--active {
@@ -53,6 +67,9 @@ nav {
             &--sub {
                 a {
                     background: $secondary-color;
+                    @include breakpointMedium {
+                        background: transparent;
+                    }
                 }
             }
         }

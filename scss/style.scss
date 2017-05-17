@@ -24,8 +24,11 @@ h1,
 h2 {
     text-align: center;
     color: $primary-color;
+    font-weight: normal;
 }
-
+h1 {
+    font-size: remCalc(24);
+}
 h2 {
     font-size: remCalc(18);
 }

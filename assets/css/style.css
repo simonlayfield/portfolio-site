@@ -55,15 +55,32 @@ nav {
       cursor: pointer; }
       nav li a:before {
         display: inline-block; }
+      @media only screen and (min-width: 30em) {
+        nav li a {
+          background: transparent;
+          color: #ff55a1; } }
     nav li.home-link a {
       font-size: 130%;
+      line-height: 100%;
       text-decoration: none; }
+    @media only screen and (min-width: 30em) {
+      nav li.nav__item:nth-child(5n) {
+        page-break-after: always;
+        /* CSS 2.1 syntax */
+        break-after: always;
+        /* New syntax */ } }
     nav li.nav__item--disabled {
       display: none; }
+      @media only screen and (min-width: 30em) {
+        nav li.nav__item--disabled {
+          display: flex; } }
     nav li.nav__item--active {
       display: flex; }
     nav li.nav__item--sub a {
       background: #ff55a1; }
+      @media only screen and (min-width: 30em) {
+        nav li.nav__item--sub a {
+          background: transparent; } }
   nav.nav--alt {
     height: 70px;
     transition: height 0.4s cubic-bezier(0, 0, 0.15, 1); }
@@ -91,7 +108,11 @@ body {
 h1,
 h2 {
   text-align: center;
-  color: #007aa2; }
+  color: #007aa2;
+  font-weight: normal; }
+
+h1 {
+  font-size: 1.5rem; }
 
 h2 {
   font-size: 1.125rem; }
