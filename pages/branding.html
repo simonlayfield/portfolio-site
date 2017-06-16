@@ -5,18 +5,12 @@
 
 <script id='template' type='text/html'>
 
-    <header>
-        <nav class="nav--main">
-            <li class="nav__item home-link"><a class="lsf" href="index.html">home</a></li>
-            <li class="nav__item nav__item--active"><a on-click="switchMenu">{{subMenu ? '<' : 'Projects'}}</a></li>
-            <li class="nav__item{{subMenu ? ' nav__item--disabled' : ' nav__item--active'}}"><a href="http://blog.simonlayfield.com">Blog</a></li>
-            <li class="nav__item{{subMenu ? ' nav__item--disabled' : ' nav__item--active'}}"><a href="https://bitbucket.org/simonlayfield/" target="_blank" title="github" class="lsf-icon">Github</a></li>
-            <li class="nav__item{{subMenu ? ' nav__item--disabled' : ' nav__item--active'}}"><a href="javascript:location='mailto:u0073u0069u006du006fu006eu006cu0061u0079u0066u0069u0065u006cu0064u0040u0067u006du0061u0069u006cu002eu0063u006fu006d';void 0" class="lsf-icon" title="mail">Contact</a></li>
-            {{#each pages}}
-                <li class="nav__item nav__item--sub{{subMenu ? ' nav__item--active' : ' nav__item--disabled'}}"><a href="./{{title.toLowerCase()}}.html">{{title}}</a></li>
-            {{/each}}
-        </nav>
-    </header>
+<div class="wrap {{activeMenu ? 'active' : ''}}">
+
+    @@include('../includes/navigation.html', {"page": "branding"})
+
+    <a class="menu-icon lsf" on-click="toggleMenu">menu</a>
+
     <div class="container container--full notification">
         <h1>Branding</h1>
         <p>Branding projects these days are less frequent, but still occasionaly crop up.</p>
@@ -50,6 +44,8 @@
             </ul>
         </div>
     </div>
+
+</div>
 
 </script>
 

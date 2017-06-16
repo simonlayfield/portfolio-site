@@ -23,12 +23,20 @@ var ractive = new Ractive({
 
     },
     oncomplete: function() {
+
+        var self = this;
+
+        if (localStorage.subMenu === 'true') {
+            self.set('subMenu', true);
+        }
+
         this.on('toggleMenu', function() {
             this.toggle('activeMenu');
         });
 
         this.on('switchMenu', function () {
             this.toggle('subMenu');
+            localStorage.setItem('subMenu', this.get('subMenu'));
         });
     }
 });

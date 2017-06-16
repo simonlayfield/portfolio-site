@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                 tasks: ['sass']
             },
             html: {
-                files: ['content/*.html', 'includes/*.html'],
+                files: ['pages/*.html', 'includes/*.html'],
                 tasks: ['includereplace']
             }
         },
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                     // Task-specific options go here.
                 },
                 // Files to perform replacements and includes with
-                src: 'content/*.html',
+                src: 'pages/*.html',
                 // Destination directory to copy files to
                 dest: './',
                 flatten: true,

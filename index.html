@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="bower_components/lodash/lodash.js"></script>
-    <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
+    <script src='assets/js/ractive.js'></script>
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700" rel="stylesheet">
 
 </head>
@@ -24,6 +24,16 @@
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+<!--
+        ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+       ◀┌──────────────────────────────────────┐▶
+       ◀│        WELCOME TO THE NETHER         │▶
+       ◀└──────────────────────────────────────┘▶
+        ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+
+
+                    STAY A WHILE...
+-->
 
 
 
@@ -34,31 +44,36 @@
 
     <div class="wrap {{activeMenu ? 'active' : ''}}">
 
-    <header>
-        <nav class="nav--main">
-            <li class="nav__item nav__item--active"><a on-click="switchMenu">{{subMenu ? '<' : 'Projects'}}</a></li>
-            <li class="nav__item{{subMenu ? ' nav__item--disabled' : ' nav__item--active'}}"><a href="http://blog.simonlayfield.com">Blog</a></li>
-            <li class="nav__item{{subMenu ? ' nav__item--disabled' : ' nav__item--active'}}"><a href="https://bitbucket.org/simonlayfield/" target="_blank" title="github" class="lsf-icon">Github</a></li>
-            <li class="nav__item{{subMenu ? ' nav__item--disabled' : ' nav__item--active'}}"><a href="javascript:location='mailto:u0073u0069u006du006fu006eu006cu0061u0079u0066u0069u0065u006cu0064u0040u0067u006du0061u0069u006cu002eu0063u006fu006d';void 0" class="lsf-icon" title="mail">Contact</a></li>
-            {{#each pages}}
-                <li class="nav__item nav__item--sub{{subMenu ? ' nav__item--active' : ' nav__item--disabled'}}"><a href="./{{title.toLowerCase()}}.html">{{title}}</a></li>
-            {{/each}}
-        </nav>
-    </header>
+        <header>
+    <nav class="nav--main current-page-home">
+        <li class="nav__item nav__item--home nav__item--active"><a href="index.html">Home</a></li>
+        <li class="nav__item nav__item--active"><a on-click="switchMenu">{{{subMenu ? '<span><</span> Projects' : 'Projects'}}}</a></li>
+        <li class="nav__item{{subMenu ? ' nav__item--disabled' : ' nav__item--active'}}"><a href="http://blog.simonlayfield.com">Blog</a></li>
+        <li class="nav__item{{subMenu ? ' nav__item--disabled' : ' nav__item--active'}}"><a href="https://bitbucket.org/simonlayfield/" target="_blank" title="github" class="lsf-icon">Github</a></li>
+        <li class="nav__item{{subMenu ? ' nav__item--disabled' : ' nav__item--active'}}"><a href="javascript:location='mailto:u0073u0069u006du006fu006eu006cu0061u0079u0066u0069u0065u006cu0064u0040u0067u006du0061u0069u006cu002eu0063u006fu006d';void 0" class="lsf-icon" title="mail">Contact</a></li>
+        <break></break>
+        {{#each pages}}
+            <li class="nav__item nav__item--sub{{subMenu ? ' nav__item--active' : ' nav__item--disabled'}}"><a href="./{{title.toLowerCase()}}.html">{{title}}</a></li>
+        {{/each}}
+    </nav>
+</header>
 
-    <div class="container container--slim">
+
         <a class="menu-icon lsf" on-click="toggleMenu">menu</a>
 
-        <section class="main" role="main">
-            <p><img src="assets/img/profile.png" alt="" class="profile" width="150px"/></p>
-            <p><em>Hello</em>, I'm <a href="./">Simon Layfield</a>.</p>
-            <p>I build meaningful user experiences into lightweight, scalable web prototypes. Currently, my free time in this area goes towards my personal project, <a href="#">Typereel</a>.</p>
-            <hr>
-            <p>Other interests include freelance <a href="./branding.html">branding and illustration</a>, amateur <a href="./photography.html">photography</a> and <a href="#">board games</a>. I also play in a band called <a href="">Youth &amp; The Young</a>.</p>
-        </section>
+        <div class="container container--slim">
 
+            <section class="main" role="main">
+                <p><img src="assets/img/profile.png" alt="" class="profile" width="150px"/></p>
+                <p><em>Hello</em>, I'm <a href="https://www.linkedin.com/in/simon-layfield-39201729/" target="_blank">Simon Layfield</a>.</p>
+                <p>I build meaningful user experiences into lightweight, scalable web prototypes. Currently, my free time in this area goes towards my personal project, <a href="http://typereel.io" target="_blank">Typereel</a>.</p>
+                <hr>
+                <p>Other interests include freelance <a href="./branding.html">branding and illustration</a>, amateur <a href="./photography.html">photography</a> and board games. I also play in a band called <a href="https://soundcloud.com/yaty-band" target="_blank">Youth &amp; The Young</a>.</p>
+            </section>
+
+        </div>
     </div>
-    </div>
+
 </script>
 
 
@@ -76,14 +91,13 @@
             }
         </script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='https://www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-7071247-1', 'auto');
+            ga('send', 'pageview');
         </script>
     </body>
 </html>

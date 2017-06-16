@@ -31,10 +31,21 @@ nav {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   padding: 3px; }
+  @media only screen and (min-width: 30em) {
+    nav {
+      justify-content: center; } }
+  @media only screen and (min-width: 30em) {
+    nav break {
+      flex-basis: 100%;
+      width: 0px;
+      height: 0px;
+      overflow: hidden; } }
   nav.nav--main li {
     border: 3px solid #fff; }
+  @media only screen and (min-width: 30em) {
+    nav.nav--main.current-page-home li.nav__item--active.nav__item--home {
+      display: none; } }
   nav li {
     height: 50px;
     width: 50%; }
@@ -59,16 +70,9 @@ nav {
         nav li a {
           background: transparent;
           color: #ff55a1; } }
-    nav li.home-link a {
-      font-size: 130%;
-      line-height: 100%;
-      text-decoration: none; }
     @media only screen and (min-width: 30em) {
-      nav li.nav__item:nth-child(5n) {
-        page-break-after: always;
-        /* CSS 2.1 syntax */
-        break-after: always;
-        /* New syntax */ } }
+      nav li span {
+        display: none; } }
     nav li.nav__item--disabled {
       display: none; }
       @media only screen and (min-width: 30em) {
@@ -76,6 +80,9 @@ nav {
           display: flex; } }
     nav li.nav__item--active {
       display: flex; }
+    @media only screen and (min-width: 30em) {
+      nav li.nav__item--sub.nav__item--disabled {
+        display: none; } }
     nav li.nav__item--sub a {
       background: #ff55a1; }
       @media only screen and (min-width: 30em) {
@@ -195,7 +202,7 @@ hr {
     clear: both; }
   .some-container .wrap {
     position: relative;
-    top: -100px;
+    top: -150px;
     -webkit-transition: all .5s ease;
     transition: all .5s ease; }
     @media only screen and (min-width: 30em) {
