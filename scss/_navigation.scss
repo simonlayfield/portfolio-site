@@ -1,0 +1,122 @@
+nav {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3px;
+
+    @include breakpointMedium {
+        justify-content: center;
+    }
+
+    break {
+        @include breakpointMedium {
+            flex-basis: 100%;
+            width: 0px;
+            height: 0px;
+            overflow: hidden;
+        }
+    }
+
+    &.nav--main {
+        li {
+            border: 3px solid #fff;
+        }
+
+        &.current-page-home {
+            li {
+                &.nav__item--active {
+                    &.nav__item--home {
+                         @include breakpointMedium {
+                             display: none;
+                         }
+                    }
+                }
+            }
+
+        }
+    }
+
+    li {
+        height: 50px;
+        width: 50%;
+        @include breakpointMedium {
+            width: auto;
+            justify-content: flex-start;
+            margin: 0 1rem;
+            border: none;
+        }
+        a {
+            background: $primary-color;
+            color: #fff;
+            display: block;
+            width: 100%;
+            padding-top: 10px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            &:before {
+                display: inline-block;
+            }
+            @include breakpointMedium {
+                background: transparent;
+                color: $secondary-color;
+            }
+        }
+
+        span {
+            @include breakpointMedium {
+                display: none;
+            }
+        }
+
+        &.nav__item {
+            &--disabled {
+                display: none;
+                @include breakpointMedium {
+                    display: flex;
+                }
+            }
+
+            &--active {
+                display: flex;
+            }
+
+            &--sub {
+                &.nav__item--disabled {
+                    @include breakpointMedium {
+                        display: none;
+                    }
+                }
+                a {
+                    background: $secondary-color;
+                    @include breakpointMedium {
+                        background: transparent;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    &.nav--alt {
+        height: 70px;
+        transition: height .4s cubic-bezier(0, 0, 0.15, 1);
+        li {
+            a {
+                opacity: 1;
+                transition: opacity .6s linear;
+
+            }
+        }
+
+        &.nav--inactive {
+            height: 0;
+            li {
+                a {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}

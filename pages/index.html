@@ -1,0 +1,30 @@
+@@include('../includes/header.html', {"title": "Simon Layfield", "key": "simon"})
+
+
+    <div class="some-container">
+    </div>
+
+<script id='template' type='text/html'>
+
+    <div class="wrap {{activeMenu ? 'active' : ''}}">
+
+        @@include('../includes/navigation.html', {"page": "home"})
+
+        <a class="menu-icon lsf" on-click="toggleMenu">menu</a>
+
+        <div class="container container--slim">
+
+            <section class="main" role="main">
+                <p><img src="assets/img/profile.png" alt="" class="profile" width="150px"/></p>
+                <p><em>Hello</em>, I'm <a href="https://www.linkedin.com/in/simon-layfield-39201729/" target="_blank">Simon Layfield</a>.</p>
+                <p>I build meaningful user experiences into lightweight, scalable web prototypes. Currently, my free time in this area goes towards my personal project, <a href="http://typereel.io" target="_blank">Typereel</a>.</p>
+                <hr>
+                <p>Other interests include freelance <a href="./branding.html">branding and illustration</a>, amateur <a href="./photography.html">photography</a> and board games. I also play in a band called <a href="https://soundcloud.com/yaty-band" target="_blank">Youth &amp; The Young</a>.</p>
+            </section>
+
+        </div>
+    </div>
+
+</script>
+
+@@include('../includes/footer.html', {"jsfile": "main"})

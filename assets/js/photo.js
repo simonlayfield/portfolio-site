@@ -1,7 +1,7 @@
 var listInspire = [];
 
 
-$.getJSON("./js/list-photo.json", function (json) {
+$.getJSON("./assets/js/list-photo.json", function (json) {
 
     var n = 0;
 
@@ -64,7 +64,7 @@ var ractive = new Ractive({
             function loadImage (nextImage, lastImage) {
 
                 var img = new Image();
-                img.src = '/img/auto/photo/' + nextImage;
+                img.src = '/assets/img/auto/photo/' + nextImage;
                 img.onload = function() {
                     insertImage(img, nextImage, lastImage);
                 };
