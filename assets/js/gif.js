@@ -1,7 +1,7 @@
 var listInspire = [];
 
 
-$.getJSON("./js/list-gif.json", function (json) {
+$.getJSON("./assets/js/list-gif.json", function (json) {
 
     var n = 0;
 
@@ -60,7 +60,7 @@ var ractive = new Ractive({
                     video.controls = "controls";
 
                     var source = document.createElement('source');
-                    source.src = '/img/auto/gif/' + image;
+                    source.src = '/assets/img/auto/gif/' + image;
                     source.type = "video/webm";
                     video.appendChild(source);
 
@@ -71,7 +71,7 @@ var ractive = new Ractive({
                 } else {
 
                     var img = new Image();
-                    img.src = '/img/auto/gif/' + image;
+                    img.src = '/assets/img/auto/gif/' + image;
                     img.className = 'loaded';
                     img.onload = function() {
                         insertImage(img);
