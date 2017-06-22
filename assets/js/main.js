@@ -1,7 +1,7 @@
 
 var listInspire = [];
 
-$.getJSON("./assets/js/list-inspire.json", function (json) {
+$.getJSON("assets/js/list-inspire.json", function (json) {
     var n = 0;
     $.each(json, function (key, val) {
         listInspire.push({"image": val});

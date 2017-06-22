@@ -103,7 +103,8 @@ header {
 
     .wrap {
         position: relative;
-        top: -150px;
+        // top: -150px;
+        top: -100px;
 
         @include breakpointMedium {
             top: 0px;
