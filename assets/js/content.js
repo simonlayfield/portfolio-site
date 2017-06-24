@@ -1,17 +1,22 @@
 var listInspire = [];
 
+$.ajax({
+    url: "https://www.googleapis.com/storage/v1/b/simon-layfield-site/o?prefix=auto/" + content,
+    method: "GET",
+    success: function(response) {
 
-$.getJSON("./assets/js/list-gif.json", function (json) {
+        console.log(response);
 
-    var n = 0;
+        var n = 0;
 
-    $.each(json, function (key, val) {
-        listInspire.push({"image": val});
-        n += 1;
-        if (n == 3) {
-            n = 0;
-        }
-    });
+        $.each(response.items, function (key, val) {
+            listInspire.push({"image": val.name});
+            n += 1;
+            if (n == 3) {
+                n = 0;
+            }
+        });
+  }
 
 });
 
@@ -25,11 +30,13 @@ var ractive = new Ractive({
 
         setTimeout(function(){
 
+            listInspire = listInspire.reverse();
+
             var columnHeights = [],
             imagelists = document.querySelectorAll('.imagelist'),
             imageIncrement = 9,
             n = 0,
-            scrollLock = true;
+            scrollEnabled = true;
 
             var shortestColumn = function (arr) {
                 var lowest = 0;
@@ -39,7 +46,7 @@ var ractive = new Ractive({
                 return lowest;
             }
 
-            function insertImage (image) {
+            function insertImage (image, nextImage, lastImage) {
 
                 [].forEach.call(imagelists, function(list, index) {
                     columnHeights[index] = list.offsetHeight;
@@ -49,18 +56,25 @@ var ractive = new Ractive({
 
                 imagelists[column].appendChild(image);
 
+                setTimeout (function () {
+                    image.className = 'loaded';
+                    if (nextImage == lastImage) {
+                        scrollEnabled = true;
+                    }
+                }, 500);
+
             }
 
-            function loadImage (image) {
+            function loadImage (nextImage, lastImage) {
 
-                if (image.indexOf('.webm') > 0) {
+                if (nextImage.indexOf('.webm') > 0) {
                     var video = document.createElement('video');
                     video.autoplay = true;
                     video.loop = true;
                     video.controls = "controls";
 
                     var source = document.createElement('source');
-                    source.src = '/assets/img/auto/gif/' + image;
+                    source.src = 'https://storage.googleapis.com/simon-layfield-site/' + nextImage;
                     source.type = "video/webm";
                     video.appendChild(source);
 
@@ -71,7 +85,7 @@ var ractive = new Ractive({
                 } else {
 
                     var img = new Image();
-                    img.src = '/assets/img/auto/gif/' + image;
+                    img.src = 'https://storage.googleapis.com/simon-layfield-site/' + nextImage;
                     img.className = 'loaded';
                     img.onload = function() {
                         insertImage(img);
@@ -83,28 +97,31 @@ var ractive = new Ractive({
 
             function cycleImages () {
 
+                scrollEnabled = false;
+
                 if (n == listInspire.length) {
-                    scrollLock = false;
+                    console.log('true');
+                    scrollEnabled = false;
                     return;
                 }
 
                 if (n + imageIncrement > listInspire.length) {
-                    var limit = listInspire.length - n;
+                    var limit = listInspire.length;
                 } else {
                     var limit = n + imageIncrement;
                 }
 
+                var lastImage = ractive.get('imageList.' + (limit - 1) + '.image');
+
                 for (var i = n; i < limit; i++) {
 
-                    scrollLock = false;
-
                     var nextImage = ractive.get('imageList.' + i + '.image');
-                    loadImage(nextImage);
+                    loadImage(nextImage, lastImage);
+                    console.log(n, listInspire.length);
 
                 }
 
                 n = n + imageIncrement;
-                scrollLock = true;
 
             }
 
@@ -112,7 +129,7 @@ var ractive = new Ractive({
 
             window.onscroll = function(ev) {
                 if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 100)) {
-                    if (scrollLock) {
+                    if (scrollEnabled) {
                         cycleImages();
                     }
                 }

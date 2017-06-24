@@ -18,7 +18,6 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gif-video": "^0.1.2",
     "grunt-include-replace": "^3.2.0",
-    "grunt-tree": "^1.1.1",
     "imagemin-gifsicle": "^4.1.0",
     "page-wrap-grunt-task": "^0.1.2"
   },
