@@ -32,24 +32,6 @@ module.exports = function(grunt) {
                 expand: true
             }
         },
-        tree: {
-            default: {
-                options: {
-                    perttify: true
-                },
-                files: [{
-                    src: ['assets/img/auto/gif'],
-                    dest: 'assets/js/list-gif.json',
-                    recurse: false
-                }, {
-                    src: ['assets/img/auto/photo'],
-                    dest: 'assets/js/list-photo.json'
-                }, {
-                    src: ['assets/img/auto/inspire'],
-                    dest: 'assets/js/list-inspire.json'
-                }]
-            }
-        },
         imagemin: {
             gif: {
                 options: {
