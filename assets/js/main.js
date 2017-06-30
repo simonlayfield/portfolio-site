@@ -1,4 +1,22 @@
 
+var menuList = [{
+    "label": "Home",
+    "url": "index.html"
+}, {
+    "label": "Projects",
+    "sub": [{
+        "label": "Web"
+    }, {
+        "label": "Branding"
+    }, {
+        "label": "Illustration"
+    }]
+}, {
+    "label": "Github",
+    "icon": "github",
+    "flexible": true
+}]
+
 var listInspire = [];
 
 $.getJSON("assets/js/projects.json", function (json) {
@@ -18,6 +36,7 @@ var ractive = new Ractive({
     data: function() {
         return {
             pages: '',
+            menu: menuList,
             imageList: listInspire
             }
 

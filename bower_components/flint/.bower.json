@@ -34,8 +34,8 @@
     "tag": "2.3.7",
     "commit": "02220e6ed8f304cc0788811590be7043aaffb98e"
   },
-  "_source": "git://github.com/ezekg/flint.git",
-  "_target": "~2.3.7",
+  "_source": "https://github.com/ezekg/flint.git",
+  "_target": "^2.3.7",
   "_originalSource": "flint",
   "_direct": true
 }

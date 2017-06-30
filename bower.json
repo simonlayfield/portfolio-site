@@ -12,5 +12,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "flint": "^2.3.7",
+    "lodash": "^4.17.4"
+  }
 }
