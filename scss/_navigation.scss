@@ -34,7 +34,17 @@ nav {
             }
 
         }
+
     }
+
+	&.nav--sub {
+		.nav__item--flexible {
+			display: none;
+			@include breakpointMedium {
+				display: block;
+			}
+		}
+	}
 
     li {
         height: 50px;
@@ -70,6 +80,7 @@ nav {
         }
 
         &.nav__item {
+			display: flex;
             &--disabled {
                 display: none;
                 @include breakpointMedium {

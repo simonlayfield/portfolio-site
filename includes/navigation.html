@@ -1,7 +1,7 @@
 <header>
-    <nav class="nav--main current-page-@@page">
+    <nav class="nav--main{{subMenu ? ' nav--sub' : ''}} current-page-@@page">
         {{#each menu}}
-            <li class="nav__item"><a on-click="{{#if sub}}switchMenu{{/if}}" {{#if url}}href="{{url}}" {{/if}}target="_blank"{{#if icon}} title="{{icon}}" class="lsf-icon"{{/if}} id="nav-item__{{label.toLowerCase()}}">{{label}}</a></li>
+            <li class="nav__item{{flexible ? ' nav__item--flexible' : '' }}"><a on-click="{{#if sub}}switchMenu{{/if}}" {{#if url}}href="{{url}}" {{/if}}{{#if icon}}title="{{icon}}" target="_blank" class="lsf-icon"{{/if}} id="nav-item__{{label.toLowerCase()}}">{{label}}</a></li>
         {{/each}}
         <break></break>
         {{#each menu}}

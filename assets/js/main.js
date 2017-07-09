@@ -15,6 +15,9 @@ var menuList = [{
     "label": "Github",
     "icon": "github",
     "flexible": true
+}, {
+    "label": "Contact",
+    "flexible": true
 }]
 
 var listInspire = [];
@@ -45,18 +48,62 @@ var ractive = new Ractive({
 
         var self = this;
 
-        if (localStorage.subMenu === 'true') {
-            self.set('subMenu', true);
-        }
+		if (localStorage.subMenu === 'true') {
+			self.set('subMenu', true);
+		}
+
+		var submenuLength;
+
+		// Check the total number of flexible menu items
+		var flexibleItems = self.get('menu').filter(function(item) {
+			if (item.sub) {
+				submenuLength = item.sub.length;
+			}
+			return item.flexible ? 'item.label' : false;
+		});
+
+		console.log(flexibleItems.length);
+		console.log(submenuLength);
+
+		var menuHeight = 2 * Math.ceil((flexibleItems.length + 2) / 2)
+			submenuHeight = 2 * Math.ceil((submenuLength + 2) / 2);
+
+		menuHeight = menuHeight / 2;
+		submenuHeight = submenuHeight / 2;
+
+		console.log(self.get('activeMenu'));
+
+		if (self.get('activeMenu')) {
+			console.log('menu is open');
+			self.find('.wrap').style.top = 0;
+		} else if (self.get('subMenu')){
+			console.log('submenu is active');
+			self.find('.wrap').style.top =  '-' + 50 * submenuHeight + 'px';
+		} else {
+			console.log('main menu is active');
+			self.find('.wrap').style.top =  '-' + 50 * menuHeight + 'px';
+		};
 
         this.on('toggleMenu', function() {
-            this.toggle('activeMenu');
+            self.toggle('activeMenu');
+			if (self.get('activeMenu')) {
+				console.log('menu is open');
+				self.find('.wrap').style.top = 0;
+			} else if (self.get('subMenu')){
+				console.log('submenu is active');
+				self.find('.wrap').style.top =  '-' + 50 * submenuHeight + 'px';
+			} else {
+				console.log('main menu is active');
+				self.find('.wrap').style.top =  '-' + 50 * menuHeight + 'px';
+			};
         });
 
         this.on('switchMenu', function () {
-            this.toggle('subMenu');
-            localStorage.setItem('subMenu', this.get('subMenu'));
+            self.toggle('subMenu');
+            localStorage.setItem('subMenu', self.get('subMenu'));
         });
+
+
     }
 });
 
