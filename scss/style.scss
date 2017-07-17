@@ -102,9 +102,17 @@ header {
     @include _(clear);
 
     .wrap {
+
+
+		@for $i from 1 through 5 {
+			&.wrap--#{$i} {
+				top: -50px * $i;
+			}
+		}
+
         position: relative;
         // top: -150px;
-        top: -100px;
+        top: 0;
 
         @include breakpointMedium {
             top: 0px;
