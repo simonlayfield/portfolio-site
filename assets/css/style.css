@@ -209,9 +209,19 @@ hr {
     clear: both; }
   .some-container .wrap {
     position: relative;
-    top: -100px;
+    top: 0;
     -webkit-transition: all .5s ease;
     transition: all .5s ease; }
+    .some-container .wrap.wrap--1 {
+      top: -50px; }
+    .some-container .wrap.wrap--2 {
+      top: -100px; }
+    .some-container .wrap.wrap--3 {
+      top: -150px; }
+    .some-container .wrap.wrap--4 {
+      top: -200px; }
+    .some-container .wrap.wrap--5 {
+      top: -250px; }
     @media only screen and (min-width: 30em) {
       .some-container .wrap {
         top: 0px; } }

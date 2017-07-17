@@ -41,8 +41,7 @@ var ractive = new Ractive({
             pages: '',
             menu: menuList,
             imageList: listInspire
-            }
-
+        }
     },
     oncomplete: function() {
 
@@ -62,39 +61,28 @@ var ractive = new Ractive({
 			return item.flexible ? 'item.label' : false;
 		});
 
-		console.log(flexibleItems.length);
-		console.log(submenuLength);
+		var menuLength = 2 * Math.ceil((flexibleItems.length + 2) / 2)
+			submenuLength = 2 * Math.ceil((submenuLength + 2) / 2);
 
-		var menuHeight = 2 * Math.ceil((flexibleItems.length + 2) / 2)
-			submenuHeight = 2 * Math.ceil((submenuLength + 2) / 2);
-
-		menuHeight = menuHeight / 2;
-		submenuHeight = submenuHeight / 2;
-
-		console.log(self.get('activeMenu'));
+		menuLength = menuLength / 2;
+		submenuLength = submenuLength / 2;
 
 		if (self.get('activeMenu')) {
-			console.log('menu is open');
-			self.find('.wrap').style.top = 0;
+			self.find('.wrap').className = 'wrap';
 		} else if (self.get('subMenu')){
-			console.log('submenu is active');
-			self.find('.wrap').style.top =  '-' + 50 * submenuHeight + 'px';
+			self.find('.wrap').classList.add('wrap--' + submenuLength);
 		} else {
-			console.log('main menu is active');
-			self.find('.wrap').style.top =  '-' + 50 * menuHeight + 'px';
+			self.find('.wrap').classList.add('wrap--' + menuLength);
 		};
 
         this.on('toggleMenu', function() {
             self.toggle('activeMenu');
 			if (self.get('activeMenu')) {
-				console.log('menu is open');
-				self.find('.wrap').style.top = 0;
+				self.find('.wrap').className = 'wrap';
 			} else if (self.get('subMenu')){
-				console.log('submenu is active');
-				self.find('.wrap').style.top =  '-' + 50 * submenuHeight + 'px';
+				self.find('.wrap').classList.add('wrap--' + submenuLength);
 			} else {
-				console.log('main menu is active');
-				self.find('.wrap').style.top =  '-' + 50 * menuHeight + 'px';
+				self.find('.wrap').classList.add('wrap--' + menuLength);
 			};
         });
 

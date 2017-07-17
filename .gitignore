@@ -1,11 +1,8 @@
 # Include your project-specific ignores in this file
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 
-bower_components
+
 node_modules
 .sass-cache
 .tmp
 .DS_Store
-style-guide/node_modules
-style-guide/.sass-cache
-img/auto/process
