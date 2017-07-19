@@ -223,8 +223,16 @@ hr {
     .some-container .wrap.wrap--5 {
       top: -250px; }
     @media only screen and (min-width: 30em) {
-      .some-container .wrap {
-        top: 0px; } }
+      .some-container .wrap.wrap--1 {
+        top: 0; }
+      .some-container .wrap.wrap--2 {
+        top: 0; }
+      .some-container .wrap.wrap--3 {
+        top: 0; }
+      .some-container .wrap.wrap--4 {
+        top: 0; }
+      .some-container .wrap.wrap--5 {
+        top: 0; } }
     .some-container .wrap.active {
       top: 0; }
   .some-container .menu-icon {
