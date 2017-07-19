@@ -103,7 +103,6 @@ header {
 
     .wrap {
 
-
 		@for $i from 1 through 5 {
 			&.wrap--#{$i} {
 				top: -50px * $i;
@@ -111,11 +110,14 @@ header {
 		}
 
         position: relative;
-        // top: -150px;
         top: 0;
 
         @include breakpointMedium {
-            top: 0px;
+            @for $i from 1 through 5 {
+    			&.wrap--#{$i} {
+    				top: 0;
+    			}
+    		}
         }
 
         -webkit-transition: all .5s ease;
