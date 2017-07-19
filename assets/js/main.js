@@ -14,9 +14,11 @@ var menuList = [{
 }, {
     "label": "Github",
     "icon": "github",
+    "url": "https://github.com/simonlayfield/",
     "flexible": true
 }, {
     "label": "Contact",
+    "url": "https://aemail.com/Z6J",
     "flexible": true
 }]
 
