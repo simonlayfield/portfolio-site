@@ -1,13 +1,13 @@
 <header>
-    <nav class="nav--main current-page-@@page">
-        <li class="nav__item nav__item--home nav__item--active"><a href="index.html">Home</a></li>
-        <li class="nav__item nav__item--active"><a on-click="switchMenu">{{{subMenu ? '<span><</span> Projects' : 'Projects'}}}</a></li>
-        <!-- <li class="nav__item{{subMenu ? ' nav__item--disabled' : ' nav__item--active'}}"><a href="http://blog.simonlayfield.com">Blog</a></li> -->
-        <li class="nav__item{{subMenu ? ' nav__item--disabled' : ' nav__item--active'}}"><a href="https://github.com/simonlayfield" target="_blank" title="github" class="lsf-icon">Github</a></li>
-        <li class="nav__item{{subMenu ? ' nav__item--disabled' : ' nav__item--active'}}"><a href="javascript:location='mailto:u0073u0069u006du006fu006eu006cu0061u0079u0066u0069u0065u006cu0064u0040u0067u006du0061u0069u006cu002eu0063u006fu006d';void 0" class="lsf-icon" title="mail">Contact</a></li>
+    <nav class="nav--main{{subMenu ? ' nav--sub' : ''}} current-page-@@page">
+        {{#each menu}}
+            <li class="nav__item{{flexible ? ' nav__item--flexible' : '' }}"><a on-click="{{#if sub}}switchMenu{{/if}}" {{#if url}}href="{{url}}" {{/if}}{{#if icon}}title="{{icon}}" target="_blank" class="lsf-icon"{{/if}} id="nav-item__{{label.toLowerCase()}}">{{label}}</a></li>
+        {{/each}}
         <break></break>
-        {{#each pages}}
-            <li class="nav__item nav__item--sub{{subMenu ? ' nav__item--active' : ' nav__item--disabled'}}"><a href="./{{title.toLowerCase()}}.html">{{title}}</a></li>
+        {{#each menu}}
+            {{#sub}}
+                <li class="nav__item nav__item--sub{{subMenu ? ' nav__item--active' : ' nav__item--disabled'}}"><a href="./{{label.toLowerCase()}}.html">{{label}}</a></li>
+            {{/submenu}}
         {{/each}}
     </nav>
 </header>

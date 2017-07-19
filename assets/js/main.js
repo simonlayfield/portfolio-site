@@ -1,4 +1,25 @@
 
+var menuList = [{
+    "label": "Home",
+    "url": "index.html"
+}, {
+    "label": "Projects",
+    "sub": [{
+        "label": "Web"
+    }, {
+        "label": "Branding"
+    }, {
+        "label": "Illustration"
+    }]
+}, {
+    "label": "Github",
+    "icon": "github",
+    "flexible": true
+}, {
+    "label": "Contact",
+    "flexible": true
+}]
+
 var listInspire = [];
 
 $.getJSON("assets/js/projects.json", function (json) {
@@ -18,26 +39,59 @@ var ractive = new Ractive({
     data: function() {
         return {
             pages: '',
+            menu: menuList,
             imageList: listInspire
-            }
-
+        }
     },
     oncomplete: function() {
 
         var self = this;
 
-        if (localStorage.subMenu === 'true') {
-            self.set('subMenu', true);
-        }
+		if (localStorage.subMenu === 'true') {
+			self.set('subMenu', true);
+		}
+
+		var submenuLength;
+
+		// Check the total number of flexible menu items
+		var flexibleItems = self.get('menu').filter(function(item) {
+			if (item.sub) {
+				submenuLength = item.sub.length;
+			}
+			return item.flexible ? 'item.label' : false;
+		});
+
+		var menuLength = 2 * Math.ceil((flexibleItems.length + 2) / 2)
+			submenuLength = 2 * Math.ceil((submenuLength + 2) / 2);
+
+		menuLength = menuLength / 2;
+		submenuLength = submenuLength / 2;
+
+		if (self.get('activeMenu')) {
+			self.find('.wrap').className = 'wrap';
+		} else if (self.get('subMenu')){
+			self.find('.wrap').classList.add('wrap--' + submenuLength);
+		} else {
+			self.find('.wrap').classList.add('wrap--' + menuLength);
+		};
 
         this.on('toggleMenu', function() {
-            this.toggle('activeMenu');
+            self.toggle('activeMenu');
+			if (self.get('activeMenu')) {
+				self.find('.wrap').className = 'wrap';
+			} else if (self.get('subMenu')){
+				self.find('.wrap').classList.add('wrap--' + submenuLength);
+			} else {
+				self.find('.wrap').classList.add('wrap--' + menuLength);
+			};
         });
 
         this.on('switchMenu', function () {
-            this.toggle('subMenu');
-            localStorage.setItem('subMenu', this.get('subMenu'));
+            self.toggle('subMenu');
+            localStorage.setItem('subMenu', self.get('subMenu'));
         });
+
+
     }
 });
 
