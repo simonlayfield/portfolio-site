@@ -35,7 +35,7 @@ $.getJSON("assets/js/projects.json", function (json) {
     });
 });
 
-var ractive = new Ractive({
+var ractive = Ractive({
     el: '.some-container',
     template: '#template',
     data: function() {
@@ -88,7 +88,7 @@ var ractive = new Ractive({
 			};
         });
 
-        this.on('switchMenu', function () {
+        this.on('switchMenu', function() {
             self.toggle('subMenu');
             localStorage.setItem('subMenu', self.get('subMenu'));
         });

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-    <script src='assets/js/ractive.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/ractive"></script>
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700" rel="stylesheet">
 
 </head>
@@ -45,13 +45,19 @@
     <header>
     <nav class="nav--main{{subMenu ? ' nav--sub' : ''}} current-page-branding">
         {{#each menu}}
-            <li class="nav__item{{flexible ? ' nav__item--flexible' : '' }}"><a on-click="{{#if sub}}switchMenu{{/if}}" {{#if url}}href="{{url}}" {{/if}}{{#if icon}}title="{{icon}}" target="_blank" class="lsf-icon"{{/if}} id="nav-item__{{label.toLowerCase()}}">{{label}}</a></li>
+			{{#if this.sub}}
+	            <li class="nav__item{{flexible ? ' nav__item--flexible' : '' }}"><a on-click="['switchMenu']" {{#if icon}}title="{{icon}}" target="_blank" class="lsf-icon"{{/if}} id="nav-item__{{label.toLowerCase()}}">{{label}}</a></li>
+			{{else}}
+				<li class="nav__item{{flexible ? ' nav__item--flexible' : '' }}"><a href="{{url}}" {{#if icon}}title="{{icon}}" target="_blank" class="lsf-icon"{{/if}} id="nav-item__{{label.toLowerCase()}}">{{label}}</a></li>
+			{{/if}}
         {{/each}}
         <break></break>
         {{#each menu}}
-            {{#sub}}
-                <li class="nav__item nav__item--sub{{subMenu ? ' nav__item--active' : ' nav__item--disabled'}}"><a href="./{{label.toLowerCase()}}.html">{{label}}</a></li>
-            {{/submenu}}
+            {{#if this.sub}}
+	            {{#each this.sub}}
+	                <li class="nav__item nav__item--sub{{~/subMenu ? ' nav__item--active' : ' nav__item--disabled'}}"><a href="./{{label.toLowerCase()}}.html">{{label}}</a></li>
+	            {{/each}}
+            {{/if}}
         {{/each}}
     </nav>
 </header>

@@ -20,7 +20,7 @@ $.ajax({
 
 });
 
-var ractive = new Ractive({
+var ractive = Ractive({
     el: '.some-container',
     template: '#template',
     data: {
