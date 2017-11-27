@@ -22,5 +22,8 @@
     "imagemin-gifsicle": "^4.1.0",
     "page-wrap-grunt-task": "^0.1.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.16.2",
+    "flint-gs": "^2.3.7"
+  }
 }
