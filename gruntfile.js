@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 files: {
-                    'assets/css/style.css': 'scss/style.scss'
+                    'public/assets/css/style.css': 'scss/style.scss'
                 }
             }
         },
@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                 tasks: ['sass']
             },
             html: {
-                files: ['pages/*.html', 'includes/*.html'],
+                files: ['app/pages/*.html', 'app/includes/*.html'],
                 tasks: ['includereplace']
             }
         },
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                     // Task-specific options go here.
                 },
                 // Files to perform replacements and includes with
-                src: 'pages/*.html',
+                src: 'app/pages/*.html',
                 // Destination directory to copy files to
                 dest: './',
                 flatten: true,
@@ -41,9 +41,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'assets/img/auto/gif/orig',
+                    cwd: 'public/assets/img/auto/gif/orig',
                     src: ['**/**/*.gif'],
-                    dest: 'assets/img/auto/gif',
+                    dest: 'public/assets/img/auto/gif',
                     ext: '.gif'
                 }]
             }
@@ -64,9 +64,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'assets/img/auto/process/gif',
+                    cwd: 'public/assets/img/auto/process/gif',
                     src: ['*.gif'],
-                    dest: 'assets/img/auto/gif',
+                    dest: 'public/assets/img/auto/gif',
                 }]
             }
         }

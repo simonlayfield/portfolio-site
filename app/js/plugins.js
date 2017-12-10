@@ -1,5 +1,5 @@
 // Avoid `console` errors in browsers that lack a console.
-(function() {
+let plugins = (function() {
     var method;
     var noop = function () {};
     var methods = [
@@ -20,5 +20,7 @@
         }
     }
 }());
+
+module.exports = plugins;
 
 // Place any jQuery/helper plugins in here.

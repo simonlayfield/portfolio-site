@@ -1,3 +1,7 @@
+require('ractive');
+require('./plugins.js');
+import projects from './projects.json';
+import Ractive from 'ractive';
 
 var menuList = [{
     "label": "Home",
@@ -24,23 +28,21 @@ var menuList = [{
 
 var listInspire = [];
 
-$.getJSON("assets/js/projects.json", function (json) {
-    var n = 0;
-    $.each(json, function (key, val) {
-        listInspire.push({"image": val});
-        n += 1;
-        if (n == 3) {
-            n = 0;
-        }
-    });
+var n = 0;
+$.each(projects, function (key, val) {
+    listInspire.push({"image": val});
+    n += 1;
+    if (n == 3) {
+        n = 0;
+    }
 });
 
-var ractive = Ractive({
+var ractive = new Ractive({
     el: '.some-container',
     template: '#template',
     data: function() {
         return {
-            pages: '',
+            pages: projects,
             menu: menuList,
             imageList: listInspire
         }
@@ -96,16 +98,3 @@ var ractive = Ractive({
 
     }
 });
-
-Promise.all([
-    $.getJSON('assets/js/projects.json'),
-    ractive.set('loading', true)
-]).then(function(results) {
-    var ajaxData = results[0];
-    ractive.set({
-        loading: false,
-        pages: ajaxData
-    });
-}).catch(e => {
-    console.log(e);
-});;
