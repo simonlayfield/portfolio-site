@@ -51,33 +51,37 @@ var ractive = new Ractive({
 
         var self = this;
 
-		if (localStorage.subMenu === 'true') {
-			self.set('subMenu', true);
-		}
+		if (self.find('.nav--main')) {
 
-		var submenuLength;
-
-		// Check the total number of flexible menu items
-		var flexibleItems = self.get('menu').filter(function(item) {
-			if (item.sub) {
-				submenuLength = item.sub.length;
+			if (localStorage.subMenu === 'true') {
+				self.set('subMenu', true);
 			}
-			return item.flexible ? 'item.label' : false;
-		});
 
-		var menuLength = 2 * Math.ceil((flexibleItems.length + 2) / 2)
-			submenuLength = 2 * Math.ceil((submenuLength + 2) / 2);
+			var submenuLength;
 
-		menuLength = menuLength / 2;
-		submenuLength = submenuLength / 2;
+			// Check the total number of flexible menu items
+			var flexibleItems = self.get('menu').filter(function(item) {
+				if (item.sub) {
+					submenuLength = item.sub.length;
+				}
+				return item.flexible ? 'item.label' : false;
+			});
 
-		if (self.get('activeMenu')) {
-			self.find('.wrap').className = 'wrap';
-		} else if (self.get('subMenu')){
-			self.find('.wrap').classList.add('wrap--' + submenuLength);
-		} else {
-			self.find('.wrap').classList.add('wrap--' + menuLength);
-		};
+			var menuLength = 2 * Math.ceil((flexibleItems.length + 2) / 2)
+				submenuLength = 2 * Math.ceil((submenuLength + 2) / 2);
+
+			menuLength = menuLength / 2;
+			submenuLength = submenuLength / 2;
+
+			if (self.get('activeMenu')) {
+				self.find('.wrap').className = 'wrap';
+			} else if (self.get('subMenu')){
+				self.find('.wrap').classList.add('wrap--' + submenuLength);
+			} else {
+				self.find('.wrap').classList.add('wrap--' + menuLength);
+			};
+
+		}
 
         this.on('toggleMenu', function() {
             self.toggle('activeMenu');

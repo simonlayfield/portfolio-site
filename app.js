@@ -18,6 +18,10 @@ app.get(['/illustration', '/illustration.html'], (req, res) => {
   res.sendFile(__dirname + '/illustration.html');
 });
 
+app.get(['/photo', '/photo.html'], (req, res) => {
+  res.sendFile(__dirname + '/photo.html');
+});
+
 app.use(express.static('public'))
 
 // Start the server

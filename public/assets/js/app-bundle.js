@@ -17541,13 +17541,17 @@ var ractive = new _ractive2.default({
         menuLength = menuLength / 2;
         submenuLength = submenuLength / 2;
 
-        if (self.get('activeMenu')) {
-            self.find('.wrap').className = 'wrap';
-        } else if (self.get('subMenu')) {
-            self.find('.wrap').classList.add('wrap--' + submenuLength);
-        } else {
-            self.find('.wrap').classList.add('wrap--' + menuLength);
-        };
+        console.log(self.find('.nav--main'));
+
+        if (self.find('.nav--main')) {
+            if (self.get('activeMenu')) {
+                self.find('.wrap').className = 'wrap';
+            } else if (self.get('subMenu')) {
+                self.find('.wrap').classList.add('wrap--' + submenuLength);
+            } else {
+                self.find('.wrap').classList.add('wrap--' + menuLength);
+            };
+        }
 
         this.on('toggleMenu', function () {
             self.toggle('activeMenu');
