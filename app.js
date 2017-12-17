@@ -1,28 +1,27 @@
 const express = require('express');
 
 const app = express();
+app.use(express.static('public'))
 
 app.get(['/', '/index.html'], (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 app.get(['/web', '/web.html'], (req, res) => {
-  res.sendFile(__dirname + '/web.html');
+  res.sendFile(__dirname + '/public/web.html');
 });
 
 app.get(['/branding', '/branding.html'], (req, res) => {
-  res.sendFile(__dirname + '/branding.html');
+  res.sendFile(__dirname + '/public/branding.html');
 });
 
 app.get(['/illustration', '/illustration.html'], (req, res) => {
-  res.sendFile(__dirname + '/illustration.html');
+  res.sendFile(__dirname + '/public/illustration.html');
 });
 
 app.get(['/photo', '/photo.html'], (req, res) => {
-  res.sendFile(__dirname + '/photo.html');
+  res.sendFile(__dirname + '/public/photo.html');
 });
-
-app.use(express.static('public'))
 
 // Start the server
 const PORT = process.env.PORT || 8080;

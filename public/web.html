@@ -1,0 +1,50 @@
+
+
+<div class="some-container">
+</div>
+
+<script id='template' type='text/html'>
+<div class="wrap {{activeMenu ? 'active' : ''}}">
+
+    
+
+    <a class="menu-icon lsf" on-click="toggleMenu">menu</a>
+
+    <div class="container container--full notification">
+        <h1>Web</h1>
+        <p>I <em>try</em> to keep these projects as up-to-date as possible.</p>
+        <p>Recently I have mainly been working on my own personal project, <a href="http://typereel.io" target="_blank">TYPEREEL</a>.</p>
+    </div>
+    <div class="row row--bg row--flat">
+        <div class="container">
+            {{#each pages:i}}
+                {{#if title === "Web"}}
+                {{#each pages[i].projects}}
+                        <div class="project project--web">
+                            {{#if this.type === 'commercial'}}
+                                <div class="projectLabel">
+                                    <span>commercial</span>
+                                </div>
+                            {{else}}
+                                <div class="projectLabel projectLabel--alt">
+                                    <span>personal</span>
+                                </div>
+                            {{/if}}
+                            <div class="project__details">
+                                <a href="{{url}}" target="_blank">
+                                    <img src="{{image}}" alt="">
+                                    <h3>{{name}}</h3>
+                                </a>
+                            </div>
+                        </div>
+
+                    {{/each}}
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+</script>
+
+

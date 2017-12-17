@@ -1,0 +1,36 @@
+
+
+<div class="some-container">
+</div>
+
+<script id='template' type='text/html'>
+
+<div class="wrap {{activeMenu ? 'active' : ''}}">
+
+    
+
+    <a class="menu-icon lsf" on-click="toggleMenu">menu</a>
+
+    <div class="container container--full notification">
+        <h1>Illustration</h1>
+        <p>Most of my illustrations are recreational, but I do incorporate it in to work when necessary. I occasionally contibute to a blog called <a href="http://twominutenoodles.com">Two Minute Noodles</a>.</p>
+    </div>
+
+    <div class="row row--bg">
+        <div class="container">
+            <ul class="gallery">
+                {{#each pages:i}} {{#if title === "Illustration"}}
+                {{#each pages[i].projects}}
+                <li>
+                  <img src="{{image}}" alt="" class="loaded">
+                </li>
+                {{/each}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+</script>
+
+

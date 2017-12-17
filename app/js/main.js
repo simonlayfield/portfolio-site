@@ -3,28 +3,7 @@ require('./plugins.js');
 import projects from './projects.json';
 import Ractive from 'ractive';
 
-var menuList = [{
-    "label": "Home",
-    "url": "index.html"
-}, {
-    "label": "Projects",
-    "sub": [{
-        "label": "Web"
-    }, {
-        "label": "Branding"
-    }, {
-        "label": "Illustration"
-    }]
-}, {
-    "label": "Github",
-    "icon": "github",
-    "url": "https://github.com/simonlayfield/",
-    "flexible": true
-}, {
-    "label": "Contact",
-    "url": "https://aemail.com/Z6J",
-    "flexible": true
-}]
+
 
 var listInspire = [];
 

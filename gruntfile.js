@@ -27,7 +27,7 @@ module.exports = function(grunt) {
                 // Files to perform replacements and includes with
                 src: 'app/pages/*.html',
                 // Destination directory to copy files to
-                dest: './',
+                dest: './public/',
                 flatten: true,
                 expand: true
             }

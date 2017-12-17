@@ -1,0 +1,13 @@
+<header>
+    <nav class="nav--main">
+        {{#each menu as menuItem}}
+            <li class="nav__item">
+				{{#if menuItem.icon}}
+					<a href="{{menuItem.url}}" id="nav-item__" title="{{menuItem.icon}}" target="_blank" class="lsf-icon">{{menuItem.label}}</a>
+				{{else}}
+					<a id="nav-item__" href="{{menuItem.url}}">{{menuItem.label}}</a>
+				{{/if}}
+			</li>
+        {{/each}}
+    </nav>
+</header>
