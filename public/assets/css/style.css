@@ -181,100 +181,57 @@ hr {
   margin-top: 0; }
 
 .container {
-  float: none;
-  max-width: 80em;
-  margin-right: auto;
-  margin-left: auto;
-  zoom: 1;
+  margin: 0 auto;
   padding: 1em; }
-  *, *:before, *:after {
-    box-sizing: border-box; }
-  .container:before, .container:after {
-    content: "\0020";
-    display: block;
-    height: 0;
-    overflow: hidden; }
-  .container:after {
-    clear: both; }
   .container.container--full {
     max-width: none; }
   .container.container--slim {
     max-width: 900px; }
 
-.some-container {
-  zoom: 1; }
-  .some-container:before, .some-container:after {
-    content: "\0020";
-    display: block;
-    height: 0;
-    overflow: hidden; }
-  .some-container:after {
-    clear: both; }
-  .some-container .wrap {
-    position: relative;
-    top: 0;
-    -webkit-transition: all .5s ease;
-    transition: all .5s ease; }
+.some-container .wrap {
+  position: relative;
+  top: 0;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease; }
+  .some-container .wrap.wrap--1 {
+    top: -50px; }
+  .some-container .wrap.wrap--2 {
+    top: -100px; }
+  .some-container .wrap.wrap--3 {
+    top: -150px; }
+  .some-container .wrap.wrap--4 {
+    top: -200px; }
+  .some-container .wrap.wrap--5 {
+    top: -250px; }
+  @media only screen and (min-width: 30em) {
     .some-container .wrap.wrap--1 {
-      top: -50px; }
-    .some-container .wrap.wrap--2 {
-      top: -100px; }
-    .some-container .wrap.wrap--3 {
-      top: -150px; }
-    .some-container .wrap.wrap--4 {
-      top: -200px; }
-    .some-container .wrap.wrap--5 {
-      top: -250px; }
-    @media only screen and (min-width: 30em) {
-      .some-container .wrap.wrap--1 {
-        top: 0; }
-      .some-container .wrap.wrap--2 {
-        top: 0; }
-      .some-container .wrap.wrap--3 {
-        top: 0; }
-      .some-container .wrap.wrap--4 {
-        top: 0; }
-      .some-container .wrap.wrap--5 {
-        top: 0; } }
-    .some-container .wrap.active {
       top: 0; }
-  .some-container .menu-icon {
-    position: absolute;
-    padding: .5rem 1.5rem;
-    font-size: 2rem;
-    text-decoration: none; }
-    @media only screen and (min-width: 30em) {
-      .some-container .menu-icon {
-        display: none; } }
+    .some-container .wrap.wrap--2 {
+      top: 0; }
+    .some-container .wrap.wrap--3 {
+      top: 0; }
+    .some-container .wrap.wrap--4 {
+      top: 0; }
+    .some-container .wrap.wrap--5 {
+      top: 0; } }
+  .some-container .wrap.active {
+    top: 0; }
+.some-container .menu-icon {
+  position: absolute;
+  padding: .5rem 1.5rem;
+  font-size: 2rem;
+  text-decoration: none; }
+  @media only screen and (min-width: 30em) {
+    .some-container .menu-icon {
+      display: none; } }
 
 .category {
-  float: left;
-  width: 93.75%;
-  margin-right: 3.125%;
-  margin-left: 3.125%;
   text-align: center;
   padding: 0 2em;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background-clip: padding-box; }
-  @media (min-width: 60.0625em) {
-    .category {
-      width: 31.77083%;
-      margin-right: 0.78125%;
-      margin-left: 0.78125%; } }
-  @media (min-width: 40.0625em) and (max-width: 60em) {
-    .category {
-      width: 31.25%;
-      margin-right: 1.04167%;
-      margin-left: 1.04167%; } }
-  @media (min-width: 20.0625em) and (max-width: 40em) {
-    .category {
-      width: 96.875%;
-      margin-right: 1.5625%;
-      margin-left: 1.5625%; } }
-  @media (max-width: 40em) {
-    .category {
-      margin-bottom: 2em; } }
+  background-clip: padding-box;
+  margin-bottom: 2em; }
   .category img {
     max-height: 140px;
     margin-bottom: 1em; }
@@ -285,47 +242,8 @@ hr {
 
 .project {
   margin-bottom: 2em; }
-  .project.project--branding {
-    float: left;
-    width: 93.75%;
-    margin-right: 3.125%;
-    margin-left: 3.125%; }
-    @media (min-width: 60.0625em) {
-      .project.project--branding {
-        width: 23.4375%;
-        margin-right: 0.78125%;
-        margin-left: 0.78125%; } }
-    @media (min-width: 40.0625em) and (max-width: 60em) {
-      .project.project--branding {
-        width: 22.91667%;
-        margin-right: 1.04167%;
-        margin-left: 1.04167%; } }
-    @media (min-width: 20.0625em) and (max-width: 40em) {
-      .project.project--branding {
-        width: 46.875%;
-        margin-right: 1.5625%;
-        margin-left: 1.5625%; } }
   .project.project--web {
-    float: left;
-    width: 93.75%;
-    margin-right: 3.125%;
-    margin-left: 3.125%;
     text-align: center; }
-    @media (min-width: 60.0625em) {
-      .project.project--web {
-        width: 31.77083%;
-        margin-right: 0.78125%;
-        margin-left: 0.78125%; } }
-    @media (min-width: 40.0625em) and (max-width: 60em) {
-      .project.project--web {
-        width: 31.25%;
-        margin-right: 1.04167%;
-        margin-left: 1.04167%; } }
-    @media (min-width: 20.0625em) and (max-width: 40em) {
-      .project.project--web {
-        width: 96.875%;
-        margin-right: 1.5625%;
-        margin-left: 1.5625%; } }
     .project.project--web .project__details {
       background: #fff;
       -webkit-border-bottom-right-radius: 5px;
@@ -365,13 +283,11 @@ hr {
   -moz-column-gap: 20px;
   -webkit-column-count: 3;
   -webkit-column-gap: 20px;
-  padding-left: 0; }
-  @media (max-width: 20em) {
-    .gallery {
-      -moz-column-count: 1;
-      -moz-column-gap: 0;
-      -webkit-column-count: 1;
-      -webkit-column-gap: 0; } }
+  padding-left: 0;
+  -moz-column-count: 1;
+  -moz-column-gap: 0;
+  -webkit-column-count: 1;
+  -webkit-column-gap: 0; }
   .gallery li {
     width: 100%;
     display: inline-block;
@@ -389,28 +305,9 @@ hr {
   text-align: center; }
 
 .imagelist {
-  float: left;
-  width: 93.75%;
-  margin-right: 3.125%;
-  margin-left: 3.125%;
   list-style: none;
   margin-bottom: 20px;
   text-align: center; }
-  @media (min-width: 60.0625em) {
-    .imagelist {
-      width: 31.77083%;
-      margin-right: 0.78125%;
-      margin-left: 0.78125%; } }
-  @media (min-width: 40.0625em) and (max-width: 60em) {
-    .imagelist {
-      width: 31.25%;
-      margin-right: 1.04167%;
-      margin-left: 1.04167%; } }
-  @media (min-width: 20.0625em) and (max-width: 40em) {
-    .imagelist {
-      width: 46.875%;
-      margin-right: 1.5625%;
-      margin-left: 1.5625%; } }
   .imagelist img {
     border-radius: 5px;
     opacity: 0;
@@ -439,80 +336,18 @@ hr {
   .tnsoc p {
     margin: 7em 0; }
 
-@media (max-width: 40em) {
-  video {
-    width: 100% !important;
-    height: auto !important; } }
+video {
+  width: 100% !important;
+  height: auto !important; }
 
-.logo-set {
-  zoom: 1; }
-  .logo-set:before, .logo-set:after {
-    content: "\0020";
-    display: block;
-    height: 0;
-    overflow: hidden; }
-  .logo-set:after {
-    clear: both; }
-  .logo-set .logo {
-    float: left;
-    width: 93.75%;
-    margin-right: 3.125%;
-    margin-left: 3.125%;
-    text-align: center; }
-    @media (min-width: 60.0625em) {
-      .logo-set .logo {
-        width: 31.77083%;
-        margin-right: 0.78125%;
-        margin-left: 0.78125%; } }
-    @media (min-width: 40.0625em) and (max-width: 60em) {
-      .logo-set .logo {
-        width: 31.25%;
-        margin-right: 1.04167%;
-        margin-left: 1.04167%; } }
-    @media (min-width: 20.0625em) and (max-width: 40em) {
-      .logo-set .logo {
-        width: 30.20833%;
-        margin-right: 1.5625%;
-        margin-left: 1.5625%; } }
+.logo-set .logo {
+  text-align: center; }
 
-.brand-assets {
-  zoom: 1; }
-  .brand-assets:before, .brand-assets:after {
-    content: "\0020";
-    display: block;
-    height: 0;
-    overflow: hidden; }
-  .brand-assets:after {
-    clear: both; }
-  .brand-assets .brand-colours,
-  .brand-assets .brand-font {
-    float: left;
-    width: 93.75%;
-    margin-right: 3.125%;
-    margin-left: 3.125%; }
-    @media (min-width: 60.0625em) {
-      .brand-assets .brand-colours,
-      .brand-assets .brand-font {
-        width: 48.4375%;
-        margin-right: 0.78125%;
-        margin-left: 0.78125%; } }
-    @media (min-width: 40.0625em) and (max-width: 60em) {
-      .brand-assets .brand-colours,
-      .brand-assets .brand-font {
-        width: 47.91667%;
-        margin-right: 1.04167%;
-        margin-left: 1.04167%; } }
-    @media (min-width: 20.0625em) and (max-width: 40em) {
-      .brand-assets .brand-colours,
-      .brand-assets .brand-font {
-        width: 46.875%;
-        margin-right: 1.5625%;
-        margin-left: 1.5625%; } }
-  .brand-assets .brand-colours span {
-    display: block;
-    height: 30px; }
-  .brand-assets .brand-font {
-    text-align: center; }
+.brand-assets .brand-colours span {
+  display: block;
+  height: 30px; }
+.brand-assets .brand-font {
+  text-align: center; }
 
 footer {
   text-align: center; }

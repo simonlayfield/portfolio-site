@@ -1,13 +1,10 @@
 .panel-list {
-    @include _( 'container');
-    @include _( 'clear');
     list-style: none;
     padding-left: 0;
     margin: 0;
     margin: 2em 0;
 }
 .panel {
-    @include _(4 12 8 4);
     text-align: center;
     color: $d-grey;
     margin-bottom: 1em;

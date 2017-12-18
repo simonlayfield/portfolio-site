@@ -1,13 +1,68 @@
 <header>
-    <nav class="nav--main">
+    <nav class="nav-bar">
         {{#each menu as menuItem}}
-            <li class="nav__item">
+            <li class="navitem">
 				{{#if menuItem.icon}}
-					<a href="{{menuItem.url}}" id="nav-item__" title="{{menuItem.icon}}" target="_blank" class="lsf-icon">{{menuItem.label}}</a>
+					<a href="{{menuItem.url ? menuItem.url : '#'}}" title="{{menuItem.icon}}" target="_blank" class="link lsf-icon">{{menuItem.label}}</a>
 				{{else}}
-					<a id="nav-item__" href="{{menuItem.url}}">{{menuItem.label}}</a>
+					{{#if menuItem.label == "Projects"}}
+						<a href="#" on:click="toggleSub(1)" class="link">{{menuItem.label}}</a>
+					{{else}}
+						<a href="{{menuItem.url ? menuItem.url : '#'}}" class="link">{{menuItem.label}}</a>
+					{{/if}}
 				{{/if}}
 			</li>
         {{/each}}
+		<p>
+			{{#if menuIsActive}}
+				{{#each activeSubMenuItems as item}}
+					{{item.label}}
+				{{/each}}
+			{{/if}}
+		</p>
     </nav>
 </header>
+<script>
+  export default {
+    data() {
+      return {
+  		  menu: [{
+    		    "label": "Home",
+    		    "url": "index.html"
+    		}, {
+    		    "label": "Projects",
+  			"url": "#",
+    		    "sub": [{
+    		        "label": "Web"
+    		    }, {
+    		        "label": "Branding"
+    		    }, {
+    		        "label": "Illustration"
+    		    }]
+    		}, {
+    		    "label": "Github",
+    		    "icon": "github",
+    		    "url": "https://github.com/simonlayfield/",
+    		    "flexible": true
+    		}, {
+    		    "label": "Contact",
+    		    "url": "https://aemail.com/Z6J",
+    		    "flexible": true
+    		}]
+		}
+    },
+    methods: {
+		toggleSub(index) {
+			if (this.get('menuIsActive')) {
+				this.set({menuIsActive: false});
+			} else {
+				const menu = this.get('menu');
+				this.set({
+					menuIsActive: true,
+					activeSubMenuItems: menu[index].sub
+				});
+			}
+		}
+    }
+  };
+</script>
