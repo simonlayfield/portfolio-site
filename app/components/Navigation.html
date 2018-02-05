@@ -3,7 +3,7 @@
         {{#each menu as menuItem}}
             <li class="navitem">
 				{{#if menuItem.icon}}
-					<a href="{{menuItem.url ? menuItem.url : '#'}}" title="{{menuItem.icon}}" target="_blank" class="link lsf-icon">{{menuItem.label}}</a>
+					<a href="{{menuItem.url ? menuItem.url : ''}}" title="{{menuItem.icon}}" target="_blank" class="link lsf-icon">{{menuItem.label}}</a>
 				{{else}}
 					{{#if menuItem.label == "Projects"}}
 						<a href="#" on:click="toggleSub(1)" class="link">{{menuItem.label}}</a>
@@ -18,17 +18,25 @@
 		{{#if mainMenuIsActive}}
 			<break></break>
 			{{#each menu[1].sub as item}}
-				<li class="nav__item nav__item--sub"><a href="/{{item.label.toLowerCase()}}">{{item.label}}</a></li>
+				<li class="nav__item nav__item--sub"><a href="/{{item.label.toLowerCase()}}" class="{{currentPage == item.label ? 'active' : ''}}">{{item.label}}</a></li>
 			{{/each}}
 		{{/if}}
 
     </nav>
 
 </header>
+
+<style>
+	.nav__item--sub .active {
+		text-decoration: underline;
+	}
+</style>
+
 <script>
   export default {
     data() {
       return {
+		  currentPage: null,
   		  menu: [{
     		    "label": "Home",
     		    "url": "index.html"

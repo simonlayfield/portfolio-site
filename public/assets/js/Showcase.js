@@ -8,20 +8,20 @@ var Showcase = (function() { "use strict";
 };
 
 	function encapsulateStyles(node) {
-		setAttribute(node, "svelte-180336023", "");
+		setAttribute(node, "svelte-1716179328", "");
 	}
 
 	function add_css() {
 		var style = createElement("style");
-		style.id = 'svelte-180336023-style';
-		style.textContent = "[svelte-180336023].grid,[svelte-180336023] .grid{width:100%;display:grid;grid-template-columns:repeat(4, 1fr);grid-gap:20px}";
+		style.id = 'svelte-1716179328-style';
+		style.textContent = "[svelte-1716179328].simple,[svelte-1716179328] .simple,[svelte-1716179328].detailed,[svelte-1716179328] .detailed{width:100%;display:grid;grid-template-columns:repeat(4, 1fr);grid-gap:20px;text-align:center}[svelte-1716179328].mosaic,[svelte-1716179328] .mosaic{-moz-column-count:3;-moz-column-gap:20px;-webkit-column-count:3;-webkit-column-gap:0;column-count:3;column-gap:20px;text-align:center}[svelte-1716179328].mosaic img,[svelte-1716179328] .mosaic img{margin-bottom:20px}[svelte-1716179328].project__details,[svelte-1716179328] .project__details{border:1px solid #ccc}";
 		appendNode(style, document.head);
 	}
 
 	function create_main_fragment(state, component) {
-		var div, div_1;
+		var div, div_1, div_1_class_value;
 
-		var current_block_type = select_block_type(state);
+		var current_block_type = select_block_type_1(state);
 		var if_block = current_block_type(state, component);
 
 		return {
@@ -34,8 +34,8 @@ var Showcase = (function() { "use strict";
 
 			h: function hydrate() {
 				encapsulateStyles(div);
-				div_1.className = "container grid";
-				div.className = "row row--bg";
+				div_1.className = div_1_class_value = "container " + state.type;
+				div.className = "row";
 			},
 
 			m: function mount(target, anchor) {
@@ -45,7 +45,7 @@ var Showcase = (function() { "use strict";
 			},
 
 			p: function update(changed, state) {
-				if (current_block_type === (current_block_type = select_block_type(state)) && if_block) {
+				if (current_block_type === (current_block_type = select_block_type_1(state)) && if_block) {
 					if_block.p(changed, state);
 				} else {
 					if_block.u();
@@ -53,6 +53,10 @@ var Showcase = (function() { "use strict";
 					if_block = current_block_type(state, component);
 					if_block.c();
 					if_block.m(div_1, null);
+				}
+
+				if ((changed.type) && div_1_class_value !== (div_1_class_value = "container " + state.type)) {
+					div_1.className = div_1_class_value;
 				}
 			},
 
@@ -69,6 +73,39 @@ var Showcase = (function() { "use strict";
 
 	// (4:3) {{#each assets as asset}}
 	function create_each_block(state, assets, asset, asset_index, component) {
+		var img, img_src_value;
+
+		return {
+			c: function create() {
+				img = createElement("img");
+				this.h();
+			},
+
+			h: function hydrate() {
+				img.src = img_src_value = asset.image;
+				img.alt = '';
+			},
+
+			m: function mount(target, anchor) {
+				insertNode(img, target, anchor);
+			},
+
+			p: function update(changed, state, assets, asset, asset_index) {
+				if ((changed.assets) && img_src_value !== (img_src_value = asset.image)) {
+					img.src = img_src_value;
+				}
+			},
+
+			u: function unmount() {
+				detachNode(img);
+			},
+
+			d: noop
+		};
+	}
+
+	// (8:3) {{#each assets as asset}}
+	function create_each_block_1(state, assets, asset, asset_index, component) {
 		var div, img, img_src_value;
 
 		return {
@@ -103,7 +140,136 @@ var Showcase = (function() { "use strict";
 		};
 	}
 
-	// (3:2) {{#if items}}
+	// (14:3) {{#each assets as asset}}
+	function create_each_block_2(state, assets, asset, asset_index, component) {
+		var div, text, div_1, a, img, img_src_value, text_1, h3, text_2_value = asset.name, text_2, a_href_value;
+
+		var current_block_type = select_block_type(state, assets, asset, asset_index);
+		var if_block = current_block_type(state, assets, asset, asset_index, component);
+
+		return {
+			c: function create() {
+				div = createElement("div");
+				if_block.c();
+				text = createText("\n\t\t\t\t\t");
+				div_1 = createElement("div");
+				a = createElement("a");
+				img = createElement("img");
+				text_1 = createText("\n\t\t\t\t\t\t\t");
+				h3 = createElement("h3");
+				text_2 = createText(text_2_value);
+				this.h();
+			},
+
+			h: function hydrate() {
+				img.src = img_src_value = asset.image;
+				img.alt = '';
+				a.href = a_href_value = asset.url;
+				a.target = "_blank";
+				div_1.className = "project__details";
+				div.className = "project project--web";
+			},
+
+			m: function mount(target, anchor) {
+				insertNode(div, target, anchor);
+				if_block.m(div, null);
+				appendNode(text, div);
+				appendNode(div_1, div);
+				appendNode(a, div_1);
+				appendNode(img, a);
+				appendNode(text_1, a);
+				appendNode(h3, a);
+				appendNode(text_2, h3);
+			},
+
+			p: function update(changed, state, assets, asset, asset_index) {
+				if (current_block_type !== (current_block_type = select_block_type(state, assets, asset, asset_index))) {
+					if_block.u();
+					if_block.d();
+					if_block = current_block_type(state, assets, asset, asset_index, component);
+					if_block.c();
+					if_block.m(div, text);
+				}
+
+				if ((changed.assets) && img_src_value !== (img_src_value = asset.image)) {
+					img.src = img_src_value;
+				}
+
+				if ((changed.assets) && text_2_value !== (text_2_value = asset.name)) {
+					text_2.data = text_2_value;
+				}
+
+				if ((changed.assets) && a_href_value !== (a_href_value = asset.url)) {
+					a.href = a_href_value;
+				}
+			},
+
+			u: function unmount() {
+				detachNode(div);
+				if_block.u();
+			},
+
+			d: function destroy() {
+				if_block.d();
+			}
+		};
+	}
+
+	// (16:5) {{#if asset.type === 'commercial'}}
+	function create_if_block_3(state, assets, asset, asset_index, component) {
+		var div;
+
+		return {
+			c: function create() {
+				div = createElement("div");
+				div.innerHTML = "<span>commercial</span>";
+				this.h();
+			},
+
+			h: function hydrate() {
+				div.className = "projectLabel";
+			},
+
+			m: function mount(target, anchor) {
+				insertNode(div, target, anchor);
+			},
+
+			u: function unmount() {
+				detachNode(div);
+			},
+
+			d: noop
+		};
+	}
+
+	// (20:5) {{else}}
+	function create_if_block_4(state, assets, asset, asset_index, component) {
+		var div;
+
+		return {
+			c: function create() {
+				div = createElement("div");
+				div.innerHTML = "<span>personal</span>";
+				this.h();
+			},
+
+			h: function hydrate() {
+				div.className = "projectLabel projectLabel--alt";
+			},
+
+			m: function mount(target, anchor) {
+				insertNode(div, target, anchor);
+			},
+
+			u: function unmount() {
+				detachNode(div);
+			},
+
+			d: noop
+		};
+	}
+
+	// (3:2) {{#if items && type == "mosaic"}}
 	function create_if_block(state, component) {
 		var each_anchor;
 
@@ -168,8 +334,138 @@ var Showcase = (function() { "use strict";
 		};
 	}
 
-	// (9:2) {{else}}
+	// (7:38) 
 	function create_if_block_1(state, component) {
+		var each_anchor;
+
+		var assets = state.assets;
+
+		var each_blocks = [];
+
+		for (var i = 0; i < assets.length; i += 1) {
+			each_blocks[i] = create_each_block_1(state, assets, assets[i], i, component);
+		}
+
+		return {
+			c: function create() {
+				for (var i = 0; i < each_blocks.length; i += 1) {
+					each_blocks[i].c();
+				}
+
+				each_anchor = createComment();
+			},
+
+			m: function mount(target, anchor) {
+				for (var i = 0; i < each_blocks.length; i += 1) {
+					each_blocks[i].m(target, anchor);
+				}
+
+				insertNode(each_anchor, target, anchor);
+			},
+
+			p: function update(changed, state) {
+				var assets = state.assets;
+
+				if (changed.assets) {
+					for (var i = 0; i < assets.length; i += 1) {
+						if (each_blocks[i]) {
+							each_blocks[i].p(changed, state, assets, assets[i], i);
+						} else {
+							each_blocks[i] = create_each_block_1(state, assets, assets[i], i, component);
+							each_blocks[i].c();
+							each_blocks[i].m(each_anchor.parentNode, each_anchor);
+						}
+					}
+
+					for (; i < each_blocks.length; i += 1) {
+						each_blocks[i].u();
+						each_blocks[i].d();
+					}
+					each_blocks.length = assets.length;
+				}
+			},
+
+			u: function unmount() {
+				for (var i = 0; i < each_blocks.length; i += 1) {
+					each_blocks[i].u();
+				}
+
+				detachNode(each_anchor);
+			},
+
+			d: function destroy() {
+				destroyEach(each_blocks);
+			}
+		};
+	}
+
+	// (13:40) 
+	function create_if_block_2(state, component) {
+		var each_anchor;
+
+		var assets = state.assets;
+
+		var each_blocks = [];
+
+		for (var i = 0; i < assets.length; i += 1) {
+			each_blocks[i] = create_each_block_2(state, assets, assets[i], i, component);
+		}
+
+		return {
+			c: function create() {
+				for (var i = 0; i < each_blocks.length; i += 1) {
+					each_blocks[i].c();
+				}
+
+				each_anchor = createComment();
+			},
+
+			m: function mount(target, anchor) {
+				for (var i = 0; i < each_blocks.length; i += 1) {
+					each_blocks[i].m(target, anchor);
+				}
+
+				insertNode(each_anchor, target, anchor);
+			},
+
+			p: function update(changed, state) {
+				var assets = state.assets;
+
+				if (changed.assets) {
+					for (var i = 0; i < assets.length; i += 1) {
+						if (each_blocks[i]) {
+							each_blocks[i].p(changed, state, assets, assets[i], i);
+						} else {
+							each_blocks[i] = create_each_block_2(state, assets, assets[i], i, component);
+							each_blocks[i].c();
+							each_blocks[i].m(each_anchor.parentNode, each_anchor);
+						}
+					}
+
+					for (; i < each_blocks.length; i += 1) {
+						each_blocks[i].u();
+						each_blocks[i].d();
+					}
+					each_blocks.length = assets.length;
+				}
+			},
+
+			u: function unmount() {
+				for (var i = 0; i < each_blocks.length; i += 1) {
+					each_blocks[i].u();
+				}
+
+				detachNode(each_anchor);
+			},
+
+			d: function destroy() {
+				destroyEach(each_blocks);
+			}
+		};
+	}
+
+	// (33:2) {{else}}
+	function create_if_block_5(state, component) {
 		var p;
 
 		return {
@@ -192,16 +488,23 @@ var Showcase = (function() { "use strict";
 		};
 	}
 
-	function select_block_type(state) {
-		if (state.items) return create_if_block;
-		return create_if_block_1;
+	function select_block_type(state, assets, asset, asset_index) {
+		if (asset.type === 'commercial') return create_if_block_3;
+		return create_if_block_4;
+	}
+
+	function select_block_type_1(state) {
+		if (state.items && state.type == "mosaic") return create_if_block;
+		if (state.items && state.type == "simple") return create_if_block_1;
+		if (state.items && state.type == "detailed") return create_if_block_2;
+		return create_if_block_5;
 	}
 
 	function Showcase(options) {
 		init(this, options);
 		this._state = assign(data(), options.data);
 
-		if (!document.getElementById("svelte-180336023-style")) add_css();
+		if (!document.getElementById("svelte-1716179328-style")) add_css();
 
 		this._fragment = create_main_fragment(this._state, this);
 
@@ -247,6 +550,10 @@ var Showcase = (function() { "use strict";
 	}
 
 	function noop() {}
+
+	function createText(data) {
+		return document.createTextNode(data);
+	}
 
 	function createComment() {
 		return document.createComment('');

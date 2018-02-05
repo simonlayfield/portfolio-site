@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@@title | Simon Layfield | Designer</title>
+    <title>Branding | Simon Layfield | Designer</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/css/normalize.css">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Average" rel="stylesheet">
 </head>
 <body>
     <!--[if lt IE 8]>
@@ -29,40 +29,15 @@
 <div class="wrap">
 
 	<div id="navigation"></div>
-	<div id="showcase"></div>
-
-
-<script id='template' type='text/html'>
-
-<div class="wrap {{activeMenu ? 'active' : ''}}">
-
-    <a class="menu-icon lsf" on-click="toggleMenu">menu</a>
-
-    <div class="container container--full notification">
+	<div class="container container--full notification">
         <h1>Branding</h1>
         <p>Branding projects these days are less frequent, but still occasionaly crop up.</p>
     </div>
-
-
-    <div class="row row--bg row--flat">
-        <div class="container">
-            <ul class="gallery">
-                {{#each projectList:i}}
-                    {{#if title === "branding"}}
-                        {{#each projectList[i].mockups}}
-                            <li>
-                                <img src="{{image}}" alt="" class="loaded">
-                            </li>
-                        {{/each}}
-                    {{/if}}
-                {{/each}}
-            </ul>
-        </div>
-    </div>
+	<div id="showcase"></div>
+	<div id="mockups"></div>
 
 </div>
 
-</script>
 <script src='./assets/js/Navigation.js'></script>
 <script src='./assets/js/Showcase.js'></script>
 
@@ -70,13 +45,15 @@
   var app = new Navigation({
 	target: document.querySelector('#navigation'),
 	data: {
-		mainMenuIsActive: true
+		mainMenuIsActive: true,
+		currentPage: "Branding"
 	}
   });
   var showcase = new Showcase({
 	  target: document.querySelector('#showcase'),
 	  data: {
 		  items: true,
+		  type: "simple",
 		  assets: [{
 	          image: "./assets/img/branding/thumbnail-wholehearted.jpg",
 	          name: "Wholehearted Lattes"
@@ -149,6 +126,29 @@
 	      }]
 	  }
   });
+	var mockups = new Showcase({
+		target: document.querySelector('#mockups'),
+		data: {
+			items: true,
+			type: "mosaic",
+			assets: [{
+				image: "assets/img/branding/mockup-get-recruits.jpg",
+				name: "K-nit"
+			}, {
+				image: "assets/img/branding/mockup-afa.jpg",
+				name: "Get Recruits"
+			}, {
+				image: "assets/img/branding/mockup-k-nit-tee.jpg",
+				name: "Marlow and Finch"
+			}, {
+				image: "assets/img/branding/mockup-rob-baker.jpg",
+				name: "The Paper Nation"
+			}, {
+				image: "assets/img/branding/mockup-enjees.jpg",
+				name: "The Paper Nation"
+			}]
+		}
+	});
 </script>
 
 <script>

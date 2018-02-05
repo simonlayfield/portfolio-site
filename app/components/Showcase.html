@@ -1,9 +1,33 @@
-<div class="row row--bg">
-	<div class="container grid">
-		{{#if items}}
+<div class="row">
+	<div class="container {{type}}">
+		{{#if items && type == "mosaic"}}
+			{{#each assets as asset}}
+				<img src="{{asset.image}}" alt="">
+			{{/each}}
+		{{elseif items && type == "simple"}}
 			{{#each assets as asset}}
 				<div class="project project--branding">
 					<img src="{{asset.image}}" alt="">
+				</div>
+			{{/each}}
+		{{elseif items && type == "detailed"}}
+			{{#each assets as asset}}
+				<div class="project project--web">
+					{{#if asset.type === 'commercial'}}
+					<div class="projectLabel">
+						<span>commercial</span>
+					</div>
+					{{else}}
+					<div class="projectLabel projectLabel--alt">
+						<span>personal</span>
+					</div>
+					{{/if}}
+					<div class="project__details">
+						<a href="{{asset.url}}" target="_blank">
+							<img src="{{asset.image}}" alt="">
+							<h3>{{asset.name}}</h3>
+						</a>
+					</div>
 				</div>
 			{{/each}}
 		{{else}}
@@ -13,11 +37,28 @@
 </div>
 
 <style>
-	.grid {
+	.simple,
+	.detailed {
 		width: 100%;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-gap: 20px;
+		text-align: center;
+	}
+	.mosaic {
+		-moz-column-count: 3;
+		-moz-column-gap: 20px;
+		-webkit-column-count: 3;
+		-webkit-column-gap: 0;
+		column-count: 3;
+		column-gap: 20px;
+		text-align: center;
+	}
+	.mosaic img {
+		margin-bottom: 20px;
+	}
+	.project__details {
+		border: 1px solid #ccc;
 	}
 </style>
 

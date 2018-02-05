@@ -3,6 +3,7 @@ var Navigation = (function() { "use strict";
 
 	function data() {
   return {
+		  currentPage: null,
   		  menu: [{
 		    "label": "Home",
 		    "url": "index.html"
@@ -43,6 +44,17 @@ var Navigation = (function() { "use strict";
 		}
 };
 
+	function encapsulateStyles(node) {
+		setAttribute(node, "svelte-225754502", "");
+	}
+
+	function add_css() {
+		var style = createElement("style");
+		style.id = 'svelte-225754502-style';
+		style.textContent = "[svelte-225754502].nav__item--sub .active,[svelte-225754502] .nav__item--sub .active{text-decoration:underline}";
+		appendNode(style, document.head);
+	}
+
 	function create_main_fragment(state, component) {
 		var header, nav, text;
 
@@ -71,6 +83,7 @@ var Navigation = (function() { "use strict";
 			},
 
 			h: function hydrate() {
+				encapsulateStyles(header);
 				nav.className = "nav-bar";
 			},
 
@@ -198,7 +211,7 @@ var Navigation = (function() { "use strict";
 			},
 
 			h: function hydrate() {
-				a.href = a_href_value = menuItem.url ? menuItem.url : '#';
+				a.href = a_href_value = menuItem.url ? menuItem.url : '';
 				a.title = a_title_value = menuItem.icon;
 				a.target = "_blank";
 				a.className = "link lsf-icon";
@@ -214,7 +227,7 @@ var Navigation = (function() { "use strict";
 					text.data = text_value;
 				}
 
-				if ((changed.menu) && a_href_value !== (a_href_value = menuItem.url ? menuItem.url : '#')) {
+				if ((changed.menu) && a_href_value !== (a_href_value = menuItem.url ? menuItem.url : '')) {
 					a.href = a_href_value;
 				}
 
@@ -314,7 +327,7 @@ var Navigation = (function() { "use strict";
 
 	// (20:3) {{#each menu[1].sub as item}}
 	function create_each_block_1(state, sub, item, item_index, component) {
-		var li, a, text_value = item.label, text, a_href_value;
+		var li, a, text_value = item.label, text, a_href_value, a_class_value;
 
 		return {
 			c: function create() {
@@ -326,6 +339,7 @@ var Navigation = (function() { "use strict";
 
 			h: function hydrate() {
 				a.href = a_href_value = "/" + item.label.toLowerCase();
+				a.className = a_class_value = state.currentPage == item.label ? 'active' : '';
 				li.className = "nav__item nav__item--sub";
 			},
 
@@ -342,6 +356,10 @@ var Navigation = (function() { "use strict";
 
 				if ((changed.menu) && a_href_value !== (a_href_value = "/" + item.label.toLowerCase())) {
 					a.href = a_href_value;
+				}
+
+				if ((changed.currentPage || changed.menu) && a_class_value !== (a_class_value = state.currentPage == item.label ? 'active' : '')) {
+					a.className = a_class_value;
 				}
 			},
 
@@ -391,7 +409,7 @@ var Navigation = (function() { "use strict";
 			p: function update(changed, state) {
 				var sub = state.menu[1].sub;
 
-				if (changed.menu) {
+				if (changed.menu || changed.currentPage) {
 					for (var i = 0; i < sub.length; i += 1) {
 						if (each_blocks[i]) {
 							each_blocks[i].p(changed, state, sub, sub[i], i);
@@ -442,6 +460,8 @@ var Navigation = (function() { "use strict";
 		init(this, options);
 		this._state = assign(data(), options.data);
 
+		if (!document.getElementById("svelte-225754502-style")) add_css();
+
 		this._fragment = create_main_fragment(this._state, this);
 
 		if (options.target) {
@@ -465,8 +485,16 @@ var Navigation = (function() { "use strict";
 
 	Navigation.prototype._recompute = noop;
 
+	function setAttribute(node, attribute, value) {
+		node.setAttribute(attribute, value);
+	}
+
 	function createElement(name) {
 		return document.createElement(name);
+	}
+
+	function appendNode(node, target) {
+		target.appendChild(node);
 	}
 
 	function createText(data) {
@@ -475,10 +503,6 @@ var Navigation = (function() { "use strict";
 
 	function insertNode(node, target, anchor) {
 		target.insertBefore(node, anchor);
-	}
-
-	function appendNode(node, target) {
-		target.appendChild(node);
 	}
 
 	function detachNode(node) {

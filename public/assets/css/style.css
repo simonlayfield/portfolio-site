@@ -116,7 +116,7 @@ html {
 body {
   margin: 0;
   padding: 0 0 4em;
-  font-family: "Vollkorn", serif;
+  font-family: "Average", serif;
   color: #007aa2; }
 
 h1,
@@ -142,7 +142,7 @@ a {
 hr {
   display: inline-block;
   width: 200px;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 1px solid #ddd;
   border-top: none; }
 
 .profile {
@@ -272,25 +272,6 @@ hr {
   .project .projectLabel.projectLabel--alt span {
     background: #ff55a1;
     color: #fff; }
-
-.gallery {
-  clear: both;
-  -moz-column-count: 3;
-  -moz-column-gap: 20px;
-  -webkit-column-count: 3;
-  -webkit-column-gap: 20px;
-  padding-left: 0;
-  -moz-column-count: 1;
-  -moz-column-gap: 0;
-  -webkit-column-count: 1;
-  -webkit-column-gap: 0; }
-  .gallery li {
-    width: 100%;
-    display: inline-block;
-    list-style: none;
-    margin-bottom: 20px;
-    text-align: center;
-    /* Gays */ }
 
 .notification {
   border-top: 1px solid #fff;

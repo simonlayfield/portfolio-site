@@ -42,7 +42,7 @@ a {
 hr {
     display: inline-block;
     width: 200px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 1px solid #ddd;
     border-top: none;
 }
 .profile {
@@ -201,27 +201,7 @@ header {
         }
     }
 }
-.gallery {
-    clear: both;
-    -moz-column-count: 3;
-    -moz-column-gap: 20px;
-    -webkit-column-count: 3;
-    -webkit-column-gap: 20px;
-    padding-left: 0;
-        -moz-column-count: 1;
-        -moz-column-gap: 0;
-        -webkit-column-count: 1;
-        -webkit-column-gap: 0;
 
-    li {
-        width: 100%;
-        display: inline-block;
-        list-style: none;
-        margin-bottom: 20px;
-        text-align: center;
-        /* Gays */
-    }
-}
 .notification {
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
