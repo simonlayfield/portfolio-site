@@ -12,15 +12,18 @@
 					{{/if}}
 				{{/if}}
 			</li>
+
         {{/each}}
-		<p>
-			{{#if menuIsActive}}
-				{{#each activeSubMenuItems as item}}
-					{{item.label}}
-				{{/each}}
-			{{/if}}
-		</p>
+
+		{{#if mainMenuIsActive}}
+			<break></break>
+			{{#each menu[1].sub as item}}
+				<li class="nav__item nav__item--sub"><a href="/{{item.label.toLowerCase()}}">{{item.label}}</a></li>
+			{{/each}}
+		{{/if}}
+
     </nav>
+
 </header>
 <script>
   export default {
@@ -31,7 +34,7 @@
     		    "url": "index.html"
     		}, {
     		    "label": "Projects",
-  			"url": "#",
+	  			"url": "#",
     		    "sub": [{
     		        "label": "Web"
     		    }, {
@@ -53,12 +56,12 @@
     },
     methods: {
 		toggleSub(index) {
-			if (this.get('menuIsActive')) {
-				this.set({menuIsActive: false});
+			if (this.get('mainMenuIsActive')) {
+				this.set({mainMenuIsActive: false});
 			} else {
 				const menu = this.get('menu');
 				this.set({
-					menuIsActive: true,
+					mainMenuIsActive: true,
 					activeSubMenuItems: menu[index].sub
 				});
 			}

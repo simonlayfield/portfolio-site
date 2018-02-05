@@ -1,13 +1,40 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@@title | Simon Layfield | Designer</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700" rel="stylesheet">
+</head>
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+<!--
+        ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+       ◀┌──────────────────────────────────────┐▶
+       ◀│        WELCOME TO THE NETHER         │▶
+       ◀└──────────────────────────────────────┘▶
+        ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
 
 
-<div class="some-container">
-</div>
+                    STAY A WHILE...
+-->
+
+<div class="wrap">
+
+	<div id="navigation"></div>
+	<div id="showcase"></div>
+
 
 <script id='template' type='text/html'>
 
 <div class="wrap {{activeMenu ? 'active' : ''}}">
-
-    
 
     <a class="menu-icon lsf" on-click="toggleMenu">menu</a>
 
@@ -15,19 +42,7 @@
         <h1>Branding</h1>
         <p>Branding projects these days are less frequent, but still occasionaly crop up.</p>
     </div>
-    <div class="row row--bg">
-        <div class="container">
-            {{#each pages:i}}
-                {{#if title === "Branding"}}
-                    {{#each pages[i].logos}}
-                        <div class="project project--branding">
-                            <img src="{{image}}" alt="">
-                        </div>
-                    {{/each}}
-                {{/if}}
-            {{/each}}
-        </div>
-    </div>
+
 
     <div class="row row--bg row--flat">
         <div class="container">
@@ -48,5 +63,101 @@
 </div>
 
 </script>
+<script src='./assets/js/Navigation.js'></script>
+<script src='./assets/js/Showcase.js'></script>
 
+<script>
+  var app = new Navigation({
+	target: document.querySelector('#navigation'),
+	data: {
+		mainMenuIsActive: true
+	}
+  });
+  var showcase = new Showcase({
+	  target: document.querySelector('#showcase'),
+	  data: {
+		  items: true,
+		  assets: [{
+	          image: "./assets/img/branding/thumbnail-wholehearted.jpg",
+	          name: "Wholehearted Lattes"
+	      },{
+	          image: "./assets/img/branding/thumbnail-k-nit.jpg",
+	          name: "K-nit"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-get-recruits.jpg",
+	          name: "Get Recruits"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-marlow-and-finch.jpg",
+	          name: "Marlow and Finch"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-the-paper-nation.jpg",
+	          name: "The Paper Nation"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-tiyan-baker.jpg",
+	          name: "Tiyan Baker"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-the-rob-baker-band.jpg",
+	          name: "The Rob Baker Band"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-musters-joinery.jpg",
+	          name: "Musters Joinery"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-design-bytes.jpg",
+	          name: "Design Bytes"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-advanced-football-academy.jpg",
+	          name: "Advanced Football Academy"
+	      },{
+	          image: "./assets/img/branding/thumbnail-bulletproof-pig.jpg",
+	          name: "Bulletproof Pig"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-one-touch.jpg",
+	          name: "One Touch"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-zombie-friends.jpg",
+	          name: "Zombie Friends"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-barefeet-nomads.jpg",
+	          name: "Barefeet Nomads"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-yaty.jpg",
+	          name: "YATY"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-the-keepsaker.jpg",
+	          name: "The Keepsaker"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-ximula.jpg",
+	          name: "Ximula"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-enjees.jpg",
+	          name: "Enjees"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-your-property-potential.jpg",
+	          name: "Your Property Potential"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-two-minute-noodles.jpg",
+	          name: "Two Minute Noodles"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-type-reel.jpg",
+	          name: "Type Reel"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-the-clientele.jpg",
+	          name: "The Clientele"
+	      }, {
+	          image: "./assets/img/branding/thumbnail-bowerbird.jpg",
+	          name: "Bowerbird"
+	      }]
+	  }
+  });
+</script>
 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-7071247-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

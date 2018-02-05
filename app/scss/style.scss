@@ -98,7 +98,7 @@ header {
         max-width: 900px;
     }
 }
-.some-container {
+
 
 
     .wrap {
@@ -135,12 +135,12 @@ header {
         padding: .5rem 1.5rem;
         font-size: 2rem;
         text-decoration: none;
-        @include breakpointMedium {
-            display: none;
-        }
+        // @media (min-width: 720px) {
+        //      display: none;
+        // }
     }
 
-}
+
 .category {
     text-align: center;
     padding: 0 2em;
@@ -160,7 +160,6 @@ header {
 }
 
 .project {
-    margin-bottom: 2em;
     &.project--branding {
         img {
         }

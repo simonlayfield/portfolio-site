@@ -1,0 +1,32 @@
+<div class="row row--bg">
+	<div class="container grid">
+		{{#if items}}
+			{{#each assets as asset}}
+				<div class="project project--branding">
+					<img src="{{asset.image}}" alt="">
+				</div>
+			{{/each}}
+		{{else}}
+			<p>No items found</p>
+		{{/if}}
+	</div>
+</div>
+
+<style>
+	.grid {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 20px;
+	}
+</style>
+
+<script>
+	export default {
+		data() {
+			return {
+				items: false
+			}
+		}
+	}
+</script>

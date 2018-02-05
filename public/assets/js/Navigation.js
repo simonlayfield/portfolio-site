@@ -8,7 +8,7 @@ var Navigation = (function() { "use strict";
 		    "url": "index.html"
 		}, {
 		    "label": "Projects",
-  			"url": "#",
+	  			"url": "#",
 		    "sub": [{
 		        "label": "Web"
 		    }, {
@@ -31,12 +31,12 @@ var Navigation = (function() { "use strict";
 
 	var methods = {
 		toggleSub(index) {
-			if (this.get('menuIsActive')) {
-				this.set({menuIsActive: false});
+			if (this.get('mainMenuIsActive')) {
+				this.set({mainMenuIsActive: false});
 			} else {
 				const menu = this.get('menu');
 				this.set({
-					menuIsActive: true,
+					mainMenuIsActive: true,
 					activeSubMenuItems: menu[index].sub
 				});
 			}
@@ -44,7 +44,7 @@ var Navigation = (function() { "use strict";
 };
 
 	function create_main_fragment(state, component) {
-		var header, nav, text, p;
+		var header, nav, text;
 
 		var menu = state.menu;
 
@@ -54,7 +54,7 @@ var Navigation = (function() { "use strict";
 			each_blocks[i] = create_each_block(state, menu, menu[i], i, component);
 		}
 
-		var if_block = (state.menuIsActive) && create_if_block_3(state, component);
+		var if_block = (state.mainMenuIsActive) && create_if_block_3(state, component);
 
 		return {
 			c: function create() {
@@ -65,8 +65,7 @@ var Navigation = (function() { "use strict";
 					each_blocks[i].c();
 				}
 
-				text = createText("\n\t\t");
-				p = createElement("p");
+				text = createText("\n\n\t\t");
 				if (if_block) if_block.c();
 				this.h();
 			},
@@ -84,8 +83,7 @@ var Navigation = (function() { "use strict";
 				}
 
 				appendNode(text, nav);
-				appendNode(p, nav);
-				if (if_block) if_block.m(p, null);
+				if (if_block) if_block.m(nav, null);
 			},
 
 			p: function update(changed, state) {
@@ -109,13 +107,13 @@ var Navigation = (function() { "use strict";
 					each_blocks.length = menu.length;
 				}
 
-				if (state.menuIsActive) {
+				if (state.mainMenuIsActive) {
 					if (if_block) {
 						if_block.p(changed, state);
 					} else {
 						if_block = create_if_block_3(state, component);
 						if_block.c();
-						if_block.m(p, null);
+						if_block.m(nav, null);
 					}
 				} else if (if_block) {
 					if_block.u();
@@ -314,47 +312,64 @@ var Navigation = (function() { "use strict";
 		};
 	}
 
-	// (18:4) {{#each activeSubMenuItems as item}}
-	function create_each_block_1(state, activeSubMenuItems, item, item_index, component) {
-		var text_value = item.label, text;
+	// (20:3) {{#each menu[1].sub as item}}
+	function create_each_block_1(state, sub, item, item_index, component) {
+		var li, a, text_value = item.label, text, a_href_value;
 
 		return {
 			c: function create() {
+				li = createElement("li");
+				a = createElement("a");
 				text = createText(text_value);
+				this.h();
+			},
+
+			h: function hydrate() {
+				a.href = a_href_value = "/" + item.label.toLowerCase();
+				li.className = "nav__item nav__item--sub";
 			},
 
 			m: function mount(target, anchor) {
-				insertNode(text, target, anchor);
+				insertNode(li, target, anchor);
+				appendNode(a, li);
+				appendNode(text, a);
 			},
 
-			p: function update(changed, state, activeSubMenuItems, item, item_index) {
-				if ((changed.activeSubMenuItems) && text_value !== (text_value = item.label)) {
+			p: function update(changed, state, sub, item, item_index) {
+				if ((changed.menu) && text_value !== (text_value = item.label)) {
 					text.data = text_value;
+				}
+
+				if ((changed.menu) && a_href_value !== (a_href_value = "/" + item.label.toLowerCase())) {
+					a.href = a_href_value;
 				}
 			},
 
 			u: function unmount() {
-				detachNode(text);
+				detachNode(li);
 			},
 
 			d: noop
 		};
 	}
 
-	// (17:3) {{#if menuIsActive}}
+	// (18:2) {{#if mainMenuIsActive}}
 	function create_if_block_3(state, component) {
-		var each_anchor;
+		var break_1, text, each_anchor;
 
-		var activeSubMenuItems = state.activeSubMenuItems;
+		var sub = state.menu[1].sub;
 
 		var each_blocks = [];
 
-		for (var i = 0; i < activeSubMenuItems.length; i += 1) {
-			each_blocks[i] = create_each_block_1(state, activeSubMenuItems, activeSubMenuItems[i], i, component);
+		for (var i = 0; i < sub.length; i += 1) {
+			each_blocks[i] = create_each_block_1(state, sub, sub[i], i, component);
 		}
 
 		return {
 			c: function create() {
+				break_1 = createElement("break");
+				text = createText("\n\t\t\t");
+
 				for (var i = 0; i < each_blocks.length; i += 1) {
 					each_blocks[i].c();
 				}
@@ -363,6 +378,9 @@ var Navigation = (function() { "use strict";
 			},
 
 			m: function mount(target, anchor) {
+				insertNode(break_1, target, anchor);
+				insertNode(text, target, anchor);
+
 				for (var i = 0; i < each_blocks.length; i += 1) {
 					each_blocks[i].m(target, anchor);
 				}
@@ -371,14 +389,14 @@ var Navigation = (function() { "use strict";
 			},
 
 			p: function update(changed, state) {
-				var activeSubMenuItems = state.activeSubMenuItems;
+				var sub = state.menu[1].sub;
 
-				if (changed.activeSubMenuItems) {
-					for (var i = 0; i < activeSubMenuItems.length; i += 1) {
+				if (changed.menu) {
+					for (var i = 0; i < sub.length; i += 1) {
 						if (each_blocks[i]) {
-							each_blocks[i].p(changed, state, activeSubMenuItems, activeSubMenuItems[i], i);
+							each_blocks[i].p(changed, state, sub, sub[i], i);
 						} else {
-							each_blocks[i] = create_each_block_1(state, activeSubMenuItems, activeSubMenuItems[i], i, component);
+							each_blocks[i] = create_each_block_1(state, sub, sub[i], i, component);
 							each_blocks[i].c();
 							each_blocks[i].m(each_anchor.parentNode, each_anchor);
 						}
@@ -388,11 +406,14 @@ var Navigation = (function() { "use strict";
 						each_blocks[i].u();
 						each_blocks[i].d();
 					}
-					each_blocks.length = activeSubMenuItems.length;
+					each_blocks.length = sub.length;
 				}
 			},
 
 			u: function unmount() {
+				detachNode(break_1);
+				detachNode(text);
+
 				for (var i = 0; i < each_blocks.length; i += 1) {
 					each_blocks[i].u();
 				}

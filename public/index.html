@@ -29,8 +29,8 @@
 <div class="wrap">
 
 	<div id="navigation"></div>
+	<div id="menuIcon"></div>
 
-	<a class="menu-icon lsf" on-click="toggleMenu">menu</a>
 
 	<div class="container container--slim">
 
@@ -39,7 +39,7 @@
 			<p><em>Hello</em>, I'm <a href="https://www.linkedin.com/in/simon-layfield-39201729/" target="_blank">Simon Layfield</a>.</p>
 			<p>I build meaningful user experiences into lightweight, scalable web prototypes. Currently, my free time in this area goes towards my personal project, <a href="http://typereel.io" target="_blank">Typereel</a>.</p>
 			<hr>
-			<p class="small">Other interests include freelance <a href="./branding.html">branding and illustration</a>, amateur <a href="https://ello.co/simonlayfield" target="_blank">photography</a>, I co-run an online board game shop called <a href="http://www.rollersboardgames.com">Rollers</a> and play in a band called <a href="https://www.facebook.com/youthandtheyoung/" target="_blank">Youth &amp; The Young</a>.</p>
+			<p class="small">Other interests include freelance <a href="./branding.html">branding and illustration</a>, I co-run an online board game shop called <a href="http://www.rollersboardgames.com">Rollers</a> and play in a band called <a href="https://www.facebook.com/youthandtheyoung/" target="_blank">Youth &amp; The Young</a>.</p>
 		</section>
 
 	</div>
@@ -47,10 +47,19 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src='./assets/js/Navigation.js'></script>
+<script src='./assets/js/MenuIcon.js'></script>
   <script>
+	// import { Store } from 'svelte/store.js';
+    //
+	// var store = new Store({
+	//   mainMenuIsActive: true
+	// });
+
     var app = new Navigation({
       target: document.querySelector('#navigation'),
+	  // store
     });
+	// window.store = store; // useful for debugging!
   </script>
 
 <script>
