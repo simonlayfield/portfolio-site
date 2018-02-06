@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "express": "^4.16.2",
-    "ractive": "^0.9.10"
+    "ractive": "^0.9.10",
+    "svelte-extras": "^1.6.0"
   },
   "devDependencies": {
     "@google-cloud/nodejs-repo-tools": "1.4.17",

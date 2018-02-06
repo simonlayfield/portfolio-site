@@ -106,6 +106,10 @@ nav {
       nav.nav--alt.nav--inactive li a {
         opacity: 0; }
 
+.collection {
+  display: flex;
+  width: 100%; }
+
 * {
   box-sizing: border-box; }
 

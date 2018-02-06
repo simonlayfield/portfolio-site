@@ -5194,6 +5194,10 @@ supports-color@^4.0.0, supports-color@^4.2.1:
   dependencies:
     has-flag "^2.0.0"
 
+svelte-extras@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/svelte-extras/-/svelte-extras-1.6.0.tgz#ea0ce388d575e8cac97530779fec517a01ad83ef"
+
 svgo@^0.6.0:
   version "0.6.6"
   resolved "https://registry.yarnpkg.com/svgo/-/svgo-0.6.6.tgz#b340889036f20f9b447543077d0f5573ed044c08"

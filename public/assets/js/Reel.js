@@ -3,175 +3,225 @@ var Reel = (function() { "use strict";
 
 	function data() {
 	return {
-		token: "jj"
+		reelItems: [],
+		enableScroll: true,
+		increment: 9,
+		counter: 0
 	}
 };
 
 	function oncreate() {
 
+	const self = this;
+
 	$.ajax({
 		url: "https://www.googleapis.com/storage/v1/b/simon-layfield-site/o?prefix=auto/" + content,
 		method: "GET",
 		success: function(response) {
-			var list = response.items.map(function(item) {
+			let list = response.items.map(function(item) {
 				return {"image": item.name};
 			});
-			processImages(list);
-
+			self.set({reelItems: list});
+			cycleImages();
 		}
 	});
 
-	function processImages(list) {
+	window.onscroll = function(e) {
+		if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 100)) {
+			if (self.get('enableScroll')) {
+				cycleImages();
+			}
+		}
+	};
 
-		var listInspire = list.reverse();
+	function cycleImages() {
+		// Get the next 9 images (if they exist) and load them sequentially
+		self.set({enableScroll: false});
+		let reelItems = self.get('reelItems');
+		let counter = self.get('counter');
+		let increment = self.get('increment');
+		let limit;
 
-	            var columnHeights = [],
-	                imagelists = document.querySelectorAll('.imagelist'),
-	                imageIncrement = 9,
-	                n = 0,
-	                scrollEnabled = true;
+		if ((counter + 1) == reelItems.length) {
+			return;
+		}
 
-	            var shortestColumn = function(arr) {
-	                var lowest = 0;
-	                for (var i = 1; i < arr.length; i++) {
-	                    if (arr[i] < arr[lowest]) lowest = i;
-	                }
-	                return lowest;
-	            }
+		if (counter + increment > reelItems.length) {
+			limit = reelItems.length;
+		} else {
+			limit = counter + increment;
+		}
+		for (let i = counter; i < limit; i++) {
+			var nextItem = reelItems[i];
+			loadImage(nextItem);
+		}
 
-	            function insertImage(image, nextImage, lastImage) {
+		// n = n + imageIncrement;
+                //
+		// console.log('firing');
 
-	                [].forEach.call(imagelists, function(list, index) {
-	                    columnHeights[index] = list.offsetHeight;
-	                });
-
-	                var column = shortestColumn(columnHeights);
-
-	                imagelists[column].appendChild(image);
-
-	                setTimeout(function() {
-	                    image.className = 'loaded';
-	                    if (nextImage == lastImage) {
-	                        scrollEnabled = true;
-	                    }
-	                }, 500);
-
-	            }
-
-	            function loadImage(nextImage, lastImage) {
-
-	                if (nextImage.indexOf('.webm') > 0) {
-	                    var video = document.createElement('video');
-	                    video.autoplay = true;
-	                    video.loop = true;
-	                    video.controls = "controls";
-
-	                    var source = document.createElement('source');
-	                    source.src = 'https://storage.googleapis.com/simon-layfield-site/' + nextImage;
-	                    source.type = "video/webm";
-	                    video.appendChild(source);
-
-	                    video.addEventListener('loadeddata', function() {
-	                        insertImage(video);
-	                    }, false);
-
-	                } else {
-
-	                    var img = new Image();
-	                    img.src = 'https://storage.googleapis.com/simon-layfield-site/' + nextImage;
-	                    img.className = 'loaded';
-	                    img.onload = function() {
-	                        insertImage(img);
-	                    };
-
-	                }
-
-	            }
-
-	            function cycleImages() {
-
-	                scrollEnabled = false;
-
-	                if (n == listInspire.length) {
-	                    scrollEnabled = false;
-	                    return;
-	                }
-
-	                if (n + imageIncrement > listInspire.length) {
-	                    var limit = listInspire.length;
-	                } else {
-	                    var limit = n + imageIncrement;
-	                }
-
-	                var lastImage = ractive.get('imageList.' + (limit - 1) + '.image');
-
-	                for (var i = n; i < limit; i++) {
-	                    var nextImage = ractive.get('imageList.' + i + '.image');
-	                    loadImage(nextImage, lastImage);
-	                }
-
-	                n = n + imageIncrement;
-
-	            }
-
-	            // cycleImages();
-
-	            window.onscroll = function(ev) {
-	                if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 100)) {
-	                    if (scrollEnabled) {
-	                        cycleImages();
-	                    }
-	                }
-	            };
 	}
+
+	function loadImage(item) {
+
+		const image = item.image;
+
+		var img = new Image();
+		img.src = 'https://storage.googleapis.com/simon-layfield-site/' + image;
+		img.className = 'loaded';
+		img.onload = function() {
+			insertImage(img);
+		};
+
+	}
+
+	var shortestColumn = function(arr) {
+		var lowest = 0;
+		for (var i = 1; i < arr.length; i++) {
+			if (arr[i] < arr[lowest]) lowest = i;
+		}
+		return lowest;
+	}
+
+	function insertImage(image) {
+
+		let imagelists = document.querySelectorAll('.imagelist'),
+			columnHeights = [];
+
+		[].forEach.call(imagelists, function(list, index) {
+			columnHeights[index] = list.offsetHeight;
+		});
+
+		var column = shortestColumn(columnHeights);
+
+		imagelists[column].appendChild(image);
+
+		setTimeout(function() {
+			image.className = 'loaded';
+		}, 500);
+
+		console.log('success');
+
+	}
+
+
+	// function processImages(list) {
+            //
+	// 	var assets = list.reverse();
+            //
+	        //     var columnHeights = [],
+	        //         imagelists = document.querySelectorAll('.imagelist'),
+	        //         imageIncrement = 9,
+	        //         n = 0,
+	        //         scrollEnabled = true;
+            //
+	        //     var shortestColumn = function(arr) {
+	        //         var lowest = 0;
+	        //         for (var i = 1; i < arr.length; i++) {
+	        //             if (arr[i] < arr[lowest]) lowest = i;
+	        //         }
+	        //         return lowest;
+	        //     }
+            //
+	        //     function insertImage(image, nextImage, lastImage) {
+            //
+	        //         [].forEach.call(imagelists, function(list, index) {
+	        //             columnHeights[index] = list.offsetHeight;
+	        //         });
+            //
+	        //         var column = shortestColumn(columnHeights);
+            //
+	        //         imagelists[column].appendChild(image);
+            //
+	        //         setTimeout(function() {
+	        //             image.className = 'loaded';
+	        //             if (nextImage == lastImage) {
+	        //                 scrollEnabled = true;
+	        //             }
+	        //         }, 500);
+            //
+	        //     }
+            //
+	        //     function loadImage(nextImage, lastImage) {
+            //
+	        //         if (nextImage.indexOf('.webm') > 0) {
+	        //             var video = document.createElement('video');
+	        //             video.autoplay = true;
+	        //             video.loop = true;
+	        //             video.controls = "controls";
+            //
+	        //             var source = document.createElement('source');
+	        //             source.src = 'https://storage.googleapis.com/simon-layfield-site/' + nextImage;
+	        //             source.type = "video/webm";
+	        //             video.appendChild(source);
+            //
+	        //             video.addEventListener('loadeddata', function() {
+	        //                 insertImage(video);
+	        //             }, false);
+            //
+	        //         } else {
+            //
+	        //             var img = new Image();
+	        //             img.src = 'https://storage.googleapis.com/simon-layfield-site/' + nextImage;
+	        //             img.className = 'loaded';
+	        //             img.onload = function() {
+	        //                 insertImage(img);
+	        //             };
+            //
+	        //         }
+            //
+	        //     }
+            //
+
+            //
+	        //     cycleImages();
+            //
+	        //     window.onscroll = function(ev) {
+	        //         if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 100)) {
+	        //             if (scrollEnabled) {
+	        //                 cycleImages();
+	        //             }
+	        //         }
+	        //     };
+	// }
 
 
 	    };
 
+	function encapsulateStyles(node) {
+		setAttribute(node, "svelte-1410997007", "");
+	}
+
+	function add_css() {
+		var style = createElement("style");
+		style.id = 'svelte-1410997007-style';
+		style.textContent = "[svelte-1410997007].container > div,[svelte-1410997007] .container > div{width:calc(100% / 3)}[svelte-1410997007].imagelist,[svelte-1410997007] .imagelist{padding:0px}img[svelte-1410997007],[svelte-1410997007] img{max-width:100%}@media(min-width: 1024px){[svelte-1410997007].imagelist,[svelte-1410997007] .imagelist{padding-left:10px;padding-right:10px}}";
+		appendNode(style, document.head);
+	}
+
 	function create_main_fragment(state, component) {
-		var div, text, text_2, div_1, text_3, div_2;
+		var div;
 
 		return {
 			c: function create() {
 				div = createElement("div");
-				text = createText(state.token);
-				text_2 = createText("\n");
-				div_1 = createElement("div");
-				text_3 = createText("\n");
-				div_2 = createElement("div");
+				div.innerHTML = "<div style=\"padding-bottom:1px;\"><div class=\"imagelist\"></div></div>\n\t<div style=\"padding-bottom:2px;\"><div class=\"imagelist\"></div></div>\n\t<div style=\"padding-bottom:3px;\"><div class=\"imagelist\"></div></div>";
 				this.h();
 			},
 
 			h: function hydrate() {
-				setStyle(div, "padding-bottom", "0px");
-				div.className = "imagelist";
-				setStyle(div_1, "padding-bottom", "2px");
-				div_1.className = "imagelist";
-				setStyle(div_2, "padding-bottom", "5px");
-				div_2.className = "imagelist";
+				encapsulateStyles(div);
+				div.className = "container collection";
 			},
 
 			m: function mount(target, anchor) {
 				insertNode(div, target, anchor);
-				appendNode(text, div);
-				insertNode(text_2, target, anchor);
-				insertNode(div_1, target, anchor);
-				insertNode(text_3, target, anchor);
-				insertNode(div_2, target, anchor);
 			},
 
-			p: function update(changed, state) {
-				if (changed.token) {
-					text.data = state.token;
-				}
-			},
+			p: noop,
 
 			u: function unmount() {
 				detachNode(div);
-				detachNode(text_2);
-				detachNode(div_1);
-				detachNode(text_3);
-				detachNode(div_2);
 			},
 
 			d: noop
@@ -181,6 +231,8 @@ var Reel = (function() { "use strict";
 	function Reel(options) {
 		init(this, options);
 		this._state = assign(data(), options.data);
+
+		if (!document.getElementById("svelte-1410997007-style")) add_css();
 
 		var _oncreate = oncreate.bind(this);
 
@@ -215,31 +267,27 @@ var Reel = (function() { "use strict";
 
 	Reel.prototype._recompute = noop;
 
+	function setAttribute(node, attribute, value) {
+		node.setAttribute(attribute, value);
+	}
+
 	function createElement(name) {
 		return document.createElement(name);
-	}
-
-	function createText(data) {
-		return document.createTextNode(data);
-	}
-
-	function setStyle(node, key, value) {
-		node.style.setProperty(key, value);
-	}
-
-	function insertNode(node, target, anchor) {
-		target.insertBefore(node, anchor);
 	}
 
 	function appendNode(node, target) {
 		target.appendChild(node);
 	}
 
-	function detachNode(node) {
-		node.parentNode.removeChild(node);
+	function insertNode(node, target, anchor) {
+		target.insertBefore(node, anchor);
 	}
 
 	function noop() {}
+
+	function detachNode(node) {
+		node.parentNode.removeChild(node);
+	}
 
 	function init(component, options) {
 		component._observers = { pre: blankObject(), post: blankObject() };

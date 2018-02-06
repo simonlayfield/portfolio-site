@@ -1,135 +1,215 @@
-<div style="padding-bottom: 0px;" class="imagelist">
-	{{token}}
+<div class="container collection">
+	<div style="padding-bottom:1px;">
+		<div class="imagelist"></div>
+	</div>
+	<div style="padding-bottom:2px;">
+		<div class="imagelist"></div>
+	</div>
+	<div style="padding-bottom:3px;">
+		<div class="imagelist"></div>
+	</div>
 </div>
-<div style="padding-bottom: 2px;" class="imagelist">
-</div>
-<div style="padding-bottom: 5px;" class="imagelist">
-</div>
-
+<style>
+	.container > div {
+		width: calc(100% / 3);
+	}
+	.imagelist {
+		padding: 0px;
+	}
+	img {
+		max-width: 100%;
+	}
+	@media (min-width: 1024px) {
+		.imagelist {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
+</style>
 <script>
 	export default {
 		data() {
 			return {
-				reelItems: []
+				reelItems: [],
+				enableScroll: true,
+				increment: 9,
+				counter: 0
 			}
 		},
 		oncreate() {
+
+			const self = this;
 
 			$.ajax({
 				url: "https://www.googleapis.com/storage/v1/b/simon-layfield-site/o?prefix=auto/" + content,
 				method: "GET",
 				success: function(response) {
-					var list = response.items.map(function(item) {
+					let list = response.items.map(function(item) {
 						return {"image": item.name};
 					});
-					processImages(list);
-
+					self.set({reelItems: list});
+					cycleImages();
 				}
 			});
 
-			function processImages(list) {
+			window.onscroll = function(e) {
+				if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 100)) {
+					if (self.get('enableScroll')) {
+						cycleImages();
+					}
+				}
+			};
 
-				var assets = list.reverse();
+			function cycleImages() {
+				// Get the next 9 images (if they exist) and load them sequentially
+				self.set({enableScroll: false});
+				let reelItems = self.get('reelItems');
+				let counter = self.get('counter');
+				let increment = self.get('increment');
+				let limit;
 
-	            var columnHeights = [],
-	                imagelists = document.querySelectorAll('.imagelist'),
-	                imageIncrement = 9,
-	                n = 0,
-	                scrollEnabled = true;
+				if ((counter + 1) == reelItems.length) {
+					return;
+				}
 
-	            var shortestColumn = function(arr) {
-	                var lowest = 0;
-	                for (var i = 1; i < arr.length; i++) {
-	                    if (arr[i] < arr[lowest]) lowest = i;
-	                }
-	                return lowest;
-	            }
+				if (counter + increment > reelItems.length) {
+					limit = reelItems.length;
+				} else {
+					limit = counter + increment;
+				}
+				for (let i = counter; i < limit; i++) {
+					var nextItem = reelItems[i];
+					loadImage(nextItem);
+				}
 
-	            function insertImage(image, nextImage, lastImage) {
+				// n = n + imageIncrement;
+                //
+				// console.log('firing');
 
-	                [].forEach.call(imagelists, function(list, index) {
-	                    columnHeights[index] = list.offsetHeight;
-	                });
-
-	                var column = shortestColumn(columnHeights);
-
-	                imagelists[column].appendChild(image);
-
-	                setTimeout(function() {
-	                    image.className = 'loaded';
-	                    if (nextImage == lastImage) {
-	                        scrollEnabled = true;
-	                    }
-	                }, 500);
-
-	            }
-
-	            function loadImage(nextImage, lastImage) {
-
-	                if (nextImage.indexOf('.webm') > 0) {
-	                    var video = document.createElement('video');
-	                    video.autoplay = true;
-	                    video.loop = true;
-	                    video.controls = "controls";
-
-	                    var source = document.createElement('source');
-	                    source.src = 'https://storage.googleapis.com/simon-layfield-site/' + nextImage;
-	                    source.type = "video/webm";
-	                    video.appendChild(source);
-
-	                    video.addEventListener('loadeddata', function() {
-	                        insertImage(video);
-	                    }, false);
-
-	                } else {
-
-	                    var img = new Image();
-	                    img.src = 'https://storage.googleapis.com/simon-layfield-site/' + nextImage;
-	                    img.className = 'loaded';
-	                    img.onload = function() {
-	                        insertImage(img);
-	                    };
-
-	                }
-
-	            }
-
-	            function cycleImages() {
-
-	                scrollEnabled = false;
-
-	                if (n == listInspire.length) {
-	                    scrollEnabled = false;
-	                    return;
-	                }
-
-	                if (n + imageIncrement > listInspire.length) {
-	                    var limit = listInspire.length;
-	                } else {
-	                    var limit = n + imageIncrement;
-	                }
-
-	                var lastImage = ractive.get('imageList.' + (limit - 1) + '.image');
-
-	                for (var i = n; i < limit; i++) {
-	                    var nextImage = ractive.get('imageList.' + i + '.image');
-	                    loadImage(nextImage, lastImage);
-	                }
-
-	                n = n + imageIncrement;
-
-	            }
-
-	            cycleImages();
-
-	            window.onscroll = function(ev) {
-	                if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 100)) {
-	                    if (scrollEnabled) {
-	                        cycleImages();
-	                    }
-	                }
-	            };
 			}
+
+			function loadImage(item) {
+
+				const image = item.image;
+
+				var img = new Image();
+				img.src = 'https://storage.googleapis.com/simon-layfield-site/' + image;
+				img.className = 'loaded';
+				img.onload = function() {
+					insertImage(img);
+				};
+
+			}
+
+			var shortestColumn = function(arr) {
+				var lowest = 0;
+				for (var i = 1; i < arr.length; i++) {
+					if (arr[i] < arr[lowest]) lowest = i;
+				}
+				return lowest;
+			}
+
+			function insertImage(image) {
+
+				let imagelists = document.querySelectorAll('.imagelist'),
+					columnHeights = [];
+
+				[].forEach.call(imagelists, function(list, index) {
+					columnHeights[index] = list.offsetHeight;
+				});
+
+				var column = shortestColumn(columnHeights);
+
+				imagelists[column].appendChild(image);
+
+				setTimeout(function() {
+					image.className = 'loaded';
+				}, 500);
+
+				console.log('success');
+
+			}
+
+
+			// function processImages(list) {
+            //
+			// 	var assets = list.reverse();
+            //
+	        //     var columnHeights = [],
+	        //         imagelists = document.querySelectorAll('.imagelist'),
+	        //         imageIncrement = 9,
+	        //         n = 0,
+	        //         scrollEnabled = true;
+            //
+	        //     var shortestColumn = function(arr) {
+	        //         var lowest = 0;
+	        //         for (var i = 1; i < arr.length; i++) {
+	        //             if (arr[i] < arr[lowest]) lowest = i;
+	        //         }
+	        //         return lowest;
+	        //     }
+            //
+	        //     function insertImage(image, nextImage, lastImage) {
+            //
+	        //         [].forEach.call(imagelists, function(list, index) {
+	        //             columnHeights[index] = list.offsetHeight;
+	        //         });
+            //
+	        //         var column = shortestColumn(columnHeights);
+            //
+	        //         imagelists[column].appendChild(image);
+            //
+	        //         setTimeout(function() {
+	        //             image.className = 'loaded';
+	        //             if (nextImage == lastImage) {
+	        //                 scrollEnabled = true;
+	        //             }
+	        //         }, 500);
+            //
+	        //     }
+            //
+	        //     function loadImage(nextImage, lastImage) {
+            //
+	        //         if (nextImage.indexOf('.webm') > 0) {
+	        //             var video = document.createElement('video');
+	        //             video.autoplay = true;
+	        //             video.loop = true;
+	        //             video.controls = "controls";
+            //
+	        //             var source = document.createElement('source');
+	        //             source.src = 'https://storage.googleapis.com/simon-layfield-site/' + nextImage;
+	        //             source.type = "video/webm";
+	        //             video.appendChild(source);
+            //
+	        //             video.addEventListener('loadeddata', function() {
+	        //                 insertImage(video);
+	        //             }, false);
+            //
+	        //         } else {
+            //
+	        //             var img = new Image();
+	        //             img.src = 'https://storage.googleapis.com/simon-layfield-site/' + nextImage;
+	        //             img.className = 'loaded';
+	        //             img.onload = function() {
+	        //                 insertImage(img);
+	        //             };
+            //
+	        //         }
+            //
+	        //     }
+            //
+
+            //
+	        //     cycleImages();
+            //
+	        //     window.onscroll = function(ev) {
+	        //         if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 100)) {
+	        //             if (scrollEnabled) {
+	        //                 cycleImages();
+	        //             }
+	        //         }
+	        //     };
+			// }
 
 
 	    }
