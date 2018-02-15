@@ -110,13 +110,13 @@ var Navigation = (function() { "use strict";
 };
 
 	function encapsulateStyles(node) {
-		setAttribute(node, "svelte-70344319", "");
+		setAttribute(node, "svelte-3459222329", "");
 	}
 
 	function add_css() {
 		var style = createElement("style");
-		style.id = 'svelte-70344319-style';
-		style.textContent = "[svelte-70344319].nav__item--sub .active,[svelte-70344319] .nav__item--sub .active{text-decoration:underline}[svelte-70344319].nav__item,[svelte-70344319] .nav__item{border:2px solid #fff}@media(min-width: 30em){[svelte-70344319].menu-icon,[svelte-70344319] .menu-icon{display:none}}";
+		style.id = 'svelte-3459222329-style';
+		style.textContent = "[svelte-3459222329].nav__item--sub .active,[svelte-3459222329] .nav__item--sub .active{text-decoration:underline}[svelte-3459222329].nav__item,[svelte-3459222329] .nav__item{border:2px solid #fff}@media(min-width: 30em){[svelte-3459222329].menu-icon,[svelte-3459222329] .menu-icon{display:none}}[svelte-3459222329].menu-icon svg,[svelte-3459222329] .menu-icon svg{width:25px;fill:#007aa2}";
 		appendNode(style, document.head);
 	}
 
@@ -150,7 +150,7 @@ var Navigation = (function() { "use strict";
 				if (if_block) if_block.c();
 				text_3 = createText("\n\n");
 				div = createElement("div");
-				div.textContent = "menu";
+				div.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\"><path d=\"M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z\"></path></svg>";
 				this.h();
 			},
 
@@ -158,7 +158,7 @@ var Navigation = (function() { "use strict";
 				encapsulateStyles(header);
 				nav.className = "nav-bar";
 				encapsulateStyles(div);
-				div.className = "menu-icon lsf";
+				div.className = "menu-icon";
 				addListener(div, "click", click_handler_1);
 			},
 
@@ -541,7 +541,7 @@ var Navigation = (function() { "use strict";
 		this._state = assign(data(), options.data);
 		this._recompute({ items: 1 }, this._state);
 
-		if (!document.getElementById("svelte-70344319-style")) add_css();
+		if (!document.getElementById("svelte-3459222329-style")) add_css();
 
 		var _oncreate = oncreate.bind(this);
 
