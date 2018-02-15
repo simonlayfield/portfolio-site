@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Sendle quote</title>
+</head>
+
+<body>
+	<!--
+
+		https://api.sendle.com/api/quote?pickup_suburb=Camberwell%20North&pickup_postcode=3124&delivery_suburb=Barangaroo&delivery_postcode=2000&kilogram_weight=2.0&cubic_metre_volume=0.01
+
+		curl 'https://api.sendle.com/api/quote?pickup_suburb=Camberwell%20North&pickup_postcode=3124&delivery_suburb=Barangaroo&delivery_postcode=2000&kilogram_weight=2.0&cubic_metre_volume=0.01'
+		-u 'sendleID:APIKey'
+		-H 'Content-Type: application/json'
+
+-->
+
+	<form class="form" id="quote_form" method="get">
+
+		<input name="pickup_suburb" value="Penshurst" type="hidden">
+		<input name="pickup_postcode" value="2222" type="hidden">
+		<input name="kilogram_weight" value="0.1" type="hidden">
+
+		<fieldset>
+			<label for="delivery_suburb">Suburb</label>
+			<input type="text" name="delivery_suburb" value="">
+		</fieldset>
+
+		<fieldset>
+			<label for="delivery_postcode">Postcode</label>
+			<input type="text" name="delivery_postcode" value="">
+		</fieldset>
+
+		<button type="button" name="button" onclick="processSubmission()">Get quote</button>
+	</form>
+
+	<script>
+		var form = document.getElementById('quote_form');
+
+		function processSubmission() {
+
+			var encodedURL = 'https://sandbox.sendle.com/api/quote?';
+			encodedURL += new URLSearchParams(new FormData(form)).toString();
+
+			var request = new XMLHttpRequest(),
+				method = "GET",
+			    url = encodedURL;
+
+			request.open(method, url, true, "simon_rollersboardga", "GZ9Kqqpvm5BfxnCJzgvsg9Bn");
+
+			// request.setRequestHeader("Content-Type", "application/json");
+			// request.setRequestHeader("Accept", "application/json");
+			request.withCredentials = true;
+
+			request.onreadystatechange = function() {
+				if (request.status === 200) {
+					console.log(request.responseText);
+				} else {
+					console.log(request.status);
+					console.log(request.responseText);
+				}
+			};
+			request.send();
+		};
+	</script>
+</body>
+
+</html>

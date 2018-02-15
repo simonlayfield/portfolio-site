@@ -8,13 +8,13 @@ var Showcase = (function() { "use strict";
 };
 
 	function encapsulateStyles(node) {
-		setAttribute(node, "svelte-1716179328", "");
+		setAttribute(node, "svelte-1515343648", "");
 	}
 
 	function add_css() {
 		var style = createElement("style");
-		style.id = 'svelte-1716179328-style';
-		style.textContent = "[svelte-1716179328].simple,[svelte-1716179328] .simple,[svelte-1716179328].detailed,[svelte-1716179328] .detailed{width:100%;display:grid;grid-template-columns:repeat(4, 1fr);grid-gap:20px;text-align:center}[svelte-1716179328].mosaic,[svelte-1716179328] .mosaic{-moz-column-count:3;-moz-column-gap:20px;-webkit-column-count:3;-webkit-column-gap:0;column-count:3;column-gap:20px;text-align:center}[svelte-1716179328].mosaic img,[svelte-1716179328] .mosaic img{margin-bottom:20px}[svelte-1716179328].project__details,[svelte-1716179328] .project__details{border:1px solid #ccc}";
+		style.id = 'svelte-1515343648-style';
+		style.textContent = "[svelte-1515343648].simple,[svelte-1515343648] .simple,[svelte-1515343648].detailed,[svelte-1515343648] .detailed{width:100%;display:grid;grid-template-columns:1fr;grid-gap:20px;text-align:center}[svelte-1515343648].mosaic,[svelte-1515343648] .mosaic{-moz-column-count:3;-moz-column-gap:20px;-webkit-column-count:3;-webkit-column-gap:0;column-count:3;column-gap:20px;text-align:center}[svelte-1515343648].mosaic img,[svelte-1515343648] .mosaic img{margin-bottom:20px}[svelte-1515343648].project__details,[svelte-1515343648] .project__details{border:1px solid #ccc}@media(min-width: 500px){[svelte-1515343648].simple,[svelte-1515343648] .simple,[svelte-1515343648].detailed,[svelte-1515343648] .detailed{grid-template-columns:repeat(2, 1fr)}}@media(min-width: 1200px){[svelte-1515343648].simple,[svelte-1515343648] .simple,[svelte-1515343648].detailed,[svelte-1515343648] .detailed{grid-template-columns:repeat(4, 1fr)}}";
 		appendNode(style, document.head);
 	}
 
@@ -504,7 +504,7 @@ var Showcase = (function() { "use strict";
 		init(this, options);
 		this._state = assign(data(), options.data);
 
-		if (!document.getElementById("svelte-1716179328-style")) add_css();
+		if (!document.getElementById("svelte-1515343648-style")) add_css();
 
 		this._fragment = create_main_fragment(this._state, this);
 

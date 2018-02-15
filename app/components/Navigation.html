@@ -1,7 +1,7 @@
 <header>
     <nav class="nav-bar">
         {{#each menu as menuItem}}
-            <li class="navitem">
+            <li class="nav__item">
 				{{#if menuItem.icon}}
 					<a href="{{menuItem.url ? menuItem.url : ''}}" title="{{menuItem.icon}}" target="_blank" class="link lsf-icon">{{menuItem.label}}</a>
 				{{else}}
@@ -15,7 +15,7 @@
 
         {{/each}}
 
-		{{#if mainMenuIsActive}}
+		{{#if activeSubMenuItems.length}}
 			<break></break>
 			{{#each menu[1].sub as item}}
 				<li class="nav__item nav__item--sub"><a href="/{{item.label.toLowerCase()}}" class="{{currentPage == item.label ? 'active' : ''}}">{{item.label}}</a></li>
@@ -26,9 +26,19 @@
 
 </header>
 
+<div class="menu-icon lsf" on:click="toggleMobileMenuState()">menu</div>
+
 <style>
 	.nav__item--sub .active {
 		text-decoration: underline;
+	}
+	.nav__item {
+		border: 2px solid #fff;
+	}
+	@media (min-width: 30em) {
+		.menu-icon {
+			display: none;
+		}
 	}
 </style>
 
@@ -37,6 +47,8 @@
     data() {
       return {
 		  currentPage: null,
+		  activeSubMenuItems: [],
+		  mobileMenuIsActive: false,
   		  menu: [{
     		    "label": "Home",
     		    "url": "index.html"
@@ -65,7 +77,10 @@
     methods: {
 		toggleSub(index) {
 			if (this.get('mainMenuIsActive')) {
-				this.set({mainMenuIsActive: false});
+				this.set({
+					mainMenuIsActive: false,
+					activeSubMenuItems: []
+				});
 			} else {
 				const menu = this.get('menu');
 				this.set({
@@ -73,7 +88,69 @@
 					activeSubMenuItems: menu[index].sub
 				});
 			}
+		},
+		toggleMobileMenuState(newState) {
+			var self = this;
+			if (newState == 'off') {
+				self.set({mobileMenuIsActive: false});
+				self.switchMobileMenuOff();
+			} else if (newState == 'on') {
+				self.set({mobileMenuIsActive: true});
+				self.switchMobileMenuOn();
+			} else {
+				if (self.get('mobileMenuIsActive')) {
+					self.switchMobileMenuOff();
+				} else {
+					self.switchMobileMenuOn();
+				}
+			}
+		},
+		switchMobileMenuOn() {
+			this.set({mobileMenuIsActive: true});
+			document.querySelector('.wrap').style.top = '0';
+		},
+		switchMobileMenuOff() {
+			this.set({mobileMenuIsActive: false});
+			let menu = this.get('menu'),
+				subMenu = this.get('activeSubMenuItems'),
+				mainMenuLength = menu.length,
+				subMenuLength = subMenu ? this.get('activeSubMenuItems').length : 0,
+				totalMenuLength = mainMenuLength + subMenuLength;
+			document.querySelector('.wrap').style.top = '-' + menuHeight(totalMenuLength) + 'px';
+		},
+		resetPage() {
+			document.querySelector('.wrap').style.top = '0';
 		}
-    }
+    },
+	computed: {
+		menuHeight(items) {
+			let rowDivisions = items % 2 == 0 ? items / 2 : (items + 1) / 2;
+			return rowDivisions * 52;
+		}
+	},
+	oncreate: function() {
+		let self = this;
+
+		let mql = window.matchMedia('(max-width: 30em)');
+
+		if (mql.matches) {
+			self.set({mainMenuIsActive: false})
+			self.switchMobileMenuOff();
+		} else {
+			self.resetPage();
+		}
+
+		function handleMediaQuery(e) {
+			if (e.matches) {
+				self.switchMobileMenuOff();
+			} else {
+				self.resetPage();
+			}
+		}
+		mql.addListener(handleMediaQuery);
+
+	}
+
   };
+
 </script>

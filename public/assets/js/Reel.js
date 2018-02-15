@@ -56,9 +56,9 @@ var Reel = (function() { "use strict";
 			loadImage(nextItem);
 		}
 
-		// n = n + imageIncrement;
-                //
-		// console.log('firing');
+		self.set({counter: self.get('counter') + increment});
+
+		self.set({enableScroll: true});
 
 	}
 
@@ -99,8 +99,6 @@ var Reel = (function() { "use strict";
 		setTimeout(function() {
 			image.className = 'loaded';
 		}, 500);
-
-		console.log('success');
 
 	}
 
@@ -189,13 +187,13 @@ var Reel = (function() { "use strict";
 	    };
 
 	function encapsulateStyles(node) {
-		setAttribute(node, "svelte-1410997007", "");
+		setAttribute(node, "svelte-2463006829", "");
 	}
 
 	function add_css() {
 		var style = createElement("style");
-		style.id = 'svelte-1410997007-style';
-		style.textContent = "[svelte-1410997007].container > div,[svelte-1410997007] .container > div{width:calc(100% / 3)}[svelte-1410997007].imagelist,[svelte-1410997007] .imagelist{padding:0px}img[svelte-1410997007],[svelte-1410997007] img{max-width:100%}@media(min-width: 1024px){[svelte-1410997007].imagelist,[svelte-1410997007] .imagelist{padding-left:10px;padding-right:10px}}";
+		style.id = 'svelte-2463006829-style';
+		style.textContent = "[svelte-2463006829].container > div,[svelte-2463006829] .container > div{width:calc(100% / 3)}[svelte-2463006829].imagelist,[svelte-2463006829] .imagelist{padding:0px}img[svelte-2463006829],[svelte-2463006829] img{max-width:100%}@media(min-width: 1024px){[svelte-2463006829].imagelist,[svelte-2463006829] .imagelist{padding-left:10px;padding-right:10px}}";
 		appendNode(style, document.head);
 	}
 
@@ -232,7 +230,7 @@ var Reel = (function() { "use strict";
 		init(this, options);
 		this._state = assign(data(), options.data);
 
-		if (!document.getElementById("svelte-1410997007-style")) add_css();
+		if (!document.getElementById("svelte-2463006829-style")) add_css();
 
 		var _oncreate = oncreate.bind(this);
 

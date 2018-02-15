@@ -82,9 +82,9 @@
 					loadImage(nextItem);
 				}
 
-				// n = n + imageIncrement;
-                //
-				// console.log('firing');
+				self.set({counter: self.get('counter') + increment});
+
+				self.set({enableScroll: true});
 
 			}
 
@@ -125,8 +125,6 @@
 				setTimeout(function() {
 					image.className = 'loaded';
 				}, 500);
-
-				console.log('success');
 
 			}
 
